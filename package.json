@@ -1,0 +1,22 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "hua1995116 <qiufneghyf@gmail.com> (https://github.com/hua1995116)",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.4.0",
+    "vuepress": "^1.4.0",
+    "vuepress-plugin-feed": "^0.1.8"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dayjs": "^1.8.23"
+  }
+}
