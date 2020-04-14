@@ -544,7 +544,7 @@ router.post("/api/login", async ctx => {
 
 ### 4.JSONP
 
-`JSONP` 主要就是利用了 `script` 标签没有跨域限制的这个漏洞来完成的。
+`JSONP` 主要就是利用了 `script` 标签没有跨域限制的这个特性来完成的。
 
 **使用限制**
 
@@ -661,7 +661,7 @@ JQuery Ajax 示例
 
 [WebSocket](http://dev.w3.org/html5/websockets/) 规范定义了一种 API，可在网络浏览器和服务器之间建立“套接字”连接。简单地说：客户端和服务器之间存在持久的连接，而且双方都可以随时开始发送数据。详细教程可以看 https://www.html5rocks.com/zh/tutorials/websockets/basics/
 
-这种方式本质没有使用了 HTTP, 因此也没有跨域的限制，没有什么过多的解释直接上代码吧。
+这种方式本质没有使用了 HTTP 的响应头, 因此也没有跨域的限制，没有什么过多的解释直接上代码吧。
 
 前端部分
 
