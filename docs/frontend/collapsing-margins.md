@@ -708,6 +708,16 @@ function computed(AllList) {
 
 稳住，我们能赢！嘻嘻嘻，最后，如果你对题目的理解一时间比较迷茫，欢迎加群提问，本文也是基于群友的问题，展开了一系列的讲解。
 
+## 参考链接
+
+https://stackoverflow.com/questions/21685648/what-exactly-is-clearance-in-css
+
+https://www.w3.org/TR/css-display-3/#in-flow
+
+https://stackoverflow.com/questions/25350805/margin-collapse-and-clearance
+
+[https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/%E5%9C%A8Flow%E4%B8%AD%E5%92%8CFlow%E4%B9%8B%E5%A4%96](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flow_Layout/在Flow中和Flow之外)
+
 ## 关注
 
 欢迎关注公众号 **「秋风的笔记」**，主要记录日常中觉得有意思的工具以及分享开发实践，保持深度和专注度。
