@@ -6,6 +6,7 @@ const react = require('../react/meta.json')
 const vue = require('../vue/meta.json')
 const debug = require('../debug/meta.json')
 const op = require('../op/meta.json')
+const webpack = require('../webpack/meta.json')
 
 function getHeader (posts) {
   return posts.map(x => {
@@ -22,4 +23,5 @@ module.exports = {
   react: getHeader(react),
   debug: getHeader(debug),
   op: getHeader(op),
+  webpack: getHeader(webpack),
 }
