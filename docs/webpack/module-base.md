@@ -6,7 +6,7 @@
 
 ![webpack-2](https://s3.qiufengh.com/blog/webpack-2.svg)
 
-本文讲得是  `打包 - CommonJS`  模块，主要分为两个部分
+本文讲的是  `打包 - CommonJS`  模块，主要分为两个部分
 
 - webpack 的作用
 - webpack 的模块化机制与实现
