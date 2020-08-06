@@ -1,5 +1,15 @@
 [
     {
+        "title": "ES2017 异步函数最佳实践（`async` /`await`）",
+        "date": "2020-08-06 22:33:54",
+        "path": "best-practices-aysnc"
+    },
+    {
+        "title": "ES6 Promise 的最佳实践",
+        "date": "2020-07-31 22:33:54",
+        "path": "best-practices-es6-promise"
+    },
+    {
         "title": "[重拾CSS]一道面试题来看伪元素、包含块和高度坍塌",
         "date": "2020-05-19 22:33:54",
         "path": "collapsing-margins"

@@ -3,6 +3,10 @@
 
 ## JS基础
 
+[ES2017 异步函数最佳实践（`async` /`await`）](./best-practices-aysnc.md)
+
+[ES6 Promise 的最佳实践](./best-practices-es6-promise.md)
+
 [[重拾CSS]一道面试题来看伪元素、包含块和高度坍塌](./collapsing-margins.md)
 
 [CodePen vue SFC 、flutter 在线玩耍来袭](./codepen-vue-flutter.md)

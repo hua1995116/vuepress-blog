@@ -1,4 +1,4 @@
-# webpack 拍了拍你，给了你一份图解指南（模块化部分）
+# 图解webpack(一) —— 模块化CommonJS
 
 在前面一篇文章中 [《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6](../fo/../frontend/module.md)，我们可以学到了各种模块化的机制。那么接下里我们就来分析一下 webpack 的模块化机制。（主要讲 JS 部分）
 

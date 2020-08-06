@@ -22,7 +22,7 @@
         }}</router-link>
       </div>
       <div class="archive-post">
-        <router-link class="nav-link" to="/post">更多文章...</router-link>
+        <router-link class="nav-link" to="/frontend">更多文章...</router-link>
       </div>
       <!-- <h3>热门文章</h3>
       <hr>
@@ -108,6 +108,16 @@ export default {
     recentPosts() {
       console.log(this.$site.pages);
       return [
+        {
+          title: "ES2017 异步函数最佳实践（`async` /`await`）",
+          date: "2020-08-06 22:33:54",
+          path: "frontend/best-practices-aysnc.html",
+        },
+        {
+          title: "ES6 Promise 的最佳实践",
+          date: "2020-07-31 22:33:54",
+          path: "frontend/best-practices-es6-promise.html",
+        },
         {
           title: "[重拾CSS]一道面试题来看伪元素、包含块和高度坍塌",
           date: "2020-05-19 22:33:54",
