@@ -1,6 +1,10 @@
 # ES6 Promise 的最佳实践
 
 > 译文来自 https://dev.to/somedood/best-practices-for-es6-promises-36da
+> 
+> 原作者 Basti Ortiz (Some Dood)
+> 
+> 译者: 蓝色的秋风(github/hua1995116)
 
 ES6 promise 是非常棒的一个功能， 它是 JavaScript 异步编程中不可或缺的部分，并且取代了以 `回调地狱`而闻名的基于回调的模式。
 

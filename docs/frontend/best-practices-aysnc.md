@@ -1,6 +1,10 @@
 # ES2017 异步函数最佳实践（`async` /`await`）
 
 > 译文来自 https://dev.to/somedood/best-practices-for-es2017-asynchronous-functions-async-await-39ji
+> 
+> 原作者 Basti Ortiz (Some Dood)
+> 
+> 译者: 蓝色的秋风(github/hua1995116)
 
 简单来说，`async`函数是 promise 的 "语法糖"。它们允许我们使用更熟悉的语法来模拟同步执行，从而代替 promise 链式写法。
 
