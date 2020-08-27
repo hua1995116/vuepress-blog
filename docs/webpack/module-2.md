@@ -1,8 +1,6 @@
 # 图解webpack(二) —— ES Modules 和 Code Splitting
 
 先讲原理再将实践
-
-
 会异步请求一个额外的 js 
 
 分析 code splitting 后的 chunk 代码
