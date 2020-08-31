@@ -109,6 +109,11 @@ export default {
       console.log(this.$site.pages);
       return [
         {
+          "title": "一文带你层层解锁「文件下载」的奥秘",
+          "date": "2020-08-31 22:33:54",
+          "path": "frontend/file-download"
+        },
+        {
           title: "ES2017 异步函数最佳实践（`async` /`await`）",
           date: "2020-08-06 22:33:54",
           path: "frontend/best-practices-aysnc.html",

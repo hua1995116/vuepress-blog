@@ -1,4 +1,4 @@
-# 我惊了，文件下载原来有这么多花样
+# 一文带你层层解锁「文件下载」的奥秘
 
 大家好我是秋风，今天带来的主题是关于`文件下载`，在我之前曾经发过一篇文件上传的文章（[一文了解文件上传全过程（1.8w字深度解析，进阶必备](https://juejin.im/post/6844904106658643982) 200+点赞），反响还不错，时隔多日，由于最近有研究一些媒体相关的工作，因此打算对下载做一个整理，因此他的兄弟篇诞生了，带你领略文件下载的奥秘。本文会花费你较长的时间阅读，建议先收藏/点赞，然后查看你感兴趣的部分，平时也可以充当当做字典的效果来查询。
 
@@ -33,7 +33,7 @@
 
 ![image-20200817232216749](https://s3.qiufengh.com/blog/image-20200817232216749.png)
 
-为了避免很多代码的重复性，因为我抽离出了几个公共函数。(名字都比较可读，之后若是遇到不明白则可以在这里寻找)
+为了避免很多代码的重复性，因为我抽离出了几个公共函数。(该部分可跳过，名字都比较可读，之后若是遇到不明白则可以在这里寻找)
 
 ```js
 export function downloadDirect(url) {
@@ -50,6 +50,13 @@ export function downloadByContent(content, filename, type) {
     aTag.href = blobUrl;
     aTag.click();
     URL.revokeObjectURL(blob);
+}
+export function downloadByDataURL(content, filename, type) {
+    const aTag = document.createElement('a');
+    aTag.download = filename;
+    const dataUrl = `data:${type};base64,${window.btoa(unescape(encodeURIComponent(content)))}`;
+    aTag.href = dataUrl;
+    aTag.click();
 }
 export function downloadByBlob(blob, filename) {
     const aTag = document.createElement('a');
@@ -260,9 +267,17 @@ oBtnDownload.onclick = function(){
 
 上面介绍借助后端来完成文件下载的相关方法，接下来我们来介绍介绍纯前端来完成文件下载的一些方法。
 
-核心方法
+方法一:  [`blob:` URL](https://developer.mozilla.org/zh-CN/docs/Web/API/URL.createObjectURL) 
 
-### ![image-20200830174802141](https://s3.qiufengh.com/blog/image-20200830174802141.png)json/text
+![image-20200831230800538](https://s3.qiufengh.com/blog/image-20200831230800538.png)
+
+方法二: [`data:` URL](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
+
+![image-20200831230810963](https://s3.qiufengh.com/blog/image-20200831230810963.png)
+
+由于 data:URL 会有长度的限制，因此下面的所有例子都会采用 blob 的方式来进行演示。
+
+### json/text
 
 下载text和json非常的简单，可以直接构造一个 Blob。
 
@@ -286,28 +301,24 @@ Blob(blobParts[, options])
 
 ```js
 //js
-function downloadFun(obj, type, filename) {
-        const blob = new Blob([obj], {type});
-        const blobUrl = URL.createObjectURL(blob);
-        const aTag = document.createElement('a');
-        aTag.download = filename;
-        aTag.href = blobUrl;
-        aTag.click();
-        URL.revokeObjectURL(blob);
-}
-textBtn.onclick = () => { // 下载text
+import {downloadByContent, downloadByDataURL} from '../js/utils.js';
+textBtn.onclick = () => {
         const value = text.value;
-        downloadFun(value, 'text/plain', 'hello.txt');
+        downloadByContent(value, 'hello.txt', 'text/plain');
+  		// downloadByDataURL(value, 'hello.txt', 'text/plain');
 }
-jsonBtn.onclick = () => { // 下载json
+jsonBtn.onclick = () => {
         const value = json.value;
-        downloadFun(value, 'application/json', 'hello.json');
+        downloadByContent(value, 'hello.json', 'application/json');
+     // downloadByDataURL(value, 'hello.json', 'application/json');
 }
 ```
 
 效果图
 
 ![2020-08-30-17.53.32](https://s3.qiufengh.com/blog/2020-08-30-17.53.32.gif)
+
+注释代码为 data:URL 的展示部分，由于是第一个例子，因此我讲展示代码，后面都省略了，但是你也可以通过调用 `downloadByDataURL` 方法，找不到该方法的定义请滑到文章开头哦~
 
 ### excel
 
