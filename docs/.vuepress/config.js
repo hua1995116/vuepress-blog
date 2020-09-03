@@ -82,9 +82,6 @@ module.exports = {
     lastUpdated: 'Last Updated'
   },
   plugins: [
-    [ 'feed', {
-        
-    }],
     [ 
       '@vuepress/google-analytics',
       {
@@ -110,40 +107,42 @@ module.exports = {
             }
           ]
         },
-        // extendPageData ($page) {
-        //   // extendMetaByPath($page, 'frontend-enginerring')
+        extendPageData($page) {
+          extendMetaByPath($page, 'debug');
+          extendMetaByPath($page, 'react');
+          extendMetaByPath($page, 'webpack');
         //   // extendMetaByPath($page, 'node')
-        //   if ($page.path.includes('/post')) {
-        //     const fm = getFrontMatter($page.path)
-        //     if (fm) {
-        //       $page.frontmatter = {
-        //         ...fm,
-        //         ...$page.frontmatter
-        //       }
-        //     }
-        //   }
-        //   if ($page.frontmatter.keywords) {
-        //     const meta = $page.frontmatter.meta
-        //     $page.frontmatter.meta = meta ? [
-        //       ...meta,
-        //       {
-        //         name: 'keywords',
-        //         content: $page.frontmatter.keywords
-        //       }
-        //     ] : [
-        //       {
-        //         name: 'keywords',
-        //         content: $page.frontmatter.keywords
-        //       }
-        //     ]
-        //   }
-        //   if (/^\/(code)\/.+?$/.test($page.path)) {
-        //     $page.frontmatter.sidebar = 'auto'
-        //   }
-        //   if (/^\/op\/.+?$/.test($page.path)) {
-        //     $page.frontmatter.metaTitle = `${$page.title} | 个人 | 秋风的笔记`
-        //   }
-        // }
+          if ($page.path.includes('/post')) {
+            const fm = getFrontMatter($page.path)
+            if (fm) {
+              $page.frontmatter = {
+                ...fm,
+                ...$page.frontmatter
+              }
+            }
+          }
+          if ($page.frontmatter.keywords) {
+            const meta = $page.frontmatter.meta
+            $page.frontmatter.meta = meta ? [
+              ...meta,
+              {
+                name: 'keywords',
+                content: $page.frontmatter.keywords
+              }
+            ] : [
+              {
+                name: 'keywords',
+                content: $page.frontmatter.keywords
+              }
+            ]
+          }
+          // if (/^\/(code)\/.+?$/.test($page.path)) {
+          //   $page.frontmatter.sidebar = 'auto'
+          // }
+          // if (/^\/op\/.+?$/.test($page.path)) {
+          //   $page.frontmatter.metaTitle = `${$page.title} | 个人 | 秋风的笔记`
+          // }
+        }
       }
     }
   ]

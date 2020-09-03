@@ -1,15 +1,5 @@
 [
     {
-        "title": "React Hooks中这样写HTTP请求可以避免内存泄漏",
-        "date": "2020-08-12 22:33:54",
-        "path": "cancel-react-hooks-request"
-    },
-    {
-        "title": "ES2017 异步函数最佳实践（`async` /`await`）",
-        "date": "2020-08-06 22:33:54",
-        "path": "best-practices-aysnc"
-    },
-    {
         "title": "ES6 Promise 的最佳实践",
         "date": "2020-07-31 22:33:54",
         "path": "best-practices-es6-promise"
@@ -173,11 +163,6 @@
         "title": " 《秋风日常第二期》一个快速找出待SEO图片的技巧",
         "date": "2020-03-30 11:41:14",
         "path": "seo-img"
-    },
-    {
-        "title": " 《模块化系列》snowpack，提高10倍打包速度。",
-        "date": "2020-03-30 11:41:14",
-        "path": "snowpack"
     },
     {
         "title": " 在 vscode 中写 Markdown 如何装X",

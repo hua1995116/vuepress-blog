@@ -1,1 +1,23 @@
-[{"title":" 急速 debug 实战一（浏览器-基础篇）","date":"2020-03-29 23:51:17","path":"debug1"},{"title":" 急速 debug 实战二（浏览器 - 调试线上篇）","date":"2020-03-29 23:51:17","path":"debug2"},{"title":" 急速 debug 实战三（Node -\b \bwebpack插件,babel插件,vue源码篇）","date":"2020-03-29 23:51:17","path":"debug3"}]
+[
+    {
+        "title": " 急速 debug 实战一（浏览器-基础篇）",
+        "date": "2020-03-29 23:51:17",
+        "path": "debug1",
+        "description": "断点调试JS,单步调试代码,管理代码行断点,DOM 更改断点的类型,函数断点。",
+        "keywords": "debugger javascript"
+    },
+    {
+        "title": " 急速 debug 实战二（浏览器 - 调试线上篇）",
+        "date": "2020-03-29 23:51:17",
+        "path": "debug2",
+        "description": "Overrides调试，charles调试线上代码，sourceMap代理到本地。",
+        "keywords": "debugger javascript charles"
+    },
+    {
+        "title": " 急速 debug 实战三（Node -\b \bwebpack插件,babel插件,vue源码篇）",
+        "date": "2020-03-29 23:51:17",
+        "path": "debug3",
+        "description": "chrome调试node，node调试，babel 插件调试，源码调试（vue为例）",
+        "keywords": "node debugger babel vue"
+    }
+]
