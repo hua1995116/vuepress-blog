@@ -7,9 +7,9 @@
         "keywords": "React Fetch Reack-Hooks AbortController"
     },
     {
-        "title": "ES2017 异步函数最佳实践（`async` /`await`）",
+        "title": "React 条件渲染最佳实践(7 种方法)",
         "date": "2020-08-06 22:33:54",
-        "path": "best-practices-aysnc",
+        "path": "7-react-Conditional",
         "description": "在 React 中，条件渲染可以通过多种方式，不同的使用方式场景取决于不同的上下文。 在本文中，我们将讨论所有可用于为 React 中的条件渲染编写更好的代码的方法。",
         "keywords": "React Conditional HOC switch case"
     },
