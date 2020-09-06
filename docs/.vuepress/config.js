@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
-const { algorithm, open, react, vue, node, frontend, debug, op, webpack } = require('./algorithm.header')
+const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview } = require('./algorithm.header')
 
 function getFrontMatter (path, pp = './post') {
   const posts = require(pp)
@@ -8,8 +8,6 @@ function getFrontMatter (path, pp = './post') {
   const p = path.split(/\.|\//)[2]
   return _.get(postsByPath, p)
 }
-
-console.log(webpack);
 
 function extendMetaByPath (page, path) {
   if (page.path.includes(`/${path}`)) {
@@ -51,7 +49,7 @@ module.exports = {
           {text: 'webpack系列', link: '/webpack/' },
       ]},
       { text: 'Node 实践', link: '/node/' },
-      // { text: '数据库', link: '/database/' },
+      { text: '面试', link: '/interview/' },
       // { text: '机器学习', link: '/machine/' },
       { text: '算法', link: '/algorithm/' },
       { text: '前端运维', link: '/op/' },
@@ -77,7 +75,8 @@ module.exports = {
       '/frontend/': frontend,
       '/debug/': debug,
       '/op/': op,
-      '/webpack/': webpack
+      '/webpack/': webpack,
+      '/interview/': interview,
     },
     lastUpdated: 'Last Updated'
   },

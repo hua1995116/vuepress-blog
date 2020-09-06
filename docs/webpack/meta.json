@@ -12,5 +12,10 @@
         "path": "snowpack",
         "description": "前几天听一个朋友说到 `snowpack`, 便去去看了下这个包是干什么的，看了下官网，发现这个东西还是蛮有意思的。号称 `无需打包工具（Webpack，Parcel）便能将代码结果实时展现在浏览器中`。可以先看以下的图，是不是很诱人？",
         "keywords": "snowpack 打包 模块化"
+    },
+    {
+        "title": " 《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6",
+        "date": "2020-03-30 11:40:52",
+        "path": "module"
     }
 ]

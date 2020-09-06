@@ -16,4 +16,6 @@ webpack extencel
 
 ## 模块化
 
+[《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6](./module.md)
+
 [《模块化系列》snowpack，提高10倍打包速度](./snowpack.md)

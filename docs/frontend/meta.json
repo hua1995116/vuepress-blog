@@ -85,21 +85,6 @@
         "path": "goabord"
     },
     {
-        "title": " 2018前端校招总结（拿到网易,美团offer）",
-        "date": "2020-03-30 11:37:00",
-        "path": "interview"
-    },
-    {
-        "title": " 2018网易前端实习笔试题",
-        "date": "2020-03-30 11:38:53",
-        "path": "interview2"
-    },
-    {
-        "title": " 关于2018网易游戏web前端实习生面试经历",
-        "date": "2020-03-30 11:37:09",
-        "path": "interview3"
-    },
-    {
         "title": " 你不知道的javascript之函数作用域和块作用域（一）",
         "date": "2020-03-30 11:37:12",
         "path": "js-block"
@@ -158,11 +143,6 @@
         "title": " 前端学习历程",
         "date": "2020-03-30 11:41:21",
         "path": "learn"
-    },
-    {
-        "title": " 《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6",
-        "date": "2020-03-30 11:40:52",
-        "path": "module"
     },
     {
         "title": " 《秋风日常第二期》一个快速找出待SEO图片的技巧",
