@@ -37,7 +37,7 @@ export default {
       sidebarDepth,
       $themeLocaleConfig.sidebarDepth,
       $themeConfig.sidebarDepth,
-      1
+      2
     ].find(depth => depth !== undefined)
 
     const displayAllHeaders = $themeLocaleConfig.displayAllHeaders
@@ -47,6 +47,7 @@ export default {
       return [link, renderChildren(h, item.children, item.basePath, $route, maxDepth)]
     } else if ((active || displayAllHeaders) && item.headers && !hashRE.test(item.path)) {
       const children = groupHeaders(item.headers)
+      console.log(children);
       return [link, renderChildren(h, children, item.path, $route, maxDepth)]
     } else {
       return link
