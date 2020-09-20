@@ -64,7 +64,55 @@ Content-Range: bytes 0-102399/3670627
 
 ### Range的起源
 
-`Range`是在 HTTP/1.1 中新增的一个字段，这个特性也是我们使用的迅雷等支持多线程下载以及断点下载的核心机制。
+`Range`是在 [HTTP/1.1](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.17) 中新增的一个字段，这个特性也是我们使用的迅雷等支持多线程下载以及断点下载的核心机制。（介绍性的文案，摘录了一下）
+
+首先客户端会发起一个带有`Range: bytes=0-xxx`的请求，如果服务端支持 Range，则会在响应头中添加`Accept-Ranges: bytes`来表示支持 Range 的请求，之后客户端才可能发起带 Range 的请求。
+
+服务端通过请求头中的`Range: bytes=0-xxx `来判断是否是进行 Range 处理，如果这个值存在而且有效，则只发回请求的那部分文件内容，响应的状态码变成206，表示Partial Content，并设置Content-Range。如果无效，则返回416状态码，表明Request Range Not Satisfiable。如果请求头中不带 Range，那么服务端则正常响应，也不会设置 Content-Range 等。
+
+| Value |      Description      |
+| :---- | :-------------------: |
+| 206   |    Partial Content    |
+| 416   | Range Not Satisfiable |
+
+Range的格式为：
+
+`Range:(unit=first byte pos)-[last byte pos]`
+
+即`Range: 单位（如bytes）= 开始字节位置-结束字节位置`。
+
+我们来举个例子，假设我们开启了多线程下载，需要把一个5000byte的文件分为4个线程进行下载。
+
+- Range: bytes=0-1199 头1200个字节
+- Range: bytes=1200-2399 第二个1200字节
+- Range: bytes=2400-3599 第三个1200字节
+- Range: bytes=3600-5000 最后的1400字节
+
+服务器给出响应：
+
+第1个响应
+
+- Content-Length：1200
+- Content-Range：bytes 0-1199/5000
+
+第2个响应
+
+- Content-Length：1200
+- Content-Range：bytes 1200-2399/5000
+
+第3个响应
+
+- Content-Length：1200
+- Content-Range：bytes 2400-3599/5000
+
+第4个响应
+
+- Content-Length：1400
+- Content-Range：bytes 3600-5000/5000
+
+如果每个请求都成功了，服务端返回的response头中有一个 Content-Range 的字段域，Content-Range 用于响应头，告诉了客户端发送了多少数据，它描述了响应覆盖的范围和整个实体长度。一般格式：
+
+`Content-Range: bytes (unit first byte pos) - [last byte pos]/[entity length]`即`Content-Range：字节 开始字节位置-结束字节位置／文件大小`。
 
 ### 浏览器支持情况
 
@@ -415,113 +463,21 @@ https://study.163.com/course/courseLearn.htm?courseId=1004500008#/learn/video?le
 把我们的测试脚本从控制台输入进行。
 
 ```js
-// 测试监本
-var m = 1024 * 1024 * 10; // 分片大小
-var url =
-  "https://vodm0pihssv.vod.126.net/edu-video/nos/mp4/2017/10/10/1007299069_2cddd54a92e344639ad9669a2e0109ed_sd.mp4"; // 下载url
-var donwloadName = "3.mp4"; // 下载文件名
-const script = document.createElement("script");
-script.src = "https://cdn.bootcss.com/axios/0.19.2/axios.min.js";
-document.body.appendChild(script);
-
-function downloadDirect(url) {
-  console.time("直接下载1");
-  const req = new XMLHttpRequest();
-  req.open("GET", url, true);
-  req.responseType = "blob";
-  req.onload = function (oEvent) {
-    const content = req.response;
-    const aTag = document.createElement("a");
-    aTag.download = donwloadName;
-    const blob = new Blob([content]);
-    const blobUrl = URL.createObjectURL(blob);
-    aTag.href = blobUrl;
-    aTag.click();
-    URL.revokeObjectURL(blob);
-    console.timeEnd("直接下载1");
-  };
-  req.send();
-}
-
-// 直接下载
-downloadDirect(url);
-// 多线程下载
-axios({
-  url,
-  method: "head",
-}).then((res) => {
-  console.time("并发下载1");
-  const size = Number(res.headers["content-length"]);
-  const length = parseInt(size / m);
-  const arr = [];
-  let count = 0;
-  function downloadRange(url, start, end, i) {
-    return new Promise((resolve, reject) => {
-      const req = new XMLHttpRequest();
-      req.open("GET", url, true);
-      req.setRequestHeader("range", `bytes=${start}-${end}`);
-      req.responseType = "blob";
-      req.onload = function (oEvent) {
-        req.response.arrayBuffer().then((res) => {
-          count++;
-          console.log(`下载百分比${((count / length) * 100).toFixed(2)}`);
-          resolve({
-            i,
-            buffer: res,
-          });
-        });
-      };
-      req.send();
-    });
-  }
-  // 合并buffer
-  function concatenate(resultConstructor, arrays) {
-    let totalLength = 0;
-    for (let arr of arrays) {
-      totalLength += arr.length;
-    }
-    let result = new resultConstructor(totalLength);
-    let offset = 0;
-    for (let arr of arrays) {
-      result.set(arr, offset);
-      offset += arr.length;
-    }
-    return result;
-  }
-
-  for (let i = 0; i < length; i++) {
-    let start = i * m;
-    let end = i == length - 1 ? size - 1 : (i + 1) * m - 1;
-    arr.push(downloadRange(url, start, end, i));
-  }
-  Promise.all(arr).then((res) => {
-    const arrBufferList = res
-      .sort((item) => item.i - item.i)
-      .map((item) => new Uint8Array(item.buffer));
-    count = 0;
-    const allBuffer = concatenate(Uint8Array, arrBufferList);
-    const blob = new Blob([allBuffer], { type: "image/jpeg" });
-    const blobUrl = URL.createObjectURL(blob);
-    const aTag = document.createElement("a");
-    aTag.download = donwloadName;
-    aTag.href = blobUrl;
-    aTag.click();
-    URL.revokeObjectURL(blob);
-    console.timeEnd("并发下载1");
-  });
-});
-
+// 测试脚本，由于太长了，而且如果仔细看了上面的文章也应该能写出代码。实在写不出可以看以下代码。
+https://github.com/hua1995116/node-demo/blob/master/file-download/example/download-multiple/script.js
 ```
 
-
+使用直接下载
 
 ![image-20200920221657541](https://s3.qiufengh.com/blog/image-20200920221657541.png)
 
 
 
-
+使用多线程下载
 
 ![image-20200920221853959](https://s3.qiufengh.com/blog/image-20200920221853959.png)
+
+可以看到由于网易云课堂对单个TCP的下载速度并没有什么限制没有那么严格，也可能我家的网速不够快。
 
 ### 百度云
 
@@ -562,12 +518,34 @@ m 改成 1024 * 1024 * 2 合适的分片大小~
 
 真香。太tm香了。
 
+## 方案缺陷
+
+由于 blob 在 各大浏览器有上限大小的限制，因此该方法还是存在一定的缺陷。
+
+| Browser            | Constructs as | Filenames | Max Blob Size                                                | Dependencies                                  |
+| ------------------ | ------------- | --------- | ------------------------------------------------------------ | --------------------------------------------- |
+| Firefox 20+        | Blob          | Yes       | 800 MiB                                                      | None                                          |
+| Firefox < 20       | data: URI     | No        | n/a                                                          | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Chrome             | Blob          | Yes       | [2GB](https://bugs.chromium.org/p/chromium/issues/detail?id=375297#c107) | None                                          |
+| Chrome for Android | Blob          | Yes       | [RAM/5](https://bugs.chromium.org/p/chromium/issues/detail?id=375297#c107) | None                                          |
+| Edge               | Blob          | Yes       | ?                                                            | None                                          |
+| IE 10+             | Blob          | Yes       | 600 MiB                                                      | None                                          |
+| Opera 15+          | Blob          | Yes       | 500 MiB                                                      | None                                          |
+| Opera < 15         | data: URI     | No        | n/a                                                          | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 6.1+*       | Blob          | No        | ?                                                            | None                                          |
+| Safari < 6         | data: URI     | No        | n/a                                                          | [Blob.js](https://github.com/eligrey/Blob.js) |
+| Safari 10.1+       | Blob          | Yes       | n/a                                                          | None                                          |
+
 ## 结尾
 
-回头调研下，有没有网页版百度云加速的插件，如果没有就造一个网页版百度云下载的插件~
+文章写的比较仓促，表达可能不是特别精准，如有错误之处，欢迎各位大佬指出。
+
+回头调研下，有没有网页版百度云加速的插件，如果没有就造一个网页版百度云下载的插件~。
 
 ## 参考文献
 
 Nginx带宽控制 : https://blog.huoding.com/2015/03/20/423
 
 openresty 部署 https 并开启 http2 支持  : https://www.gryen.com/articles/show/5.html
+
+聊一聊HTTP的Range : https://dabing1022.github.io/2016/12/24/%E8%81%8A%E4%B8%80%E8%81%8AHTTP%E7%9A%84Range,%20Content-Range/
