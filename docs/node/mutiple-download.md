@@ -1,21 +1,21 @@
-# 前端多线程大文件下载实践，提速10倍+
+# ⚡️前端多线程大文件下载实践，提速10倍+
+
+## 背景
+
+没错，你没有看错，是前端多线程，而不是`Node`。这一次的探索起源于最近开发中，有遇到视频流相关的开发需求发现了一个特殊的状态码，他的名字叫做 `206`~
+
+![屏幕快照 2020-09-21 23.21.05](https://s3.qiufengh.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-09-21%2023.21.05.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 
-## 前言
+为了防止本文的枯燥，先上效果图镇文。(以一张`3.7M` 大小的图片为例)。
 
-没错，你没有看错，是前端多线程，而不是`Node`，先上效果图镇文。以一张`3.7M` 大小的图片为例。
+**动画效果对比（单线程-左 VS 10个线程-右）** 
 
-**单线程下载**
-
-![2020-09-15-23.39.55](https://s3.qiufengh.com/blog/2020-09-15-23.39.55.gif)
-
-**多线程下载**
-
-![2020-09-15-23.40.22](https://s3.qiufengh.com/blog/2020-09-15-23.40.22.gif?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![single-vs-multiple-donwload](https://s3.qiufengh.com/blog/single-vs-multiple-donwload.gif?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 
 
-**时间对比（10个线程  VS  单线程）**
+**时间对比（单线程 VS 10个线程）**
 
 ![image-20200915235421355](https://s3.qiufengh.com/blog/image-20200915235421355.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
@@ -27,14 +27,7 @@
 GET /360_0388.jpg HTTP/1.1
 Host: limit.qiufeng.com
 Connection: keep-alive
-Pragma: no-cache
-Cache-Control: no-cache
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36
-Accept: */*
-Origin: http://127.0.0.1:5501
-Referer: http://127.0.0.1:5501/file-download/example/download-multiple/index.html
-Accept-Encoding: identity
-Accept-Language: zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7
+...
 Range: bytes=0-102399
 
 HTTP/1.1 206 Partial Content
@@ -42,13 +35,7 @@ Server: openresty/1.13.6.2
 Date: Sat, 19 Sep 2020 06:31:11 GMT
 Content-Type: image/jpeg
 Content-Length: 102400
-Last-Modified: Mon, 24 Aug 2020 12:19:56 GMT
-Connection: keep-alive
-ETag: "5f43b06c-380263"
-Cache-Control: max-age=60
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Methods: GET, OPTIONS
-Access-Control-Allow-Headers: DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,range,If-Range
+....
 Content-Range: bytes 0-102399/3670627
 
 ...（这里是文件流）
@@ -56,7 +43,7 @@ Content-Range: bytes 0-102399/3670627
 
 可以看到请求这里多出一个字段 `Range: bytes=0-102399` ，服务端也多出一个字段`Content-Range: bytes 0-102399/3670627`，以及返回的 状态码为 `206`.
 
-那么`Range`是什么呢？还记得前几天写过一篇文章，是关于文件下载的，其中有提到大文件的下载方式，有个叫 `Range`的东西，但是前一篇作为系统性地介绍文件下载的概览，因此没有对`range` 进行详细介绍。
+那么`Range`是什么呢？还记得前几天写过一篇文章，是关于文件下载的，其中有提到大文件的下载方式，有个叫 `Range`的东西，但是[上一篇](https://juejin.im/post/6867469476196155400)作为系统性地介绍文件下载的概览，因此没有对`range` 进行详细介绍。
 
 > 以下所有代码均在 https://github.com/hua1995116/node-demo/tree/master/file-download/example/download-multiple
 
@@ -159,7 +146,42 @@ https://github.com/pillarjs/send/blob/0.17.1/index.js#L680
 
 ## Range实践
 
-**开始例子**
+**架构总览**
+
+我们先来看下流程架构图总览。单线程很简单，正常下载就可以了，不懂的可以参看我[上一篇](https://juejin.im/post/6867469476196155400)文章。多线程的话，会比较麻烦一些，需要按片去下载，下载好后，需要进行合并再进行下载。（关于blob等下载方式依旧可以参看[上一篇](https://juejin.im/post/6867469476196155400)）
+
+![1600705973008](https://s3.qiufengh.com/blog/1600705973008.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+
+**服务端代码**
+
+很简单，就是对`Range`做了兼容。
+
+```js
+router.get('/api/rangeFile', async(ctx) => {
+    const { filename } = ctx.query;
+    const { size } = fs.statSync(path.join(__dirname, './static/', filename));
+    const range = ctx.headers['range'];
+    if (!range) {
+        ctx.set('Accept-Ranges', 'bytes');
+        ctx.body = fs.readFileSync(path.join(__dirname, './static/', filename));
+        return;
+    }
+    const { start, end } = getRange(range);
+    if (start >= size || end >= size) {
+        ctx.response.status = 416;
+        ctx.body = '';
+        return;
+    }
+    ctx.response.status = 206;
+    ctx.set('Accept-Ranges', 'bytes');
+    ctx.set('Content-Range', `bytes ${start}-${end ? end : size - 1}/${size}`);
+    ctx.body = fs.createReadStream(path.join(__dirname, './static/', filename), { start, end });
+})
+```
+
+**html**
+
+然后来编写 html ，这没有什么好说的，写两个按钮来展示。
 
 ```html
 <!-- html -->
@@ -167,6 +189,45 @@ https://github.com/pillarjs/send/blob/0.17.1/index.js#L680
 <button id="download2">多线程下载</button>
 <script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
 ```
+
+**js公共参数**
+
+```js
+const m = 1024 * 520;  // 分片的大小
+const url = 'http://localhost:8888/api/rangeFile?filename=360_0388.jpg'; // 要下载的地址
+```
+
+**单线程部分**
+
+单线程下载代码，直接去请求以`blob`方式获取，然后用`blobURL` 的方式下载。
+
+```js
+download1.onclick = () => {
+    console.time("直接下载");
+    function download(url) {
+        const req = new XMLHttpRequest();
+        req.open("GET", url, true);
+        req.responseType = "blob";
+        req.onload = function (oEvent) {
+            const content = req.response;
+            const aTag = document.createElement('a');
+            aTag.download = '360_0388.jpg';
+            const blob = new Blob([content])
+            const blobUrl = URL.createObjectURL(blob);
+            aTag.href = blobUrl;
+            aTag.click();
+            URL.revokeObjectURL(blob);
+            console.timeEnd("直接下载");
+        };
+        req.send();
+    }
+    download(url);
+}
+```
+
+**多线程部分**
+
+首先发送一个 head 请求，来获取文件的大小，然后根据 length 以及设置的分片大小，来计算每个分片是滑动距离。通过`Promise.all`的回调中，用`concatenate`函数对分片 buffer 进行一个合并成一个 blob，然后用`blobURL` 的方式下载。
 
 ```js
 // script
@@ -201,29 +262,6 @@ function concatenate(resultConstructor, arrays) {
     }
     return result;
 }
-const m = 1024 * 700;
-const url = 'http://localhost:8888/api/rangeFile?filename=360_0388.jpg';
-download1.onclick = () => {
-    console.time("直接下载");
-    function download(url) {
-        const req = new XMLHttpRequest();
-        req.open("GET", url, true);
-        req.responseType = "blob";
-        req.onload = function (oEvent) {
-            const content = req.response;
-            const aTag = document.createElement('a');
-            aTag.download = '360_0388.jpg';
-            const blob = new Blob([content])
-            const blobUrl = URL.createObjectURL(blob);
-            aTag.href = blobUrl;
-            aTag.click();
-            URL.revokeObjectURL(blob);
-            console.timeEnd("直接下载");
-        };
-        req.send();
-    }
-    download(url);
-}
 download2.onclick = () => {
     axios({
         url,
@@ -255,11 +293,17 @@ download2.onclick = () => {
 }
 ```
 
+完整示例
+
+> https://github.com/hua1995116/node-demo
+
 ```
+// 进入目录
+cd file-download
 // 启动
 node server.js
-
-打开 http://localhost:8888/example/download-multiple/index.html
+// 打开 
+http://localhost:8888/example/download-multiple/index.html
 ```
 
 由于谷歌浏览器在 HTTP/1.1 对于单个域名有所限制，单个域名最大的并发量是 6.
@@ -290,13 +334,13 @@ int g_max_sockets_per_group[] = {
 
 因此为了配合这个特性我将文件分成6个片段，每个片段为`520kb` （没错，写个代码都要搞个爱你的数字），即开启6个线程进行下载。
 
-我用单个线程和多个线程进行分别下载了6次，看上去速度是差不多的。
+我用单个线程和多个线程进行分别下载了6次，看上去速度是差不多的。那么为什么和我们预期的不一样呢?
 
 ![image-20200919165242745](https://s3.qiufengh.com/blog/image-20200919165242745.png)
 
 ## 探索失败的原因
 
-那么，这是为什么呢？
+我开始仔细对比两个请求，观察这两个请求的速度。
 
 **6个线程并发**
 
@@ -316,11 +360,11 @@ int g_max_sockets_per_group[] = {
 
 把服务器比作一根大水管，我来用图模拟一下我们单个线程和多个线程下载的情况。左侧为服务器端，右侧为客户端。（以下所有情况都是考虑理想情况下，只是为了模拟过程，不考虑其他一些程序的竞态影响。）
 
-单线程
+**单线程**
 
 ![IMG_01](https://s3.qiufengh.com/blog/IMG_01.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-多线程
+**多线程**
 
 ![IMG_02](https://s3.qiufengh.com/blog/IMG_02.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
@@ -450,7 +494,7 @@ const m = 1024 * 400;
 
 ## 实际应用探索
 
-那么多进程下载到底有啥用呢？没错，开头也说了，是迅雷等下载软件的核心机制。
+那么多进程下载到底有啥用呢？没错，开头也说了，这个分片机制是迅雷等下载软件的核心机制。
 
 ### 网易云课堂
 
@@ -467,17 +511,17 @@ https://study.163.com/course/courseLearn.htm?courseId=1004500008#/learn/video?le
 https://github.com/hua1995116/node-demo/blob/master/file-download/example/download-multiple/script.js
 ```
 
-使用直接下载
+**直接下载**
 
 ![image-20200920221657541](https://s3.qiufengh.com/blog/image-20200920221657541.png)
 
 
 
-使用多线程下载
+**多线程下载**
 
 ![image-20200920221853959](https://s3.qiufengh.com/blog/image-20200920221853959.png)
 
-可以看到由于网易云课堂对单个TCP的下载速度并没有什么限制没有那么严格，也可能我家的网速不够快。
+可以看到由于网易云课堂对单个TCP的下载速度并没有什么限制没有那么严格，提升的速度不是那么明显。
 
 ### 百度云
 
@@ -491,11 +535,11 @@ https://github.com/hua1995116/node-demo/blob/master/file-download/example/downlo
 
 ![image-20200920222309345](https://s3.qiufengh.com/blog/image-20200920222309345.png)
 
-这个时候点击暂停
+这个时候点击暂停, 打开 `chrome -> 更多 -> 下载内容 -> 右键复制下载链接`
 
-![image-20200920222347751](https://s3.qiufengh.com/blog/image-20200920222347751.png)
+![image-20200922004619680](https://s3.qiufengh.com/blog/image-20200922004619680.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-从下载内容中，复制下载链接。依旧用上述的网易云课程下载课程的脚本。只不过你需要改一下参数。
+依旧用上述的网易云课程下载课程的脚本。只不过你需要改一下参数。
 
 ```
 url 改成对应百度云下载链接
@@ -504,23 +548,29 @@ m 改成 1024 * 1024 * 2 合适的分片大小~
 
 **直接下载**
 
-百度云这个限速,真的是惨无人道。
+百度云多单个TCP连接的限速，真的是惨无人道，足足花了217秒！！！就一个17M的文件，平时我们饱受了它多少的折磨。（除了VIP玩家）
 
 ![image-20200919211105023](https://s3.qiufengh.com/blog/image-20200919211105023.png)
 
-**并发下载**
+**多线程下载**
 
 ![image-20200919210516632](https://s3.qiufengh.com/blog/image-20200919210516632.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-由于是HTTP/1.1 因此我们只要开启6个以及以上的线程下载就好了。以下是并发下载的速度，约用时 46 秒。
+由于是HTTP/1.1 因此我们只要开启6个以及以上的线程下载就好了。以下是多线程下载的速度，约用时 46 秒。
 
 ![image-20200919210550840](https://s3.qiufengh.com/blog/image-20200919210550840.png)
 
-真香。太tm香了。
+我们通过这个图再来切身感受一下速度差异。
+
+![image-20200922010911389](https://s3.qiufengh.com/blog/image-20200922010911389.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+
+真香，免费且只靠我们前端自己实现了这个功能，太tm香了，你还不赶紧来试试？？
 
 ## 方案缺陷
 
-由于 blob 在 各大浏览器有上限大小的限制，因此该方法还是存在一定的缺陷。
+### 1.对于大文件的上限有一定的限制
+
+由于 `blob` 在 各大浏览器有上限大小的限制，因此该方法还是存在一定的缺陷。
 
 | Browser            | Constructs as | Filenames | Max Blob Size                                                | Dependencies                                  |
 | ------------------ | ------------- | --------- | ------------------------------------------------------------ | --------------------------------------------- |
@@ -535,6 +585,10 @@ m 改成 1024 * 1024 * 2 合适的分片大小~
 | Safari 6.1+*       | Blob          | No        | ?                                                            | None                                          |
 | Safari < 6         | data: URI     | No        | n/a                                                          | [Blob.js](https://github.com/eligrey/Blob.js) |
 | Safari 10.1+       | Blob          | Yes       | n/a                                                          | None                                          |
+
+### 2. 服务器对单个TCP速度有所限制
+
+一般情况下都会有限制，那么这个时候就看用户的宽度速度了。
 
 ## 结尾
 
