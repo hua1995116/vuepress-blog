@@ -14,8 +14,10 @@
         "keywords": "snowpack 打包 模块化"
     },
     {
-        "title": " 《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6",
+        "title": "《模块化系列》彻底理清 AMD,CommonJS,CMD,UMD,ES6",
         "date": "2020-03-30 11:40:52",
-        "path": "module"
+        "path": "module",
+        "description": "彻底理清 AMD,CommonJS,CMD,UMD,ES6",
+        "keywords": "AMD CommonJS CMD UMD ES6"
     }
 ]

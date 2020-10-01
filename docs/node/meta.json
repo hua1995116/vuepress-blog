@@ -2,56 +2,78 @@
     {
         "title": "前端多线程大文件下载实践，提速10倍+",
         "date": "2020-09-20 22:33:54",
-        "path": "mutiple-download"
+        "path": "mutiple-download",
+        "description": "浏览器实现大文件多线程下载，利用Range多线程下载",
+        "keywords": "Range 多线程 Node 浏览器"
     },
     {
         "title": "一文带你层层解锁「文件下载」的奥秘",
         "date": "2020-08-31 22:33:54",
-        "path": "file-download"
+        "path": "file-download",
+        "description": "后端/纯前端实现多种方式文件下载",
+        "keywords": "excel docx json mp4"
     },
     {
         "title": " 一文了解文件上传全过程（1.8w字深度解析，进阶必备）",
         "date": "2020-03-30 01:59:54",
-        "path": "upload"
+        "path": "upload",
+        "description": "详细探秘文件下载的过程，从浏览器出发到字节流到后端存储。",
+        "keywords": "multipart/form-data application/json wireshark charles"
     },
     {
         "title": " 让浏览器添上终端的彩",
         "date": "2020-03-29 23:51:17",
-        "path": "color"
+        "path": "color",
+        "description": "利用 ANSI escape code 将终端的色彩带到浏览器",
+        "keywords": "ANSI escape code iterm2 浏览器"
     },
     {
         "title": " 手把手教你多页面递归爬虫--基于Node.Js",
         "date": "2020-03-29 23:51:17",
-        "path": "crawler"
+        "path": "crawler",
+        "description": "node爬虫",
+        "keywords": "node 爬虫 入门"
     },
     {
         "title": " Node + NAPI 实现 C++ 扩展 - LRU 淘汰算法",
         "date": "2020-03-29 23:51:17",
-        "path": "node-addon"
+        "path": "node-addon",
+        "description": "Node实现 C++ 插件，LRU 淘汰算法",
+        "keywords": "Node C++ LRU淘汰算法 NAPI"
     },
     {
         "title": " 开发一个Node小玩具全过程",
         "date": "2020-03-29 23:51:17",
-        "path": "node-cli-count"
+        "path": "node-cli-count",
+        "description": "npm 包，统计行数的命令行工具",
+        "keywords": "npm node 命令行行数 字符统计"
     },
     {
         "title": " 对症下药，快速下载github单个文件夹",
         "date": "2020-03-29 23:51:17",
-        "path": "node-git-down"
+        "path": "node-git-down",
+        "description": "git单文件下载 git目录下载",
+        "keywords": "git"
     },
     {
         "title": " pkg版本规范管理自动化最佳实践",
         "date": "2020-03-29 23:51:17",
-        "path": "pkg"
+        "path": "pkg",
+        "description": "Semantic version 方式管理你的 npm",
+        "keywords": "Semantic version npm package.json"
     },
     {
         "title": " shark-cleaner: 一个Node Cli 实现的垃圾清理工具(深层清理开发垃圾)",
         "date": "2020-03-30 10:01:54",
-        "path": "shark-cleaner"
+        "path": "shark-cleaner",
+        "description": "帮助前端清理node_modules",
+        "keywords": "node_modules clear"
     },
     {
         "title": " 一个免费功能强大的谷歌翻译api",
         "date": "2020-03-29 23:51:17",
-        "path": "translate"
+        "path": "translate",
+        "description": "免费的 google translate 翻译包",
+        "keywords": "translate translation google-translate-api"
     }
 ]

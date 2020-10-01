@@ -1,27 +1,37 @@
 [
     {
-        "title": "name: 记一次nginx转发websocket,状态码400",
+        "title": "记一次nginx转发websocket,状态码400",
         "date": "2020-03-29 20:46:58",
-        "path": "websocket-400"
+        "path": "websocket-400",
+        "description": "nginx转发websocket, 400",
+        "keywords": "websocket 400 nginx"
     },
     {
-        "title": " vue+websocket+express+mongodb实战项目（实时聊天）（一）",
+        "title": "vue+websocket+express+mongodb实战项目（实时聊天）（一）",
         "date": "2020-03-29 20:46:58",
-        "path": "websocket1"
+        "path": "websocket1",
+        "description": "",
+        "keywords": "vue websocket express mongodb"
     },
     {
-        "title": " vue+websocket+express+mongodb实战项目（实时聊天）（二）",
+        "title": "vue+websocket+express+mongodb实战项目（实时聊天）（二）",
         "date": "2020-03-29 20:46:58",
-        "path": "websocket2"
+        "path": "websocket2",
+        "description": "",
+        "keywords": "vue websocket express mongodb"
     },
     {
-        "title": " vue-chat项目之重构与体验优化",
+        "title": "vue-chat项目之重构与体验优化",
         "date": "2020-03-29 20:46:58",
-        "path": "websocket3"
+        "path": "websocket3",
+        "description": "优化websocket项目",
+        "keywords": "vue websocket express mongodb"
     },
     {
-        "title": " 消息未读之点不完的小红点(Node+Websocket)",
+        "title": "消息未读之点不完的小红点(Node+Websocket)",
         "date": "2020-03-29 20:46:58",
-        "path": "websocket4"
+        "path": "websocket4",
+        "description": "websocket消息未读实现",
+        "keywords": "vue websocket express mongodb Node redis"
     }
 ]

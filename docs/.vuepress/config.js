@@ -34,7 +34,15 @@ module.exports = {
   description: '',
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
-    // ['meta', { name: 'baidu-site-verification', content: 'ZAdkE6LA10'}]
+    ['script', {}, `
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fd8e413c5ce47d78c95f742fc41a7118";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    `]
   ],
   themeConfig: {
     repo: 'hua1995116/vuepress-blog',
@@ -110,6 +118,10 @@ module.exports = {
           extendMetaByPath($page, 'debug');
           extendMetaByPath($page, 'react');
           extendMetaByPath($page, 'webpack');
+          extendMetaByPath($page, 'node');
+          extendMetaByPath($page, 'vue');
+          extendMetaByPath($page, 'interview');
+          extendMetaByPath($page, 'node/websocket');
         //   // extendMetaByPath($page, 'node')
           if ($page.path.includes('/post')) {
             const fm = getFrontMatter($page.path)
