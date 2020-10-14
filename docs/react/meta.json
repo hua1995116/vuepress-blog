@@ -1,5 +1,12 @@
 [
     {
+        "title": "谈谈React 5种最流行的状态管理库",
+        "date": "2020-10-15 22:33:54",
+        "path": "react-state-5-way",
+        "description": "在 React 中，似乎有无数种处理状态管理的方法。 想要了解各种库，去比较它们之间的如何选择以及它们如何原作都是一件令人头疼的事情。",
+        "keywords": "React Recoil MobX XState Redux Context"
+    },
+    {
         "title": "React Hooks中这样写HTTP请求可以避免内存泄漏",
         "date": "2020-08-12 22:33:54",
         "path": "cancel-react-hooks-request",
