@@ -1,5 +1,9 @@
 # 谈谈React 5种最流行的状态管理库
 
+> 原文地址: https://dev.to/dabit3/react-state-6-ways-2bem
+> 作者: Nader Dabit
+> 译者: 蓝色的秋风（github.com/hua1995116）
+
 代码仓库地址: https://github.com/dabit3/react-state-5-ways
 
 在 React 中，似乎有无数种处理状态管理的方法。 想要了解各种库，去比较它们之间的如何选择以及它们如何原作都是一件令人头疼的事情。
