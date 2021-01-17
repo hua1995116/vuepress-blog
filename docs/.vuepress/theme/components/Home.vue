@@ -109,14 +109,74 @@ export default {
       console.log(this.$site.pages);
       return [
         {
-          "title": "前端多线程大文件下载实践，提速10倍+",
-          "date": "2020-09-20 22:33:54",
-          "path": "node/mutiple-download.html"
+          title: "请查收 2020 全球 JS 调查结果",
+          date: "2021-01-15 22:33:54",
+          path: "frontend/2020-state-of-js.html",
         },
         {
-          "title": "一文带你层层解锁「文件下载」的奥秘",
-          "date": "2020-08-31 22:33:54",
-          "path": "node/file-download.html"
+          title: "2020年度CSS报告新鲜出炉，从业者平均年薪35w",
+          date: "2021-01-02 22:33:54",
+          path: "frontend/2020-css.html",
+        },
+        {
+          title: "2021年，推荐一个百度新出开发专用搜索引擎，没有广告！",
+          date: "2020-10-11 22:33:54",
+          path: "frontend/baidu-kaifa.html",
+        },
+        {
+          title: "2021 chrome 插件推荐",
+          date: "2020-10-10 22:33:54",
+          path: "frontend/chrome-frontend.html",
+        },
+        {
+          title: "从破解某定设计网站谈前端水印(详细教程)",
+          date: "2020-10-09 22:33:54",
+          path: "frontend/watermark.html",
+        },
+        {
+          title: "Node Sass 弃用，以 Dart Sass 代替",
+          date: "2020-10-08 22:33:54",
+          path: "frontend/node-sass-eprecated.html",
+        },
+        {
+          title: "这个插件居然让vscode变成了交友工具(以码会友)",
+          date: "2020-10-07 22:33:54",
+          path: "frontend/friend-vscode.html",
+        },
+        {
+          title: "🔱 几个你不知道的Git小命令,收获快乐。",
+          date: "2020-10-06 22:33:54",
+          path: "frontend/git-10-up.html",
+        },
+        {
+          title: "前端多线程大文件下载实践，提速10倍+",
+          date: "2020-09-20 22:33:54",
+          path: "node/mutiple-download.html",
+        },
+        {
+          title: "前端多线程大文件下载实践，提速10倍+",
+          date: "2020-09-20 22:33:54",
+          path: "node/mutiple-download.html",
+        },
+        {
+          title: "前端多线程大文件下载实践，提速10倍+",
+          date: "2020-09-20 22:33:54",
+          path: "node/mutiple-download.html",
+        },
+        {
+          title: "前端多线程大文件下载实践，提速10倍+",
+          date: "2020-09-20 22:33:54",
+          path: "node/mutiple-download.html",
+        },
+        {
+          title: "前端多线程大文件下载实践，提速10倍+",
+          date: "2020-09-20 22:33:54",
+          path: "node/mutiple-download.html",
+        },
+        {
+          title: "一文带你层层解锁「文件下载」的奥秘",
+          date: "2020-08-31 22:33:54",
+          path: "node/file-download.html",
         },
         {
           title: "ES2017 异步函数最佳实践（`async` /`await`）",
