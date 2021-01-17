@@ -48,3 +48,5 @@ Temporary Items
 node_modules
 happy-file
 docs/.vuepress/dist
+_book
+wx

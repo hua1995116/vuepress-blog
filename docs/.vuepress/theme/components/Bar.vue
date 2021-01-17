@@ -2,7 +2,9 @@
   <div class="bar-container">
     <div class="bar-intro">
       <div class="text">
-        阿里云优惠活动，点击链接进行购买: <a href="https://www.aliyun.com/minisite/goods?userCode=qtt5ztpk">一年仅需89元即可以购买服务器~</a>。我个人服务器为2核4G配置，也更加推荐购买 <a href="https://www.aliyun.com/minisite/goods?userCode=qtt5ztpk&share_source=copy_link">2核4G三年799元</a> 配置的服务器。
+        <p>阿里云优惠活动，点击链接进行购买: <a href="https://www.aliyun.com/minisite/goods?userCode=qtt5ztpk">一年仅需96.9元即可以购买服务器~ </a></p>
+        <p>腾讯云优惠活动, 点击链接进行购买<a href="https://curl.qcloud.com/mcBHz0hb">一年仅需99元</a></p>
+        <p><a href="/op/service-choice.html">各大服务器厂商对比选购</a></p>
       </div>
     </div>
   </div>

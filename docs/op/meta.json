@@ -1,17 +1,30 @@
 [
     {
-        "title": " 阿里云linux服务器配置(node环境)",
+        "title": "阿里云linux服务器配置(node环境)",
         "date": "2020-03-29 23:51:17",
-        "path": "ali-linux"
+        "path": "ali-linux",
+        "description": "阿里云linux服务器配置(node环境)",
+        "keywords": "node 阿里云 linux centos"
     },
     {
-        "title": " nginx-https升级http2",
+        "title": "nginx-https升级http2",
         "date": "2020-03-29 23:51:17",
-        "path": "http2"
+        "path": "http2",
+        "description": "nginx-https升级http2",
+        "keywords": "https http2 http"
     },
     {
-        "title": " MongoDB系列一: Replica Set 集群搭建实战",
+        "title": "MongoDB系列一: Replica Set 集群搭建实战",
         "date": "2020-03-29 23:51:17",
-        "path": "mongodb"
+        "path": "mongodb",
+        "description": "ongoDB系列一: Replica Set 集群搭建实战",
+        "keywords": "Replica Set MongoDB"
+    },
+    {
+        "title": "国内外服务选购",
+        "date": "2020-03-29 23:51:17",
+        "path": "service-choice",
+        "description": "国内外服务器选购集合",
+        "keywords": "阿里云 腾讯云 谷歌云 AWS 搬瓦工 Glitch"
     }
 ]

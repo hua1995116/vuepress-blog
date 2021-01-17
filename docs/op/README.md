@@ -1,5 +1,9 @@
 # 运维
 
+## 服务器选购
+
+[国内外服务选购](./service-choice.md)
+
 ## 集群搭建
 
 [MongoDB系列一: Replica Set 集群搭建实战](./mongodb.md)
