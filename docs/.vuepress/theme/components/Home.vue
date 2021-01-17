@@ -154,26 +154,6 @@ export default {
           path: "node/mutiple-download.html",
         },
         {
-          title: "前端多线程大文件下载实践，提速10倍+",
-          date: "2020-09-20 22:33:54",
-          path: "node/mutiple-download.html",
-        },
-        {
-          title: "前端多线程大文件下载实践，提速10倍+",
-          date: "2020-09-20 22:33:54",
-          path: "node/mutiple-download.html",
-        },
-        {
-          title: "前端多线程大文件下载实践，提速10倍+",
-          date: "2020-09-20 22:33:54",
-          path: "node/mutiple-download.html",
-        },
-        {
-          title: "前端多线程大文件下载实践，提速10倍+",
-          date: "2020-09-20 22:33:54",
-          path: "node/mutiple-download.html",
-        },
-        {
           title: "一文带你层层解锁「文件下载」的奥秘",
           date: "2020-08-31 22:33:54",
           path: "node/file-download.html",
