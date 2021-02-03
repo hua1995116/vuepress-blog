@@ -257,4 +257,4 @@ https://www.sitepoint.com/semantic-versioning-why-you-should-using/
 
 # 更多请关注
 
-![](https://s3.qiufengh.com/blog/1568533451774.png)
+![](https://s3.qiufengh.com/blog/gongzhonghao.png)

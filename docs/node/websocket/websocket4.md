@@ -308,5 +308,5 @@ github地址: https://github.com/hua1995116/webchat
 
 # 更多请关注
 
-![](https://s3.qiufengh.com/blog/1568533450717.png)
+![](https://s3.qiufengh.com/blog/gongzhonghao.png)
 

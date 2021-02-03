@@ -239,4 +239,4 @@ function initComputed (vm: Component, computed: Object) {
 
 友情链接： https://huayifeng.top/
 
-![](https://s3.qiufengh.com/blog/1568533451167.png)
+![](https://s3.qiufengh.com/blog/erweima.jpg)

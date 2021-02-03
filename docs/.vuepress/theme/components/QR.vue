@@ -1,6 +1,6 @@
 <template>
   <div class="qr">
-    <img src="https://s3.qiufengh.com/blog/1568533451167.png" alt="秋风的比较" width="120" height="120" loading="lazy">
+    <img src="https://s3.qiufengh.com/blog/erweima.jpg" alt="秋风的比较" width="120" height="120" loading="lazy">
     <p class="we-intro">
       如果你对前端，Node，开源项目感兴趣请关注我的公众号<span class="we-highlight">秋风的笔记</span>。
     </p>

@@ -725,8 +725,4 @@ https://www.ibm.com/developerworks/cn/opensource/os-cn-v8engine/
 https://nodejs.org/dist/latest/docs/api/n-api.html
 
 ## 欢迎关注公众号
-![](https://user-gold-cdn.xitu.io/2019/12/24/16f35a7a3d2202ca?w=500&h=500&f=png&s=19651)
-
-## 交流群
-
-![](https://user-gold-cdn.xitu.io/2019/12/24/16f35a943c374a5b?w=500&h=896&f=jpeg&s=63731)
+![](https://s3.qiufengh.com/blog/gongzhonghao.png)

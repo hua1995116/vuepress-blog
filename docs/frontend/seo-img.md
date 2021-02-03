@@ -42,4 +42,4 @@ https://yoast.com/image-seo-alt-tag-and-title-tag-optimization/
 
 ## 更多请关注
 
-![](https://s3.qiufengh.com/blog/1688055012ff10bc.jpg)
+![](https://s3.qiufengh.com/blog/erweima.jpg)
