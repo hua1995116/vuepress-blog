@@ -88,7 +88,7 @@ module.exports = {
     },
     lastUpdated: 'Last Updated'
   },
-  patterns: ['**/*.md', '**/*.vue', '!vue/vue-demo/**'],
+  patterns: ['**/*.md', '**/*.vue', '!vue/vue-demo/**', '!frontend/demo/**'],
   plugins: [
     [ 
       '@vuepress/google-analytics',
