@@ -8,6 +8,7 @@ const debug = require('../debug/meta.json')
 const op = require('../op/meta.json')
 const webpack = require('../webpack/meta.json')
 const interview = require('../interview/meta.json')
+const canvas = require('../canvas/meta.json')
 
 function getHeader (posts) {
   return posts.map(x => {
@@ -25,5 +26,6 @@ module.exports = {
   debug: getHeader(debug),
   op: getHeader(op),
   webpack: getHeader(webpack),
-  interview: getHeader(interview)
+  interview: getHeader(interview),
+  canvas: getHeader(canvas),
 }

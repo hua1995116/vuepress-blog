@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
-const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview } = require('./algorithm.header')
+const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview, canvas } = require('./algorithm.header')
 
 function getFrontMatter (path, pp = './post') {
   const posts = require(pp)
@@ -55,6 +55,7 @@ module.exports = {
           {text: 'vue实践', link: '/vue/' },
           {text: 'debug系列', link: '/debug/' },
           {text: 'webpack系列', link: '/webpack/' },
+          {text: 'canvas系列', link: '/canvas/' },
       ]},
       { text: 'Node 实践', link: '/node/' },
       { text: '面试', link: '/interview/' },
@@ -85,6 +86,7 @@ module.exports = {
       '/op/': op,
       '/webpack/': webpack,
       '/interview/': interview,
+      '/canvas/': canvas,
     },
     lastUpdated: 'Last Updated'
   },

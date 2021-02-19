@@ -1,5 +1,12 @@
 [
     {
+        "title": "2021前端学习路径书单—自我成长之路",
+        "date": "2021-02-18 22:33:54",
+        "path": "frontend-books",
+        "keywords": "2021 books frontend",
+        "description": "正式学习前端大概 3 年多，整理的这个前端学习路径书籍"
+    },
+    {
         "title": "请查收 2020 全球 JS 调查结果",
         "date": "2021-01-15 22:33:54",
         "path": "2020-state-of-js",
