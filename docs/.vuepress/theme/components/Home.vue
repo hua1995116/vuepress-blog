@@ -111,17 +111,17 @@ export default {
         {
           title: "2021前端学习路径书单—自我成长之路",
           date: "2021-02-18 22:33:54",
-          path: "frontend-books",
+          path: "frontend/frontend-books.html",
         },
         {
           title: "教你实现微信8.0『炸裂』的🎉表情特效",
           date: "2021-02-17 12:04:17",
-          path: "weixin-8.0-emoji",
+          path: "canvas/weixin-8.0-emoji.html",
         },
         {
           title: "在vue用throttle的最佳实践原理分析",
           date: "2021-01-25 01:04:17",
-          path: "vue-event-throttle",
+          path: "vue/vue-event-throttle.html",
         },
         {
           title: "请查收 2020 全球 JS 调查结果",
