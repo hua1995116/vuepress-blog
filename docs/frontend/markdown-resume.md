@@ -179,7 +179,9 @@ icon:weixin qiufengblue
 
 ### 自定义html
 
-本项目中开启了对 `html `的解析，因此我们也可以使用像[gihtub-readme-stats](https://github.com/anuraghazra/github-readme-stats)服务，来给我们添加一些额外的信息。
+#### 插入图片
+
+本项目中开启了对 `html `的解析，因此我们也可以使用像[gihtub-readme-stats](https://github.com/anuraghazra/github-readme-stats)这类服务，给我们文档插入一张图片。
 
 ```markdown
 # 秋风 - 前端工程师
@@ -206,11 +208,13 @@ icon:weixin qiufengblue
 
 ![](https://s3.qiufengh.com/blog/image-20210314235535988.png)
 
-你也可以把这个模板放到任意你喜欢的位置。
+你也可以把这张图片放到任意你喜欢的位置。
 
 ![](https://s3.qiufengh.com/blog/image-20210314235944581.png)
 
-也可以加入自定义的一些样式，让 Markdown 的编写变得更加自由~ ，例如实现自定义样式的 `Tag`
+#### 自定义标签
+
+也可以加入自定义的一些标签样式，让 Markdown 的编写变得更加自由~ ，例如实现自定义样式的 `Tag`
 
 ```markdown
 <span style="background: #ddd; padding: 5px">前端</span>
@@ -230,7 +234,7 @@ icon:weixin qiufengblue
 
 前端使用了`codemirror`作为编辑器， `markdown-it` 进行 `Markdown` 的渲染。
 
-后端采用了 `serverless` +` puppeteer` 的方式，按量计费，唯一的缺点就是会有函数销毁的情况（最低1实例存活，待研究配置），导致导出的时候，如果实例销毁了，会有一定概率会导出失败，所有如果失败了就多试一次吧。
+后端采用了 `serverless` +` puppeteer` 的方式，按量计费，唯一的缺点就是会有函数销毁的情况（最低1实例存活，待研究配置），导致导出的时候，如果实例销毁了，会有一定概率会导出失败，如果失败情况建议多尝试一次。（此问题会尽快解决）
 
 ## 后续规划
 
@@ -246,7 +250,7 @@ icon:weixin qiufengblue
 
 ## 写在结尾
 
-最后非常感谢女朋友[@nan980914](https://juejin.cn/user/4230576475472573)一起参与项目的建设，全权编写了后端的所有接口。
+最后非常感谢女朋友[@楠溪](https://juejin.cn/user/4230576475472573)一起参与项目的建设，全权编写了后端的所有接口。
 
 开源地址：https://github.com/hua1995116/react-resume-site
 
