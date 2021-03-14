@@ -109,6 +109,11 @@ export default {
       console.log(this.$site.pages);
       return [
         {
+          title: "只用 Markdown 就写出好看的简历，在线简历应用闪亮登场！",
+          date: "2021-03-15 22:33:54",
+          path: "frontend/markdown-resume.html",
+        },
+        {
           title: "2021前端学习路径书单—自我成长之路",
           date: "2021-02-18 22:33:54",
           path: "frontend/frontend-books.html",
