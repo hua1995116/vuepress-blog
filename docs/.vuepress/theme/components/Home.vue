@@ -46,8 +46,8 @@
       <hr />
       <ul class="friend-link">
         <li>
-          <a href="https://juejin.im/user/5a767928f265da4e78327344"
-            >前端森林 的博客</a
+          <a href="https://resume.mdedit.online/"
+            >木及简历(Markdown就能写出好简历)</a
           >
         </li>
         <!-- 
@@ -80,6 +80,8 @@
         </li>
         <li><a href="https://github.com/hua1995116">github</a></li>
       </ul>
+      <h3>备案号</h3>
+      <a href="https://beian.miit.gov.cn/">浙ICP备16040413号-6</a>
     </aside>
   </div>
 </template>
