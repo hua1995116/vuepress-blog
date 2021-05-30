@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Build
-        run: docs:build
+        run: npm run docs:build
 
       - name: Deploy
         uses: saltbo/uptoc@master
