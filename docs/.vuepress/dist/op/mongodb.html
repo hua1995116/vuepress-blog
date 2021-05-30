@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>MongoDB系列一: Replica Set 集群搭建实战 | 秋风的笔记</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?fd8e413c5ce47d78c95f742fc41a7118";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <meta name="description" content="">
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/css/0.styles.681d3602.css" as="style"><link rel="preload" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/app.f86dc12b.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/3.2e0c4aa0.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/2.bf4393a2.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/100.3c17ab43.js" as="script"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/10.bf58e465.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/101.f88ed724.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/102.43c338b8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/103.1cd00b5f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/104.d93aa90b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/105.151cf664.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/106.5d5a15cf.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/107.39e0eae4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/108.354f25c9.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/109.5152ee0f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/11.2a9395c9.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/110.e0cbc4a3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/111.e563fe38.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/112.4d5c14a7.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/113.e35ed795.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/114.1752e94e.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/115.bfde9f66.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/116.06d14874.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/117.25455305.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/118.4d16c3cd.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/119.6f6ca2bf.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/12.bc7bb01a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/120.6855b2b5.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/121.3a46d621.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/122.4d68e5fb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/123.b4550269.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/124.df229c69.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/125.a1ddaa2f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/126.ceb0b945.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/127.f4ffb74b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/128.61778849.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/129.3ee2ebaf.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/13.22602e21.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/130.40f7782b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/131.67765cc5.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/132.c70c8ec0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/133.d837989d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/134.dbfca130.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/135.32bb5038.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/136.5db86212.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/14.11b602b5.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/15.0ca2bafb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/16.bd95aef3.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/17.55c72098.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/18.d7e8b30d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/19.a8a68b1c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/20.dae385f2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/21.7f6f6790.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/22.fc41ec2d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/23.96f295be.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/24.3b20f352.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/25.87212fed.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/26.9ca88731.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/27.a2a845cb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/28.fb64b1cb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/29.844a02ae.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/30.f5801302.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/31.ef156261.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/32.2cc4514f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/33.e4909ed7.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/34.b5a02fe2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/35.86f8cb82.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/36.40d9f8df.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/37.eaa55cf6.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/38.cf557232.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/39.423455c7.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/4.145bad31.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/40.0b6d6093.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/41.db74d27c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/42.102099cd.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/43.9978001c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/44.5e8b0db8.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/45.57773486.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/46.67801583.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/47.f223a121.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/48.f35e7a81.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/49.f12d1aeb.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/5.dc096b09.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/50.a520038e.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/51.bc1b21ee.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/52.53b26e52.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/53.5bb447cc.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/54.2d01458c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/55.1402fded.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/56.f615e0c9.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/57.5a5de4ca.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/58.979fbd07.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/59.8d1df061.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/6.672abf41.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/60.70ba0e9f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/61.27d54fed.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/62.6a6fc270.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/63.bd2fbdc2.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/64.d4e542c4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/65.4924b1e6.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/66.f1dc9e6b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/67.8dcb7702.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/68.d37a0366.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/69.db07c2dc.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/7.f2a0e05f.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/70.daa90068.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/71.bb1e643b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/72.46af66a0.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/73.900fef21.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/74.50fe6254.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/75.f5e53cba.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/76.773eb961.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/77.ccf68b47.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/78.9a009c0a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/79.874dbf46.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/8.127e672d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/80.52daa176.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/81.d291ed12.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/82.9a65c4f9.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/83.f8afe058.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/84.dfa5e450.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/85.3947ab87.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/86.328c9b69.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/87.34e29254.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/88.53243a2a.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/89.b3d2591b.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/9.37ad33f6.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/90.eeabb001.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/91.4ba82e26.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/92.4a1d77ad.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/93.c8850b29.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/94.69d759c4.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/95.671aa55c.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/96.b8a4162d.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/97.a8dad592.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/98.1c2f9386.js"><link rel="prefetch" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/99.5525e360.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/css/0.styles.681d3602.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">秋风的笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端系列" class="dropdown-title"><span class="title">前端系列</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">js文章</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">react实践</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">vue实践</a></li><li class="dropdown-item"><!----> <a href="/debug/" class="nav-link">debug系列</a></li><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">webpack系列</a></li><li class="dropdown-item"><!----> <a href="/canvas/" class="nav-link">canvas系列</a></li></ul></div></div><div class="nav-item"><a href="/node/" class="nav-link">Node 实践</a></div><div class="nav-item"><a href="/interview/" class="nav-link">面试</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">算法</a></div><div class="nav-item"><a href="/op/" class="nav-link router-link-active">前端运维</a></div><div class="nav-item"><a href="/open/" class="nav-link">我的开源项目</a></div> <a href="https://github.com/hua1995116/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端系列" class="dropdown-title"><span class="title">前端系列</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/frontend/" class="nav-link">js文章</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">react实践</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">vue实践</a></li><li class="dropdown-item"><!----> <a href="/debug/" class="nav-link">debug系列</a></li><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">webpack系列</a></li><li class="dropdown-item"><!----> <a href="/canvas/" class="nav-link">canvas系列</a></li></ul></div></div><div class="nav-item"><a href="/node/" class="nav-link">Node 实践</a></div><div class="nav-item"><a href="/interview/" class="nav-link">面试</a></div><div class="nav-item"><a href="/algorithm/" class="nav-link">算法</a></div><div class="nav-item"><a href="/op/" class="nav-link router-link-active">前端运维</a></div><div class="nav-item"><a href="/open/" class="nav-link">我的开源项目</a></div> <a href="https://github.com/hua1995116/vuepress-blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav> <div style="padding-left:1.5rem;"><div class="qr"><img src="https://s3.qiufengh.com/blog/erweima.jpg" alt="秋风的比较" width="120" height="120" loading="lazy"> <p class="we-intro">
+    如果你对前端，Node，开源项目感兴趣请关注我的公众号<span class="we-highlight">秋风的笔记</span>。
+  </p></div></div> <ul class="sidebar-links"><li><a href="/op/ali-linux.html" class="sidebar-link">阿里云linux服务器配置(node环境)</a></li><li><a href="/op/http2.html" class="sidebar-link">nginx-https升级http2</a></li><li><a href="/op/mongodb.html" aria-current="page" class="active sidebar-link">MongoDB系列一: Replica Set 集群搭建实战</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/op/service-choice.html" class="sidebar-link">国内外服务选购</a></li></ul> </aside> <!----> <!----> <main class="page"><div class="theme-default-content" style="margin-top:3.6rem;padding-top:0;padding-bottom:0;"><div class="bar-container"><div class="bar-intro"><div class="text"><p>阿里云优惠活动，点击链接进行购买: <a href="https://www.aliyun.com/minisite/goods?userCode=qtt5ztpk">一年仅需96.9元即可以购买服务器~ </a></p> <p>腾讯云优惠活动, 点击链接进行购买<a href="https://curl.qcloud.com/mcBHz0hb">一年仅需99元</a></p> <p>腾讯云限时开团活动, 点击链接进行购买<a href="https://cloud.tencent.com/act/cvmgift?hash=K468jiO7GIO6QaYN">一年仅需95元</a></p> <p><a href="/op/service-choice.html">各大服务器厂商对比选购</a></p></div></div></div> <!----></div> <div class="theme-default-content"><div class="content__default"><h1 id="mongodb系列一-replica-set-集群搭建实战"><a href="#mongodb系列一-replica-set-集群搭建实战" class="header-anchor">#</a> MongoDB系列一: Replica Set 集群搭建实战</h1> <p>随着内部产品业务的搭建，单机的mongo已经无法满足生产需求，对于单机迁移、损坏等问题，简单的单机数据备份已经无法满足，因为采用了集群方式来满足容灾以及数据快速恢复等功能，下面我就来讲讲如何搭建集群来避免这些问题。</p> <h3 id="准备工作"><a href="#准备工作" class="header-anchor">#</a> 准备工作</h3> <p>机器信息: 3 台机器</p> <p>mongo1
+mongo2
+mongo3</p> <p>环境: CentOS 6.5</p> <h3 id="采用策略"><a href="#采用策略" class="header-anchor">#</a> 采用策略</h3> <p>Mongo有三种集群方式
+1.Replica Set副本
+2.Sharding分片
+3.Master-slave主备</p> <p>比较常用的为1，2两种方式， 在日后的篇章中将详细介绍两者的区别。</p> <p>当前我们采用的是  Replica Set 搭建方式。这是官方教程，我们会跟着官方教程，以及对官方未说明的一些信息进行补充。https://docs.mongodb.com/manual/tutorial/deploy-replica-set/#overview</p> <h3 id="简述"><a href="#简述" class="header-anchor">#</a> 简述</h3> <p>副本集是一组维护相同数据集的 mongo 实例。副本集包含多个数据节点和一个仲裁节点。在数据承载节点中，只能含有一个主节点，其他节点被视为复制节点。</p> <p><img src="https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg" alt=""></p> <p>复制节点复制主节点的 oplog 并将操作应用于其数据集，使得复制节点成为主节点的一个镜像。 如果主节点停止时候，在复制节点中将会选出新的主节点。</p> <p><img src="https://docs.mongodb.com/manual/_images/replica-set-primary-with-two-secondaries.bakedsvg.svg" alt=""></p> <p>自动故障转移，当主节点与集合中的其他成员通信的时间超过配置的electionTimeoutMillis期间（默认为10秒）时，符合条件的复制节点将会被选举成新主节点。 群集尝试完成新主节点的选举并恢复正常操作。</p> <p><img src="https://docs.mongodb.com/manual/_images/replica-set-trigger-election.bakedsvg.svg" alt=""></p> <p>写操作，默认情况下，客户端从主节点读取， 但是，客户端可以设置从复制节点读取。</p> <p><img src="https://docs.mongodb.com/manual/_images/replica-set-read-preference-secondary.bakedsvg.svg" alt=""></p> <h4 id="特性"><a href="#特性" class="header-anchor">#</a> 特性</h4> <p>优势</p> <p>1.提供容错功能，在主节点故障时，复制节点代替主节点</p> <p>2.数据的快速恢复</p> <p>3.增加节点可提高读能力</p> <p>4.快速横向扩展</p> <p>劣势</p> <p>1.所有写操作都从主节点进行，增加节点无法提高写能力</p> <p>2.每个节点都是完整备份，数据冗余</p> <h3 id="基础搭建"><a href="#基础搭建" class="header-anchor">#</a> 基础搭建</h3> <p>分别在 3 台机器安装 mongo</p> <p>用户权限</p> <p>mongo1</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">cd</span> ~
+
+<span class="token function">wget</span> https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-3.4.6.tgz
+
+<span class="token function">tar</span> zxvf mongodb-linux-x86_64-3.4.6.tgz
+
+<span class="token function">mv</span> mongodb-linux-x86_64-3.4.6 mongodb
+
+<span class="token builtin class-name">cd</span> mongodb
+
+<span class="token function">mkdir</span> data
+<span class="token function">mkdir</span> data/db
+<span class="token function">mkdir</span> data/logs
+
+<span class="token function">touch</span> data/mongodb.log
+
+<span class="token builtin class-name">cd</span> data
+</code></pre></div><p>在这里我们采用配置文件的方式启动，先不配置验证，等设置完用户组后，再进行， 为了安全考虑，我们将修改默认端口，分别使用 8410,8411,8412。  <code>[your replSet name]</code> 改成你自己 replSet 的名字， 例如 <code>rs0</code> (自己取)</p> <div class="language- extra-class"><pre class="language-text"><code>vim mongodb.conf
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#端口号</span>
+port <span class="token operator">=</span> <span class="token number">8410</span>
+<span class="token comment">#集群名字</span>
+replSet <span class="token operator">=</span> <span class="token punctuation">[</span>your replSet name<span class="token punctuation">]</span>
+<span class="token comment">#数据目录(自己刚才设置的位置)</span>
+dbpath <span class="token operator">=</span> ~/mongodb/data/db
+<span class="token comment">#日志目录(自己刚才设置的位置))</span>
+logpath <span class="token operator">=</span> ~/mongodb/data/logs/mongodb.log
+<span class="token comment">#设置后台运行</span>
+fork <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">#日志输出方式</span>
+logappend <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">#开启认证</span>
+<span class="token comment">#auth = true</span>
+<span class="token comment">#安全文件地址</span>
+<span class="token comment">#keyFile = ~/mongodb/data/keyFile</span>
+</code></pre></div><p>启动mongo</p> <div class="language- extra-class"><pre class="language-text"><code>cd ..
+./bin/mongod --config ~/mongodb/data/mongodb.conf
+</code></pre></div><p>mongo2,mongo3 同 mongo1。只需要修改端口, 其他都与 mongo1 一样的步骤。</p> <p>mongo2</p> <p>mongodb.conf</p> <div class="language- extra-class"><pre class="language-text"><code>...
+port = 8411
+...
+</code></pre></div><p>mongo3</p> <p>mongodb.conf</p> <div class="language- extra-class"><pre class="language-text"><code>...
+port = 8412
+...
+</code></pre></div><p>在三台机器都启动好后，我们来到 mongo1 机器。</p> <p>连接 mongodb</p> <div class="language- extra-class"><pre class="language-text"><code>./bin/mongo 127.0.0.1:8410
+</code></pre></div><p>配置集群(mongo1为你的机器地址)</p> <div class="language-shell extra-class"><pre class="language-shell"><code>cfg <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;_id&quot;</span> <span class="token builtin class-name">:</span> <span class="token string">&quot;[your replSet name]&quot;</span>, <span class="token string">&quot;members&quot;</span> <span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">&quot;_id&quot;</span> <span class="token builtin class-name">:</span> <span class="token number">0</span>,<span class="token string">&quot;host&quot;</span> <span class="token builtin class-name">:</span> <span class="token string">&quot;mongo1:8410&quot;</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+rs.initiate<span class="token punctuation">(</span>cfg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>效果如图:
+<img src="https://s3.qiufengh.com/blog/1567682388618.jpg" alt="1567682388618.jpg"></p> <p>运行 <code>rs.status()</code> 查看状态。</p> <p>health: 1 代表正常 0 代表异常， stateStr 为描述主节点或者复制节点。</p> <p><img src="https://s3.qiufengh.com/blog/1567682478469.jpg" alt="1567682478469.jpg"></p> <p>现在我们已经添加了一个主节点了，接下来继续添加剩余的两个节点。</p> <p><img src="https://s3.qiufengh.com/blog/1567682673974.jpg" alt="1567682673974.jpg"></p> <p>运行 <code>rs.status()</code> 查看状态。</p> <p><img src="https://s3.qiufengh.com/blog/1567682754525.jpg" alt="1567682754525.jpg"></p> <p>到现在我们已经完成了我们的集群搭建。</p> <p>接下来我们就要来验证下我们的数据同步问题。</p> <p>继续保持在主节点连接状态。</p> <p>创建一条测试数据。</p> <p><img src="https://s3.qiufengh.com/blog/1567683075113.jpg" alt="1567683075113.jpg"></p> <p>退出我们的主节点连接，连接复制节点。</p> <div class="language- extra-class"><pre class="language-text"><code> ./bin/mongo mongo2:8411
+</code></pre></div><p><img src="https://s3.qiufengh.com/blog/1567683192236.jpg" alt="1567683192236.jpg"></p> <p>发现我们并不能直接查看</p> <p>原因是: mongodb默认是从主节点读写数据的。</p> <p>我们对复制节点进行进行设置。</p> <div class="language- extra-class"><pre class="language-text"><code>db.getMongo().setSlaveOk();
+
+db.test.find();
+
+// { &quot;_id&quot; : ObjectId(&quot;5d70f1f19384bf8d850e2042&quot;), &quot;test&quot; : &quot;123&quot; }
+
+</code></pre></div><p>数据已经从主节点同步过来了。</p> <p>模拟宕机 mongo 故障</p> <p>我们将主节点停止。 (也可以直接kill，但是推荐安全退出)</p> <div class="language-shell extra-class"><pre class="language-shell"><code>./bin/mongo <span class="token number">127.0</span>.0.1:8410
+
+use admin
+
+db.shutdownServer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+</code></pre></div><p>登录我们的复制mongo2来进行查看，确认是否成功迁移了 mongo 。</p> <p>来到mongo2</p> <div class="language- extra-class"><pre class="language-text"><code>./bin/mongo 127.0.0.1:8411
+
+rs.status();
+</code></pre></div><p><img src="https://s3.qiufengh.com/blog/1567683538699.jpg" alt="1567683538699.jpg"></p> <p>可以看到通过选举，mongo2 成功成为主节点。</p> <p>重启 mongo1 ， 连接实例</p> <div class="language- extra-class"><pre class="language-text"><code>cd ~
+
+./bin/mongod --config /opt/meituan/mongodb/data/mongodb.conf
+
+./bin/mongo 127.0.0.1:8410
+
+rs.status();
+</code></pre></div><p><img src="https://s3.qiufengh.com/blog/1567683684469.jpg" alt="1567683684469.jpg"></p> <p>原来的 mongo1 成功地成为了 mongo 2 的复制节点。</p> <p>mongoose 连接测试</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;mongoose&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> uri <span class="token operator">=</span>
+  <span class="token string">&quot;mongodb://mongo1:8410,mongo2:8411,mongo3:8412/test?authSource=admin&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> opts <span class="token operator">=</span> <span class="token punctuation">{</span>
+  poolSize<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  auto_reconnect<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  keepAlive<span class="token operator">:</span> <span class="token number">300000</span><span class="token punctuation">,</span>
+  replicaSet<span class="token operator">:</span> <span class="token string">&quot;banmars&quot;</span><span class="token punctuation">,</span>
+  readPreference<span class="token operator">:</span> <span class="token string">&quot;secondaryPreferred&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+global<span class="token punctuation">.</span>db <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span>uri<span class="token punctuation">,</span> opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+mongoose<span class="token punctuation">.</span>connection <span class="token operator">=</span> global<span class="token punctuation">.</span>db<span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;open&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;dbopen&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre></div><p>到此我们的 mongo 集群已经搭建并且测试完成，然后就拿着集群兴高采烈地去进行使用，但是发现，因为集群到现在没有设置任何安全认证，任意用户可以进行登录修改数据。这可是个大隐患，你的库随时都有被删除的风险。。。这可不好交代，所以我们接下来讲解如何搭建一个安全的 mongodb 环境。</p> <h3 id="安全验证"><a href="#安全验证" class="header-anchor">#</a> 安全验证</h3> <p>首先来到主节点(mongo2，刚才测试的时候 mongo2 成为主节点了)</p> <p>创建管理员用户 (<a href="https://blog.csdn.net/WI_232995/article/details/78881408" target="_blank" rel="noopener noreferrer">权限说明<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>)</p> <p>管理员用户，用来添加用户以及授权</p> <div class="language- extra-class"><pre class="language-text"><code>use admin
+
+db.createUser( {
+ user: &quot;root&quot;,
+ pwd: &quot;root&quot;,
+ roles: [ { role: &quot;userAdminAnyDatabase&quot;, db: &quot;admin&quot; } ]
+});
+</code></pre></div><p>集群管理用户，用来查看集群状态</p> <div class="language- extra-class"><pre class="language-text"><code>db.createUser(
+  {
+    &quot;user&quot; : &quot;cluster&quot;,
+    &quot;pwd&quot; : &quot;cluster&quot;,
+    roles: [ { &quot;role&quot; : &quot;clusterAdmin&quot;, &quot;db&quot; : &quot;admin&quot; } ]
+  }
+)
+</code></pre></div><p>https://docs.mongodb.com/manual/tutorial/deploy-replica-set-with-keyfile-access-control/#deploy-repl-set-with-auth
+查看官网我们可以看到 mongo 采用的是 keyFile 的方式</p> <p>由于一开始我没有采用这个方式，直接采用 auth=true 的方式，导致一直报以下的错误。</p> <div class="language- extra-class"><pre class="language-text"><code>Error in heartbeat request to X.X.X.X:8410; Unauthorized: not authorized on admin to execute command
+</code></pre></div><p>生成 keyFile</p> <div class="language- extra-class"><pre class="language-text"><code>cd ~
+cd mongodb
+openssl rand -base64 756 &gt; data/keyFile
+chmod 400 data/keyFile
+vim data/mongodb.conf
+</code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment">#端口号</span>
+port <span class="token operator">=</span> <span class="token number">8410</span>
+<span class="token comment">#集群名字</span>
+replSet <span class="token operator">=</span> <span class="token punctuation">[</span>your replSet name<span class="token punctuation">]</span>
+<span class="token comment">#数据目录(自己刚才设置的位置)</span>
+dbpath <span class="token operator">=</span> ~/mongodb/data/db
+<span class="token comment">#日志目录(自己刚才设置的位置))</span>
+logpath <span class="token operator">=</span> ~/mongodb/data/logs/mongodb.log
+<span class="token comment">#设置后台运行</span>
+fork <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">#日志输出方式</span>
+logappend <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">#开启认证</span>
+auth <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">#安全文件地址</span>
+keyFile <span class="token operator">=</span> ~/mongodb/data/keyFile
+</code></pre></div><p>将 auth 开启， 指定 keyFile 路径。</p> <p>将 mongo1 停止，再重启。</p> <div class="language- extra-class"><pre class="language-text"><code>./bin/mongo 127.0.0.1:8410
+
+use admin
+
+db.shutdownServer()
+
+./bin/mongod --config ~/mongodb/data/mongodb.conf
+
+</code></pre></div><p>将 mongo1中的 keyFile 文件拷贝到 mongo2 以及 mongo3.</p> <p>这里我采用的是 rsync 方式。</p> <p>所以我们还得配置 ssh。(你也可以采用其他方式，我这里为了后续同步方便采用了 ssh )</p> <p>mongo1</p> <div class="language- extra-class"><pre class="language-text"><code>cd ~/.ssh
+ssh-keygen
+
+一路回车...
+
+cat id_rsa.pub
+
+复制内容
+</code></pre></div><p>mongo2</p> <div class="language- extra-class"><pre class="language-text"><code>cd ~/.ssh/
+
+vim authorized_keys
+
+</code></pre></div><p>将刚才复制的添加最后。</p> <p>mongo3 同 mongo2</p> <p>mongo1</p> <div class="language- extra-class"><pre class="language-text"><code>cd ~/mongodb
+
+rsync -Cavzt ./data/keyFile mongodb02:~/mongodb/data/
+rsync -Cavzt ./data/keyFile mongodb03:~/mongodb/data/
+</code></pre></div><p>分别到mongo2，mongo3，</p> <p>编辑配置文件</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token punctuation">..</span>.
+<span class="token comment">#开启认证</span>
+auth <span class="token operator">=</span> <span class="token boolean">true</span>
+<span class="token comment">#安全文件地址</span>
+keyFile <span class="token operator">=</span> ~/mongodb/data/keyFile
+<span class="token punctuation">..</span>.
+</code></pre></div><p>重启 mongo2,mongo3 上的 mongo实例</p> <p>来到 mongo1</p> <div class="language- extra-class"><pre class="language-text"><code>./bin/mongo 127.0.0.1:8410
+</code></pre></div><p><img src="https://s3.qiufengh.com/blog/1567686047066.jpg" alt="1567686047066.jpg"></p> <p>我们看到通过不验证的方式登录已经无法查看信息了。</p> <p>下面我们用认证方式来进行登录。</p> <div class="language- extra-class"><pre class="language-text"><code>./bin/mongo 127.0.0.1:8410 -u &quot;root&quot; -p &quot;root&quot; --authenticationDatabase &quot;admin&quot;
+</code></pre></div><p><img src="https://s3.qiufengh.com/blog/1567686155667.jpg" alt="1567686155667.jpg"></p> <p>通过认证方式登录已经正常使用了。</p> <p>退出登录，使用集群管理员登录。</p> <div class="language- extra-class"><pre class="language-text"><code>./bin/mongo 127.0.0.1:8410 -u &quot;cluster&quot; -p &quot;cluster&quot; --authenticationDatabase &quot;admin&quot;
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>rs.status();
+</code></pre></div><p><img src="https://s3.qiufengh.com/blog/1567686701852.jpg" alt="1567686701852.jpg"></p> <p>三台机器已经都正常运行了。</p> <p>还记得我们一开始创建的 test 集合吗。</p> <p>我们给它创建一个用户来进行管理。</p> <div class="language- extra-class"><pre class="language-text"><code>db.createUser(
+  {
+    &quot;user&quot; : &quot;test&quot;,
+    &quot;pwd&quot; : &quot;test&quot;,
+    roles: [ { &quot;role&quot; : &quot;read&quot;, &quot;db&quot; : &quot;test&quot; }, { &quot;role&quot; : &quot;readWrite&quot;, &quot;db&quot; : &quot;test&quot; } ]
+  }
+)
+</code></pre></div><p>mongoose 测试</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token keyword">const</span> mongoose <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;mongoose&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> uri <span class="token operator">=</span>
+  <span class="token string">&quot;mongodb://test:test@10.48.172.11:8410,10.48.181.145:8411,10.48.144.74:8412/test?authSource=admin&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> opts <span class="token operator">=</span> <span class="token punctuation">{</span>
+  poolSize<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  auto_reconnect<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  useNewUrlParser<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  keepAlive<span class="token operator">:</span> <span class="token number">300000</span><span class="token punctuation">,</span>
+  replicaSet<span class="token operator">:</span> <span class="token string">&quot;banmars&quot;</span><span class="token punctuation">,</span>
+  readPreference<span class="token operator">:</span> <span class="token string">&quot;secondaryPreferred&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+global<span class="token punctuation">.</span>db <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span>uri<span class="token punctuation">,</span> opts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+mongoose<span class="token punctuation">.</span>connection <span class="token operator">=</span> global<span class="token punctuation">.</span>db<span class="token punctuation">;</span>
+
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;error&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">err</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+db<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;open&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;dbopen&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> Schema <span class="token operator">=</span> mongoose<span class="token punctuation">.</span>Schema<span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> TestSchema <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Schema</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token punctuation">{</span>type<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">var</span> Test <span class="token operator">=</span> mongoose<span class="token punctuation">.</span><span class="token function">model</span><span class="token punctuation">(</span><span class="token string">&quot;test&quot;</span><span class="token punctuation">,</span> TestSchema<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">const</span> testModal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Test</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;123&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  testModal<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> test</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token keyword">return</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>最终效果</p> <p><img src="https://s3.qiufengh.com/blog/1568188107165.jpg" alt="1568188107165.jpg"></p> <p>到此，真正地结束了本教程，我们可以愉快地拿着集群去交代了。。。</p> <p>下期预告</p> <p>MongoDB系列二: Sharded Cluster 集群搭建实战</p> <h3 id="参考"><a href="#参考" class="header-anchor">#</a> 参考</h3> <p>https://blog.csdn.net/WI_232995/article/details/78881408</p> <p>https://docs.mongodb.com/manual/tutorial/deploy-replica-set/#deploy-a-replica-set</p></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">3/29/2020, 11:51:17 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/op/http2.html" class="prev">nginx-https升级http2</a></span> <span class="next"><a href="/op/service-choice.html">国内外服务选购</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/app.f86dc12b.js" defer></script><script src="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/3.2e0c4aa0.js" defer></script><script src="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/2.bf4393a2.js" defer></script><script src="https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/assets/js/100.3c17ab43.js" defer></script>
+  </body>
+</html>

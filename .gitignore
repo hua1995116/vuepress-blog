@@ -47,6 +47,5 @@ Temporary Items
 .apdisk
 node_modules
 happy-file
-docs/.vuepress/dist
 _book
 wx

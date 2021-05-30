@@ -11,23 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: use Node.js 12.16.0
-        # 使用action库  actions/setup-node安装node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.16.0
-      - name: Install
-        run: npm install --production=false
-      - name: Build
-        run: npm run docs:build
-
       - name: Deploy
         uses: saltbo/uptoc@master
         with:
           driver: qiniu
           region: cn-east-2
           bucket: qiufeng-blue
-          exclude: docs/.vuepress/dist/assets
+          exclude: assets
           dist: docs/.vuepress/dist
         env:
           UPTOC_UPLOADER_AK: ${{ secrets.UPTOC_UPLOADER_KEYID }}
