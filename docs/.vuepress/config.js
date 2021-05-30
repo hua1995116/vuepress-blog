@@ -27,7 +27,10 @@ module.exports = {
       alias: {
         '@assets': path.resolve(__dirname, '../assets')
       }
-    }
+    },
+    output: {
+      publicPath: 'https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/'
+    },
   },
   base: '/',
   title: '秋风的笔记',
