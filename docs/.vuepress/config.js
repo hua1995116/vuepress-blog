@@ -29,7 +29,7 @@ module.exports = {
       }
     },
     output: {
-      publicPath: 'https://cdn.jsdelivr.net/gh/hua1995116/vue-press@master/'
+      publicPath: 'https://cdn.jsdelivr.net/gh/hua1995116/vuepress-blog@master/docs/.vuepress/dist/'
     },
   },
   base: '/',
