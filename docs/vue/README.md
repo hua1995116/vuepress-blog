@@ -1,5 +1,9 @@
 # vue
 
+## 最近
+
+[尤大亲自评测 Vue3 和 Svelte(19个组件后Vue更好!)](./svelte-vs-vue3.md)
+
 ## vue 基础
 
 [vue父子组件&继承组件的生命周期以及应用 ](./vue-class.md)

@@ -121,7 +121,8 @@ function resolvePath (relative, base, append) {
  * @param { string } localePath
  * @returns { SidebarGroup }
  */
-export function resolveSidebarItems (page, regularPath, site, localePath) {
+export function resolveSidebarItems(page, regularPath, site, localePath) {
+  debugger;
   const { pages, themeConfig } = site
 
   const localeConfig = localePath && themeConfig.locales

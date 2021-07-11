@@ -111,6 +111,11 @@ export default {
       console.log(this.$site.pages);
       return [
         {
+          title: "尤大亲自评测 Vue3 和 Svelte(19个组件后Vue更好!)",
+          date: "2021-07-11 22:33:54",
+          path: "vue/svelte-vs-vue3.html",
+        },
+        {
           title: "只用 Markdown 就写出好看的简历，在线简历应用闪亮登场！",
           date: "2021-03-15 22:33:54",
           path: "frontend/markdown-resume.html",

@@ -1,5 +1,12 @@
 [
     {
+        "title": "尤大亲自评测 Vue3 和 Svelte(19个组件后Vue更好!)",
+        "date": "2021-07-11 01:04:17",
+        "path": "svelte-vs-vue3",
+        "description": "尤大亲自评测 Vue3 和 Svelte(19个组件后Vue更好!)",
+        "keywords": "vue svelte vue3 size"
+    },
+    {
         "title": "在vue用throttle的最佳实践原理分析",
         "date": "2021-01-25 01:04:17",
         "path": "vue-event-throttle",

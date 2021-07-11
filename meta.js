@@ -29,7 +29,6 @@ function loop(dir) {
                 path: fileName.replace('.md', '')
             })
         }
-        console.log(meta);
         fs.writeFileSync(path.join(dir, 'meta.json'), JSON.stringify(meta));
     }
     dirs.map(item => {

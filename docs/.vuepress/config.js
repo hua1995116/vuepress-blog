@@ -21,6 +21,15 @@ function extendMetaByPath (page, path) {
   }
 }
 
+const outputConfig = {}
+
+if (process.env.NODE_ENV === 'production') {
+  outputConfig.output = {
+    publicPath: 'https://cdn.jsdelivr.net/gh/hua1995116/vuepress-blog@master/docs/.vuepress/dist/'
+  }
+    
+}
+
 module.exports = {
   configureWebpack: {
     resolve: {
@@ -28,9 +37,7 @@ module.exports = {
         '@assets': path.resolve(__dirname, '../assets')
       }
     },
-    output: {
-      publicPath: 'https://cdn.jsdelivr.net/gh/hua1995116/vuepress-blog@master/docs/.vuepress/dist/'
-    },
+    ...outputConfig
   },
   base: '/',
   title: '秋风的笔记',
@@ -49,6 +56,7 @@ module.exports = {
   ],
   themeConfig: {
     repo: 'hua1995116/vuepress-blog',
+    sidebarDepth: 2,
     nav: [
       { text: '主页', link: '/' },
       {
@@ -129,15 +137,15 @@ module.exports = {
           extendMetaByPath($page, 'interview');
           extendMetaByPath($page, 'node/websocket');
         //   // extendMetaByPath($page, 'node')
-          if ($page.path.includes('/post')) {
-            const fm = getFrontMatter($page.path)
-            if (fm) {
-              $page.frontmatter = {
-                ...fm,
-                ...$page.frontmatter
-              }
-            }
-          }
+          // if ($page.path.includes('/post')) {
+          //   const fm = getFrontMatter($page.path)
+          //   if (fm) {
+          //     $page.frontmatter = {
+          //       ...fm,
+          //       ...$page.frontmatter
+          //     }
+          //   }
+          // }
           if ($page.frontmatter.keywords) {
             const meta = $page.frontmatter.meta
             $page.frontmatter.meta = meta ? [
