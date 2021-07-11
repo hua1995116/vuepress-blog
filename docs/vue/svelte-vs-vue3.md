@@ -45,7 +45,7 @@ Vue 大家都很熟悉了，如果你不知道 Svelte 是啥？可以看[后起�
 
    Vue在 SSR 环境下生成的代码是完全相同的，但是引入了一些额外的 `hydration-specific` 运行时代码(~0.89kb min + brotli).
 
-6. 对于每个框架，默认使用 ` Vite` 来创建和打包构建（Svelte 使用 `hyderable: false`）。 每个应用程序也使用支持SSR的设置又一次建立。
+6. 对于每个框架，默认使用 ` Vite` 来创建和打包构建（Svelte 使用 `hyderable: false`）。 每个应用程序同时设置SSR的模式再构建一次。
 
 默认 `Vite` 打包产生一个  vendor chunk（= 框架运行时代码）和一个 index chunk（= 组件代码）。
 
