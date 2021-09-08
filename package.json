@@ -17,7 +17,7 @@
     "vuepress-plugin-feed": "^0.1.8"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "dayjs": "^1.8.23"
   }
 }
