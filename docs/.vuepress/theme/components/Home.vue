@@ -81,7 +81,7 @@
         <li><a href="https://github.com/hua1995116">github</a></li>
       </ul>
       <h3>备案号</h3>
-      <a href="https://beian.miit.gov.cn/">浙ICP备16040413号-6</a>
+      <a href="https://beian.miit.gov.cn/">浙ICP备16040413号-7</a>
     </aside>
   </div>
 </template>

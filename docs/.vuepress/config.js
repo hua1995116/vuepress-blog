@@ -40,7 +40,7 @@ module.exports = {
     ...outputConfig
   },
   base: '/',
-  title: '秋风的笔记',
+  title: '个人技能知识分享',
   description: '',
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
