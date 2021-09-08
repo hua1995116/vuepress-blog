@@ -166,21 +166,21 @@ rs.initiate(cfg);
 ```
 
 效果如图:
-![1567682388618.jpg](https://s3.qiufengh.com/blog/1567682388618.jpg)
+![1567682388618.jpg](https://s3.qiufeng.blue/blog/1567682388618.jpg)
 
 运行 `rs.status()` 查看状态。
 
 health: 1 代表正常 0 代表异常， stateStr 为描述主节点或者复制节点。
 
-![1567682478469.jpg](https://s3.qiufengh.com/blog/1567682478469.jpg)
+![1567682478469.jpg](https://s3.qiufeng.blue/blog/1567682478469.jpg)
 
 现在我们已经添加了一个主节点了，接下来继续添加剩余的两个节点。
 
-![1567682673974.jpg](https://s3.qiufengh.com/blog/1567682673974.jpg)
+![1567682673974.jpg](https://s3.qiufeng.blue/blog/1567682673974.jpg)
 
 运行 `rs.status()` 查看状态。
 
-![1567682754525.jpg](https://s3.qiufengh.com/blog/1567682754525.jpg)
+![1567682754525.jpg](https://s3.qiufeng.blue/blog/1567682754525.jpg)
 
 到现在我们已经完成了我们的集群搭建。
 
@@ -190,14 +190,14 @@ health: 1 代表正常 0 代表异常， stateStr 为描述主节点或者复制
 
 创建一条测试数据。
 
-![1567683075113.jpg](https://s3.qiufengh.com/blog/1567683075113.jpg)
+![1567683075113.jpg](https://s3.qiufeng.blue/blog/1567683075113.jpg)
 
 退出我们的主节点连接，连接复制节点。
 
 ```
  ./bin/mongo mongo2:8411
 ```
-![1567683192236.jpg](https://s3.qiufengh.com/blog/1567683192236.jpg)
+![1567683192236.jpg](https://s3.qiufeng.blue/blog/1567683192236.jpg)
 
 发现我们并不能直接查看
 
@@ -238,7 +238,7 @@ db.shutdownServer()
 rs.status();
 ```
 
-![1567683538699.jpg](https://s3.qiufengh.com/blog/1567683538699.jpg)
+![1567683538699.jpg](https://s3.qiufeng.blue/blog/1567683538699.jpg)
 
 可以看到通过选举，mongo2 成功成为主节点。
 
@@ -255,7 +255,7 @@ cd ~
 rs.status();
 ```
 
-![1567683684469.jpg](https://s3.qiufengh.com/blog/1567683684469.jpg)
+![1567683684469.jpg](https://s3.qiufeng.blue/blog/1567683684469.jpg)
 
 原来的 mongo1 成功地成为了 mongo 2 的复制节点。
 
@@ -432,7 +432,7 @@ keyFile = ~/mongodb/data/keyFile
 ```
 ./bin/mongo 127.0.0.1:8410
 ```
-![1567686047066.jpg](https://s3.qiufengh.com/blog/1567686047066.jpg)
+![1567686047066.jpg](https://s3.qiufeng.blue/blog/1567686047066.jpg)
 
 我们看到通过不验证的方式登录已经无法查看信息了。
 
@@ -441,7 +441,7 @@ keyFile = ~/mongodb/data/keyFile
 ./bin/mongo 127.0.0.1:8410 -u "root" -p "root" --authenticationDatabase "admin"
 ```
 
-![1567686155667.jpg](https://s3.qiufengh.com/blog/1567686155667.jpg)
+![1567686155667.jpg](https://s3.qiufeng.blue/blog/1567686155667.jpg)
 
 通过认证方式登录已经正常使用了。
 
@@ -454,7 +454,7 @@ keyFile = ~/mongodb/data/keyFile
 ```
 rs.status();
 ```
-![1567686701852.jpg](https://s3.qiufengh.com/blog/1567686701852.jpg)
+![1567686701852.jpg](https://s3.qiufeng.blue/blog/1567686701852.jpg)
 
 三台机器已经都正常运行了。
 
@@ -515,7 +515,7 @@ db.on("open", function() {
 ```
 最终效果
 
-![1568188107165.jpg](https://s3.qiufengh.com/blog/1568188107165.jpg)
+![1568188107165.jpg](https://s3.qiufeng.blue/blog/1568188107165.jpg)
 
 到此，真正地结束了本教程，我们可以愉快地拿着集群去交代了。。。
 

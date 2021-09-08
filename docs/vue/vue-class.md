@@ -65,7 +65,7 @@ export default {
 </script>
 ```
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284835.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284835.jpg)
 
 我们从而可以得出结论。
 父子组件的执行顺序为，
@@ -134,7 +134,7 @@ export default {
 </script>
 ```
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284597.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284597.jpg)
 
 可以看到生命周期是交替执行的。
 ## 应用
@@ -179,7 +179,7 @@ export default {
 </script>
 ```
 结果
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285241.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285241.jpg)
 
 
 这样有什么好处呢，我们可以更加关注组件编写的方法的过程，不必重复去定义一些生命周期，在一个父组件中统一分发了，这样在一个庞大的项目中，我们就可以更加愉快的编写代码了。整个逻辑也更加清晰。

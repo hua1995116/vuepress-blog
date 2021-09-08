@@ -8,7 +8,7 @@
 
 [Markdown Preview Github Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles)
 
-![](https://s3.qiufengh.com/blog/1568533451215.png)
+![](https://s3.qiufeng.blue/blog/1568533451215.png)
 
 # 图片自动工具
 
@@ -18,7 +18,7 @@
 
 支持截图上传，本地上传等方式直接转化成线上地址，无需手动在图床上传再来回粘贴。
 
-![](https://s3.qiufengh.com/blog/1568533450833.gif)
+![](https://s3.qiufeng.blue/blog/1568533450833.gif)
 
 # 录制 Gif 工具
 
@@ -26,7 +26,7 @@
 
 这是一款高颜而且高质量的 Gif 生成工具, 一般生成的 gif 只有几百 k。 我[这篇文章](https://juejin.im/post/5c4454146fb9a04a0164a289)基本上的 gif 图只有 100k 左右。
 
-![](https://s3.qiufengh.com/blog/1568533450950.png)
+![](https://s3.qiufeng.blue/blog/1568533450950.png)
 
 # 目录以及快捷键
 
@@ -36,7 +36,7 @@
 
 按下 shift + command + p 可以查看。
 
-![1548070992634.jpg](https://s3.qiufengh.com/blog/1568533450911.jpg)
+![1548070992634.jpg](https://s3.qiufeng.blue/blog/1568533450911.jpg)
 
 
 
@@ -58,7 +58,7 @@ qq/微信自带的快捷功能即可。
 
 当然如果你想要这种高大上的截图，带阴影的。
 
-![linec1](https://s3.qiufengh.com/blog/1568533450896.png)
+![linec1](https://s3.qiufeng.blue/blog/1568533450896.png)
 
 这个其实是 Mac 自带的功能。
 
@@ -81,12 +81,12 @@ Command + Shift + 4 + Spacebar
 
 代码的阴影: https://carbon.now.sh/ （装 X 必备）
 
-![code-github.png](https://s3.qiufengh.com/blog/1568533451280.png)
+![code-github.png](https://s3.qiufeng.blue/blog/1568533451280.png)
 
 
 # 移动端套壳
 
-![1548073669419.jpg](https://s3.qiufengh.com/blog/1568533450937.jpg)
+![1548073669419.jpg](https://s3.qiufeng.blue/blog/1568533450937.jpg)
 
 Android、iOS、Window各种壳。
 
@@ -94,7 +94,7 @@ https://mockuphone.com/
 
 生成的图片较大, 这张图约为1.7M。所以需要后面的图片压缩。
 
-![iphonex_landscape.png](https://s3.qiufengh.com/blog/1568533451144.png)
+![iphonex_landscape.png](https://s3.qiufeng.blue/blog/1568533451144.png)
 
 
 
@@ -102,7 +102,7 @@ https://mockuphone.com/
 
 [Tinypng](https://tinypng.com/)  可以看到效果巨明显。
 
-![1548073057845.jpg](https://s3.qiufengh.com/blog/1568533450939.jpg)
+![1548073057845.jpg](https://s3.qiufeng.blue/blog/1568533450939.jpg)
 
 
 # 写到最后
@@ -121,4 +121,4 @@ https://www.ifanr.com/app/546621
 
 # 更多请关注
 
-![](https://s3.qiufengh.com/blog/erweima.jpg)
+![](https://s3.qiufeng.blue/blog/erweima.jpg)

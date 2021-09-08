@@ -103,10 +103,10 @@ function downloadImg(photos, dir, asyncNum) {
 }
 ```
 测试：
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284375.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284375.png)
 
 可以感觉到速度还是比较快的。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284534.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284534.png)
 
 完整地址。https://github.com/hua1995116/node-crawler/
 

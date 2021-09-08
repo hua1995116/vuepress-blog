@@ -36,11 +36,11 @@
 
 先不看结果，思考一下。
 
-![image-20210521001552341](https://s3.qiufengh.com/blog/image-20210521001552341.png)
+![image-20210521001552341](https://s3.qiufeng.blue/blog/image-20210521001552341.png)
 
 然后我们来看看结果
 
-![2021-05-21-00.14.55](https://s3.qiufengh.com/blog/2021-05-21-00.14.55.gif)
+![2021-05-21-00.14.55](https://s3.qiufeng.blue/blog/2021-05-21-00.14.55.gif)
 
 对于绝大多数前端老鸟来说，会脱口而出地说出以下顺序。
 
@@ -55,11 +55,11 @@ bubble div
 
 但是不管是MDN，还是网上大多数的教程而言说的都是这个顺序。
 
-![image-20210521002720918](https://s3.qiufengh.com/blog/image-20210521002720918.png)
+![image-20210521002720918](https://s3.qiufeng.blue/blog/image-20210521002720918.png)
 
-![image-20210523200131631](https://s3.qiufengh.com/blog/image-20210523200131631.png)
+![image-20210523200131631](https://s3.qiufeng.blue/blog/image-20210523200131631.png)
 
-![image-20210521002556311](https://s3.qiufengh.com/blog/image-20210521002556311.png)
+![image-20210521002556311](https://s3.qiufeng.blue/blog/image-20210521002556311.png)
 
 对于这个现象，我感到很迷惑，我依稀记得，在几个月前，Chrome 还不是这样的行为，盲猜是不是因为 Chrome 版本的问题呢？
 
@@ -67,33 +67,33 @@ bubble div
 
 因此我找了个 Chrome 版本为 84.0.4109.0 进行测试。
 
-![image-20210523200535044](https://s3.qiufengh.com/blog/image-20210523200535044.png)
+![image-20210523200535044](https://s3.qiufeng.blue/blog/image-20210523200535044.png)
 
 果然是版本的问题，但是事情的追踪依然很难，由于搜索了规范以及查了谷歌上的一些资料，并没有很好地帮助我解决这个疑惑，我不确定是因为 Chrome 引入的 bug 还是出现了什么问题。
 
 因此我就向 chromium 报告了这个问题。
 
-![image-20210523200757839](https://s3.qiufengh.com/blog/image-20210523200757839.png)
+![image-20210523200757839](https://s3.qiufeng.blue/blog/image-20210523200757839.png)
 
 最终在 Chrome 开发人员的帮助下，找到了这两个讨论
 
  https://github.com/whatwg/dom/issues/685
 
-![image-20210523200912482](https://s3.qiufengh.com/blog/image-20210523200912482.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210523200912482](https://s3.qiufeng.blue/blog/image-20210523200912482.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 https://github.com/whatwg/dom/issues/746
 
-![image-20210523201105578](https://s3.qiufengh.com/blog/image-20210523201105578.png)
+![image-20210523201105578](https://s3.qiufeng.blue/blog/image-20210523201105578.png)
 
 在上述 issues 中可以看到， 起因是在 https://bugs.webkit.org/show_bug.cgi?id=174288 中，有人指出，在 webkit 中当前的事件模型，会导致含有 Shadow DOM 的情况下，子元素的捕获事件会优先于父元素的捕获事件触发。
 
-![image-20210523194802633](https://s3.qiufengh.com/blog/image-20210523194802633.png)
+![image-20210523194802633](https://s3.qiufeng.blue/blog/image-20210523194802633.png)
 
 而在旧模型中，一旦达到 AT_TARGET ，所有注册的监听器就将按照顺序被触发，而不管他们是否被标记为捕获。由于 Shadow DOM 会创建多个 targets ，导致了事件执行顺序的错误。
 
 而上述问题在 Gecko （Mozilla Firefox 的排版引擎）却运行正常（先捕获再冒泡）。为此 [whatwg](https://github.com/whatwg) 提出了一个新的模型结构来解决这个问题。
 
-![image-20210523195228563](https://s3.qiufengh.com/blog/image-20210523195228563.png)
+![image-20210523195228563](https://s3.qiufeng.blue/blog/image-20210523195228563.png)
 
 ## 结论
 

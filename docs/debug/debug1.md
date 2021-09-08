@@ -38,7 +38,7 @@ Chrome: 版本 72.0.3626.81（正式版本） （64 位）
 
 4.点击 `Add Number 1 and Number 2`。 按钮下方的标签显示` 5 + 1 = 51`。 结果应为 6。 这就是我们需要修正的问题。
 
-![2019-02-14-01.png](https://s3.qiufengh.com/blog/2019-02-14-01.png)
+![2019-02-14-01.png](https://s3.qiufeng.blue/blog/2019-02-14-01.png)
 
 
 ## 界面
@@ -46,10 +46,10 @@ Chrome: 版本 72.0.3626.81（正式版本） （64 位）
 第 1 步：重现错误
 
 1.通过按` Command+Option+I (Mac)` 或 `Control+Shift+I（Windows、Linux）`，打开 DevTools。 此快捷方式可打开 `Console` 面板。
-![2019-02-14-02.png](https://s3.qiufengh.com/blog/2019-02-14-02.png)
+![2019-02-14-02.png](https://s3.qiufeng.blue/blog/2019-02-14-02.png)
 
 2.点击 Sources 标签。
-![2019-02-14-03.png](https://s3.qiufengh.com/blog/2019-02-14-03.png)
+![2019-02-14-03.png](https://s3.qiufeng.blue/blog/2019-02-14-03.png)
 
 
 
@@ -68,7 +68,7 @@ function onClick() {
 
 
 
-![2019-02-14-04.png](https://s3.qiufengh.com/blog/2019-02-14-04.png)
+![2019-02-14-04.png](https://s3.qiufeng.blue/blog/2019-02-14-04.png)
 
 
 ## 单步调试代码
@@ -94,7 +94,7 @@ label.textContent = addend1 + ' + ' + addend2 + ' = ' + sum;
 在这行代码的左侧，您可以看到这行代码的行号是 **32**。 点击 **32**。 DevTools 会在 **32** 上方放置一个蓝色图标。 这意味着这行代码上有一个代码行断点。 DevTools 现在始终会在执行此行代码之前暂停。
 
 点击 **Resume script execution** 继续执行脚本 。 脚本将继续执行，直到第 32 行。 在第 29 行、第 30 行和第 31 行上，DevTools 会在各行分号右侧输出 `addend1`、`addend2` 和 `sum` 的值。
-![2019-02-14-05.png](https://s3.qiufengh.com/blog/2019-02-14-05.png)
+![2019-02-14-05.png](https://s3.qiufeng.blue/blog/2019-02-14-05.png)
 
 ## 检查变量值
 `addend1`、`addend2` 和 `sum` 的值疑似有问题。 这些值位于引号中，这意味着它们是字符串。 这个假设有助于说明错误的原因。 现在可以收集更多信息。 DevTools 可提供许多用于检查变量值的工具。
@@ -102,7 +102,7 @@ label.textContent = addend1 + ' + ' + addend2 + ' = ' + sum;
 方法 1：Scope 窗格
 在某代码行暂停时，**Scope** 窗格会显示当前定义的局部和全局变量，以及各变量值。 其中还会显示闭包变量（如果适用）。 双击变量值可进行编辑。 如果不在任何代码行暂停，则 **Scope** 窗格为空。
 
-![2019-02-14-06.png](https://s3.qiufengh.com/blog/2019-02-14-06.png)
+![2019-02-14-06.png](https://s3.qiufeng.blue/blog/2019-02-14-06.png)
 
 方法 2：监视表达式
 **Watch Expressions** 标签可让您监视变量值随时间变化的情况。 顾名思义，监视表达式不仅限于监视变量。 您可以将任何有效的 JavaScript 表达式存储在监视表达式中。 立即尝试：
@@ -112,7 +112,7 @@ label.textContent = addend1 + ' + ' + addend2 + ' = ' + sum;
 输入 `typeof sum`。
 按 `Enter` 键。 DevTools 会显示 `typeof sum: "string"`。 冒号右侧的值就是监视表达式的结果。
 
-![2019-02-14-07.png](https://s3.qiufengh.com/blog/2019-02-14-07.png)
+![2019-02-14-07.png](https://s3.qiufeng.blue/blog/2019-02-14-07.png)
 
 正如猜想，sum 的求值结果本应是数字，而实际结果却是字符串。 现在已确定这就是错误的原因。
 
@@ -123,7 +123,7 @@ label.textContent = addend1 + ' + ' + addend2 + ' = ' + sum;
 在 Console 中，输入 `parseInt(addend1) + parseInt(addend2)`。 此语句有效，因为您会在特定代码行暂停，其中 `addend1` 和 `addend2` 在范围内。
 按 `Enter` 键。 DevTools 对语句求值并打印输出 `6`，即您预计演示页面会产生的结果。
 
-![2019-02-14-08.png](https://s3.qiufengh.com/blog/2019-02-14-08.png)
+![2019-02-14-08.png](https://s3.qiufeng.blue/blog/2019-02-14-08.png)
 
 ## 应用修正方法
 您已找到修正错误的方法。 接下来就是尝试通过编辑代码并重新运行演示来使用修正方法。 您不必离开 DevTools 就能应用修正。 您可以直接在 DevTools UI 内编辑 JavaScript 代码。 立即尝试：
@@ -338,25 +338,25 @@ Fetch 源代码时，这类断点很有用。
 
 demo: http://yifenghua.win/example/debugger/demo2.html
 
-![2019-02-16-01.png](https://s3.qiufengh.com/blog/2019-02-16-01.png)
+![2019-02-16-01.png](https://s3.qiufeng.blue/blog/2019-02-16-01.png)
 
 ## Hover
 
 单纯的 hover 属性我们只需要找到触发的元素。在这里是我们 button。所以我们在 elements 中找到我们对应的 hover 元素。右键-> force state -> :hover
 
-![Kapture2019-02-16-01.gif](https://s3.qiufengh.com/blog/Kapture2019-02-16-01.gif)
+![Kapture2019-02-16-01.gif](https://s3.qiufeng.blue/blog/Kapture2019-02-16-01.gif)
 
 # Mouse inner
 
 如果是通过 mouse （鼠标事件来触发的）并且触发元素是写在触发元素内的情况。可以通过在当前触发元素。右键 -> Break on -> subtree modifications。 然后再次触发，选择跳过断点。就可以使得元素出现。
 
-![Kapture2019-02-16-02.gif](https://s3.qiufengh.com/blog/Kapture2019-02-16-02.gif)
+![Kapture2019-02-16-02.gif](https://s3.qiufeng.blue/blog/Kapture2019-02-16-02.gif)
 
 
 # Mouse outer
 如果是通过 mouse （鼠标事件来触发的）并且触发元素是写在触发元素外的情况。可以通过断点触发来阻断。（此方法也兼容 mouser inner 的情况）。当触发元素的时候按下 `F8 (Windwos)` / `command + \  (Mac)`
 
-![Kapture2019-02-16-03.gif](https://s3.qiufengh.com/blog/Kapture2019-02-16-03.gif)
+![Kapture2019-02-16-03.gif](https://s3.qiufeng.blue/blog/Kapture2019-02-16-03.gif)
 
 
 # 参考文献
@@ -367,4 +367,4 @@ https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints?h
 
 友情链接： https://huayifeng.top/
 
-![](https://s3.qiufengh.com/blog/erweima.jpg)
+![](https://s3.qiufeng.blue/blog/erweima.jpg)

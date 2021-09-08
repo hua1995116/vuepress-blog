@@ -6,7 +6,7 @@
 
 其实我的第一批读者很多是来源于这个项目，但是我也将近一年没有更新了它。
 
-![](https://s3.qiufengh.com/blog/image-20210118000412647.png)
+![](https://s3.qiufeng.blue/blog/image-20210118000412647.png)
 
 2020 年接触的技术太杂了，Electron、React Native、Serverless、Three.js、VR、Nginx、Vue、React... 迷茫着一直想要接触更多的技术，去探索更多的知识。
 

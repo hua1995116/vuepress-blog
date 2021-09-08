@@ -185,7 +185,7 @@ function App() {
 
 我这么讲，你可能有点晕。但是没有关系，可以看图。
 
-![event-mouse.png](https://s3.qiufengh.com/blog/event-mouse.png)
+![event-mouse.png](https://s3.qiufeng.blue/blog/event-mouse.png)
 
 
 我之所以花费这么长的篇幅来讲解这个 `onMouseMove` 实际使用中的样子，就是想让你明白，千万不要被 class 的模式给误导了。不是说 `onMouseMove` 更新了，事件监听的回调函数也改变了。事件监听中的 `onMouseMove` 始终是我们第一次渲染的样子，（也就是 `isTag` 为 `false` 的样子）不会因为后面的变化去改变。
@@ -243,7 +243,7 @@ function App() {
 
 我们来看看现在事件的绑定中 回调函数的指向。每当 `isTag`  变化后，都会触发回调函数的更新。使得每次我们触发的 `onMouseMove` 都是最新的。
 
-![render-mouse-new.png](https://s3.qiufengh.com/blog/render-mouse-new.png)
+![render-mouse-new.png](https://s3.qiufeng.blue/blog/render-mouse-new.png)
 
 但是我们发现，我们点击移动的时候，不管怎么移动 count 只会增加 1。因为我们在添加依赖的时候，还需要对 count 也进行观察，因为每次 count 值变化，我们也得去更新绑定事件。
 
@@ -358,7 +358,7 @@ function App() {
 }
 ```
 
-![1570364096642.jpg](https://s3.qiufengh.com/blog/1570364096642.jpg)
+![1570364096642.jpg](https://s3.qiufeng.blue/blog/1570364096642.jpg)
 
 ## 缘灭
 

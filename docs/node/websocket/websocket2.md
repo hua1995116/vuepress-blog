@@ -167,5 +167,5 @@ app.post('/file/uploadimg', function (req, res, next) {
 如果对于上传有问题可以看这个[axios上传formdata失败以及nodejs接受formdata失败](http://blog.csdn.net/blueblueskyhua/article/details/73178204)
 
 效果图
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284730.png)
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284731.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284730.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284731.png)

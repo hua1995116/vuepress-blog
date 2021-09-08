@@ -425,7 +425,7 @@ console.log(utils.arrayUnique(array));
 
 `Tree shaking` 和 没有`Tree shaking` 打包对比。
 
-![1581857899385.jpg](https://s3.qiufengh.com/blog/1581857899385.jpg)
+![1581857899385.jpg](https://s3.qiufeng.blue/blog/1581857899385.jpg)
 
 没有 Tree-shaking 的情况下，会将 utils 中的所有文件都进行打包，使得体积暴增。
 
@@ -506,4 +506,4 @@ http://huangxuan.me/js-module-7day/#/13
 https://www.jianshu.com/p/6c26fb7541f1
 
 ## 关注 
-![gongzhonghao.png](https://s3.qiufengh.com/blog/gongzhonghao.png)
+![gongzhonghao.png](https://s3.qiufeng.blue/blog/gongzhonghao.png)

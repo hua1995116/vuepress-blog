@@ -53,7 +53,7 @@ console.info(new Number(b).toString());
 总结以上，所以，js基础类型确实和引用类型没有关系！没有关系！让他们发生关系的是！类型转化。（因为js自身原因，强行让他们发生了关系）。并且基础类型没有方法，没有属性。
 
 
-![](https://s3.qiufengh.com/blog/1568533450478.png)
+![](https://s3.qiufeng.blue/blog/1568533450478.png)
 
 所以我觉得那句，js万物皆对象，真的有点坑人。
 
@@ -63,20 +63,20 @@ console.info(new Number(b).toString());
 
 
 
-![](https://s3.qiufengh.com/blog/1568533450474.png)
+![](https://s3.qiufeng.blue/blog/1568533450474.png)
 
 以上就是我整理的关系以及引用类型的原型链走向。
 
 提示（有些不太明白同学可能会误会）：
 
 （我把Date，Number，Boolean，String归类到了Function。而刚才不是说原型链上是Objec.prototype么，那是你要搞清楚方法和new 方法()，方法通过new对象就变成了Object。下面也进行一些证明）  
-![](https://s3.qiufengh.com/blog/1568533450397.png)
+![](https://s3.qiufeng.blue/blog/1568533450397.png)
 
 
-![](https://s3.qiufengh.com/blog/1568533450469.png)
+![](https://s3.qiufeng.blue/blog/1568533450469.png)
 
 
-![](https://s3.qiufengh.com/blog/1568533450470.png)
+![](https://s3.qiufeng.blue/blog/1568533450470.png)
 
 
 

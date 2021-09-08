@@ -4,9 +4,9 @@
 前段时间有做过一个关于节点操作的排序问题，
 [http://blog.csdn.net/blueblueskyhua/article/details/68929578](http://blog.csdn.net/blueblueskyhua/article/details/68929578)
 今天就node类型，进行详细的讲解。首先看下他的兼容性。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284759.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284759.png)
 node共有12类型。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284764.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284764.png)
 类型详情可以参考[http://www.w3school.com.cn/jsref/prop_node_nodetype.asp](http://www.w3school.com.cn/jsref/prop_node_nodetype.asp)
 **1.nodeValue和nodeName**
 其中最常用的就是1和3，那今天我们就1和3来展开讲解，了解节点的属性主要有nodeValue和nodeName两个属性。分别获取节点类型和节点的名字。
@@ -38,7 +38,7 @@ function ToArray(nodes){
 通过转化成数组，可以进行一些常见的操作，例如表单排序，删除等操作。
 下面用一张图讲解一些关于node的父子兄弟节点的关系。
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286331.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286331.jpg)
 
 **3.操作节点**
 appendChild，用于向childeNodes的尾部追加一个节点。
@@ -57,9 +57,9 @@ appendChild，用于向childeNodes的尾部追加一个节点。
 </script>
 ```
 追加前
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284398.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284398.png)
 追加后
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284907.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284907.png)
 
 insertBefore，接受两个参数：要插入的节点和参照的节点。
 

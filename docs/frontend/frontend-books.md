@@ -4,7 +4,7 @@
 
 以下大部分是我看过的，或者说身边的人推荐的书籍，每一本我都有些相关的推荐语，如果你有看到更好的书欢迎推荐呀。
 
-![前端学习书籍导图-1](https://s3.qiufengh.com/blog/前端学习书籍导图-1.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![前端学习书籍导图-1](https://s3.qiufeng.blue/blog/前端学习书籍导图-1.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 ## JS
 
@@ -208,6 +208,6 @@ webpack经过几个飞速的迭代，webpack3x和4x的插件机制就不一样�
 
 为了证明以上大部分书我确实都是自己读过才推荐的，晒一下我的书柜（像你不知道的JS以及深入React技术栈在毕业的时候送给实验室小伙伴了，还有一些看的电子书~）
 
-![](https://s3.qiufengh.com/blog/IMG_1393-1.jpeg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![](https://s3.qiufeng.blue/blog/IMG_1393-1.jpeg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-![IMG_1394](https://s3.qiufengh.com/blog/IMG_1394.JPG?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![IMG_1394](https://s3.qiufeng.blue/blog/IMG_1394.JPG?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)

@@ -98,7 +98,7 @@ Gihtub: [https://github.com/hua1995116](https://github.com/hua1995116)
 
 基于以上`Markdown` 便能快速生成以下的模板样式，并且能够导出 Markdown + pdf。
 
-![](https://s3.qiufengh.com/blog/image-20210315003811485.png)
+![](https://s3.qiufeng.blue/blog/image-20210315003811485.png)
 
 **但是需要注意的是，由于模板的限制，需要大家写出规范的标题层级。**
 
@@ -126,15 +126,15 @@ Gihtub: [https://github.com/hua1995116](https://github.com/hua1995116)
 
 本项目提供了默认的4种方式供大家来进行选择，后续也会推出更多的模板。
 
-![](https://s3.qiufengh.com/blog/image-20210315004555255.png)
+![](https://s3.qiufeng.blue/blog/image-20210315004555255.png)
 
 ### 主题色更换
 
 不仅我们能更换模板，当含有`可换色`的模板中，还可以更换模板整体的主题色。
 
-<img src="https://s3.qiufengh.com/blog/image-20210315000636862.png" width="300">
+<img src="https://s3.qiufeng.blue/blog/image-20210315000636862.png" width="300">
 
-![](https://s3.qiufengh.com/blog/image-20210315000619789.png)
+![](https://s3.qiufeng.blue/blog/image-20210315000619789.png)
 
 更换一下主题色是不是也是非常好看呢？
 
@@ -142,7 +142,7 @@ Gihtub: [https://github.com/hua1995116](https://github.com/hua1995116)
 
 为了能够突破传统 `Markdown` 的纵向的布局方式，引入了自定义容器，该方案的灵感来源于` vuepress`。
 
-<img src="https://s3.qiufengh.com/blog/image-20210314235147407.png" alt="image-20210314235147407" style="zoom: 25%;" />
+<img src="https://s3.qiufeng.blue/blog/image-20210314235147407.png" alt="image-20210314235147407" style="zoom: 25%;" />
 
 在我们的编辑器中，使用左右容器对，就能轻松实现左右布局的方式。
 
@@ -155,11 +155,11 @@ xxx
 :::
 ```
 
-![](https://s3.qiufengh.com/blog/WechatIMG30782.png)
+![](https://s3.qiufeng.blue/blog/WechatIMG30782.png)
 
 ### 丰富的icon
 
-![](https://s3.qiufengh.com/blog/image-20210315000047285.png)
+![](https://s3.qiufeng.blue/blog/image-20210315000047285.png)
 
 目前支持了一些图标的快捷写法，帮助大家能够，能够帮助大家放上好看 icon，来美化自己的简历。
 
@@ -175,7 +175,7 @@ xxx
 icon:weixin qiufengblue
 ```
 
-![](https://s3.qiufengh.com/blog/image-20210315000132262.png)
+![](https://s3.qiufeng.blue/blog/image-20210315000132262.png)
 
 ### 自定义html
 
@@ -206,11 +206,11 @@ icon:weixin qiufengblue
 :::
 ```
 
-![](https://s3.qiufengh.com/blog/image-20210314235535988.png)
+![](https://s3.qiufeng.blue/blog/image-20210314235535988.png)
 
 你也可以把这张图片放到任意你喜欢的位置。
 
-![](https://s3.qiufengh.com/blog/image-20210314235944581.png)
+![](https://s3.qiufeng.blue/blog/image-20210314235944581.png)
 
 #### 自定义标签
 
@@ -220,7 +220,7 @@ icon:weixin qiufengblue
 <span style="background: #ddd; padding: 5px">前端</span>
 ```
 
-<img src="https://s3.qiufengh.com/blog/image-20210315011330476.png" />
+<img src="https://s3.qiufeng.blue/blog/image-20210315011330476.png" />
 
 ### 导出方式
 

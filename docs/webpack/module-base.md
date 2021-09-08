@@ -4,7 +4,7 @@
 
 提到 webpack，可以说是与我们的开发工程非常密切的工具，不管是日常开发、进行面试还是对于自我的提高，都离不开它，因为它给我们的开发带了极大的便利以及学习的价值。但是由于webpack是一个非常庞大的工程体系，使得我们望之却步。本文想以这种图解的形式能够将它慢慢地剥开一层一层复杂的面纱，最终露出它的真面目。以下是我列出的关于 webpack 相关的体系。
 
-![webpack-2](https://s3.qiufengh.com/blog/webpack-2.svg)
+![webpack-2](https://s3.qiufeng.blue/blog/webpack-2.svg)
 
 本文讲的是  `打包 - CommonJS`  模块，主要分为两个部分
 
@@ -28,7 +28,7 @@
 
 举个例子（仅仅为例子说明，实际工程会比以下复杂许多），一开始我们的 user1 写了一下几个模块，跑起来非常的顺畅。
 
-![image-20200626231748187](https://s3.qiufengh.com/blog/image-20200626231748187.png)
+![image-20200626231748187](https://s3.qiufeng.blue/blog/image-20200626231748187.png)
 
 ```bash
 ├── bar.js    function bar(){}
@@ -48,13 +48,13 @@
 
 但是呢这个时候，老板来找 user2 了，为什么增加了新业务后，原来的业务出错了呢？这个时候发现原来是 user2 写的新模块覆盖了 user1 的模块，从而导致了这场事故。
 
-![image-20200626220806881](https://s3.qiufengh.com/blog/image-20200626220806881.png)
+![image-20200626220806881](https://s3.qiufeng.blue/blog/image-20200626220806881.png)
 
 因此，当我们开发的时候将所有的模块都暴露在全局的时候，想要避免错误，一切都得非常的小心翼翼，我们很容易在不知情的偷偷覆盖我们以前定义的函数，从而酿成错误。
 
 因此 webpack 带来的第一个核心作用就是隔离，将每个模块通过闭包的形式包裹成一个个新的模块，将其放于局部作用域，所有的函数声明都不会直接暴露在全局。
 
-![image-20200626220851909](https://s3.qiufengh.com/blog/image-20200626220851909.png)
+![image-20200626220851909](https://s3.qiufeng.blue/blog/image-20200626220851909.png)
 
 原来我们调用的 是 foo 函数，但是 webpack 会帮我们生成独一无二的模块ID，完全不需要担心模块的冲突，现在可以愉快地书写代码啦。
 
@@ -75,7 +75,7 @@ fooBaz();
 
 可能你说会之前的方式也可以通过改变函数命名的方式，但是原来的作用范围是整个工程，你得保证，当前命名在整个工程中不冲突，现在，你只需要保证的是单个文件中命名不冲突。(对于顶层依赖也是非常容易发现冲突)
 
-![image-20200627140818771](https://s3.qiufengh.com/blog/image-20200627140818771.png)
+![image-20200627140818771](https://s3.qiufeng.blue/blog/image-20200627140818771.png)
 
 ### 模块依赖加载
 
@@ -83,7 +83,7 @@ fooBaz();
 
 User1 现在写了3个模块，其中 baz 是依赖于 bar 的。
 
-![image-20200627000240836](https://s3.qiufengh.com/blog/image-20200627000240836.png)
+![image-20200627000240836](https://s3.qiufeng.blue/blog/image-20200627000240836.png)
 
 写完后 user1 进行了上线，利用了顺序来指出了依赖关系。
 
@@ -95,7 +95,7 @@ User1 现在写了3个模块，其中 baz 是依赖于 bar 的。
 
 可是过了不久 user2 又接手了这个业务。user 2 发现，他开发的 abc 模块，通过依赖 bar 模块，可以进行快速地开发。可是 粗心的 user2  不太明白依赖关系。竟然将 abc 的位置随意写了一下，这就导致 运行 abc 的时候，无法找到 bar 模块。
 
-![image-20200627000713100](https://s3.qiufengh.com/blog/image-20200627000713100.png)
+![image-20200627000713100](https://s3.qiufeng.blue/blog/image-20200627000713100.png)
 
 ```
 <script src="./abc.js"></script>
@@ -128,7 +128,7 @@ module.exports = function baz (){
 <script src="./bundle.js"></script>
 ```
 
-![image-20200627003815071](https://s3.qiufengh.com/blog/image-20200627003815071.png)
+![image-20200627003815071](https://s3.qiufeng.blue/blog/image-20200627003815071.png)
 
 ## webpack 的模块化机制与实现
 
@@ -195,7 +195,7 @@ module.exports = function () {
 
 
 
-![image-20200627135324956](https://s3.qiufengh.com/blog/image-20200627135324956.png)
+![image-20200627135324956](https://s3.qiufeng.blue/blog/image-20200627135324956.png)
 
 以上就是 bundle 的运作原理。通过上述的流程图我们可以看到，有四个关键点
 
@@ -256,11 +256,11 @@ console.log(context.match(REQUIRE_REG_GLOBAL));
 // ["require('./bar.js')", "require('./foo.js')"]
 ```
 
-![image-20200627202427794](https://s3.qiufengh.com/blog/image-20200627202427794.png)
+![image-20200627202427794](https://s3.qiufeng.blue/blog/image-20200627202427794.png)
 
 由于模块的遍历并不是只有单纯的一层结构，一般为树形结构，因此在这里我采用了深度遍历。主要通过正则去匹配出` require` 中的依赖项，然后不断递归去获取模块，最后将通过深度遍历到的模块以数组形式存储。（不理解深度遍历，可以理解为递归获取模块）
 
-![image-20200627142130902](https://s3.qiufengh.com/blog/image-20200627142130902.png)
+![image-20200627142130902](https://s3.qiufeng.blue/blog/image-20200627142130902.png)
 
 以下是代码实现
 
@@ -374,7 +374,7 @@ github地址:  https://github.com/hua1995116/tiny-webpack
 
 欢迎关注公众号 **「秋风的笔记」**，主要记录日常中觉得有意思的工具以及分享开发实践，保持深度和专注度。回复 `webpack` 获取概览图 `xmind 原图`。
 
-<img src="https://s3.qiufengh.com/blog/weixin-gongzhonghao.png" alt="weixin-gongzhonghao" style="width: 500px;text-align:center" />
+<img src="https://s3.qiufeng.blue/blog/weixin-gongzhonghao.png" alt="weixin-gongzhonghao" style="width: 500px;text-align:center" />
 
 ## FAQ
 

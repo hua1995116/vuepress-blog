@@ -1,6 +1,6 @@
 # 用了这 7 个 VS Code 插件，想写一辈子代码
 
-![0_i0GYcthyaAGjlbTc](https://s3.qiufengh.com/blog/0_i0GYcthyaAGjlbTc.jpeg)
+![0_i0GYcthyaAGjlbTc](https://s3.qiufeng.blue/blog/0_i0GYcthyaAGjlbTc.jpeg)
 
 > 译文来自 https://levelup.gitconnected.com/7-vs-code-extensions-that-make-you-want-to-keep-coding-forever-f205e597ae34
 >
@@ -30,7 +30,7 @@ REST Client 插件允许您发送 HTTP 请求并直接在 Visual Studio Code 中
 
 > 使用方式: 右键 send Request, 或者快捷键 `Ctrl+Alt+R`(`Cmd+Alt+R` for macOS)
 
-![0_0oN1BSpZzlfYmyJs](https://s3.qiufengh.com/blog/0_0oN1BSpZzlfYmyJs.gif)
+![0_0oN1BSpZzlfYmyJs](https://s3.qiufeng.blue/blog/0_0oN1BSpZzlfYmyJs.gif)
 
 # 2. CSS Peek
 
@@ -38,7 +38,7 @@ REST Client 插件允许您发送 HTTP 请求并直接在 Visual Studio Code 中
 
 看一下下面的图片，可以快速看到此插件的功能。
 
-![0_wtGpun1tc_E6Heeb](https://s3.qiufengh.com/blog/0_wtGpun1tc_E6Heeb.gif)
+![0_wtGpun1tc_E6Heeb](https://s3.qiufeng.blue/blog/0_wtGpun1tc_E6Heeb.gif)
 
 还有一点，这个插件不只能够查看样式。 它还具有"跳转"的功能，可以立即跳转到应用于该元素的 CSS 规则。 这样可以节省大量时间寻找正确的选择器。
 
@@ -56,7 +56,7 @@ REST Client 插件允许您发送 HTTP 请求并直接在 Visual Studio Code 中
 
 如果要在输入开始标签的右括号时自动添加结束标签，则应查看【[Auto Close Tag extension](http://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)】（http://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag）。 同时安装这两个扩展功能非常强大，可以帮助您以更高效，更一致的方式编写 HTML。
 
-# ![0_1Uv5MV-weSXFAUHE](https://s3.qiufengh.com/blog/0_1Uv5MV-weSXFAUHE.gif)
+# ![0_1Uv5MV-weSXFAUHE](https://s3.qiufeng.blue/blog/0_1Uv5MV-weSXFAUHE.gif)
 
 # 5. Quokka.js
 
@@ -64,7 +64,7 @@ Quokka.js 是你编辑器中的原型实验场，可以生成文件报告，内�
 
 这简直太棒了！
 
-![0_UTqMUQDXL3N9e--e](https://s3.qiufengh.com/blog/0_UTqMUQDXL3N9e--e.gif)
+![0_UTqMUQDXL3N9e--e](https://s3.qiufeng.blue/blog/0_UTqMUQDXL3N9e--e.gif)
 
 # 6. Night Owl
 
@@ -72,7 +72,7 @@ Quokka.js 是你编辑器中的原型实验场，可以生成文件报告，内�
 
 Night Owl 主题是许多开发人员使用的漂亮主题之一。 根据对该主题的描述，它适合那些喜欢在深夜编写代码的人。
 
-![0_5IZkYOt4ShvVyiIN](https://s3.qiufengh.com/blog/0_5IZkYOt4ShvVyiIN.jpg)
+![0_5IZkYOt4ShvVyiIN](https://s3.qiufeng.blue/blog/0_5IZkYOt4ShvVyiIN.jpg)
 
 # 7. JavaScript (ES6) code snippets
 
@@ -80,4 +80,4 @@ Night Owl 主题是许多开发人员使用的漂亮主题之一。 根据对该
 
 例如，输入 `clg` 然后按`Enter`，将生成`console.log`。 可能要花一些时间来熟悉所有可能的代码片段，但是一旦掌握了这些代码片段，你的编码速度就像是开了 🚀。
 
-![xabikos-vscode-javascript](https://s3.qiufengh.com/blog/xabikos-vscode-javascript.jpg)
+![xabikos-vscode-javascript](https://s3.qiufeng.blue/blog/xabikos-vscode-javascript.jpg)

@@ -4,7 +4,7 @@
 # 前言
 今天看到了阿里云上有这个[活动](https://promotion.aliyun.com/ntms/campus2017.html?utm_medium=text&utm_source=baidu&utm_campaign=xsj&utm_content=se_466551)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286911.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286911.jpg)
 我就顺势买了一台阿里云的服务器，之前买了一台windows server的，这次就试试这个linux的。其实发现只要你对linux熟悉，配置还是比较容易的。我选择的是CentOS 7.3 64位的。
 # 配置环境
 为了方便，我在服务器上装的是node环境
@@ -13,9 +13,9 @@ node环境配置可以查看，[帮助文档](https://help.aliyun.com/document_d
 这里我就不展开讲了。
 当我把环境配置好后，通过服务器给定的外网+端口，进行访问，结果发现并不能同。后来我也进行了ping。发现还是不同，后来查了一些资料。发现是防火墙的原因。
 点击你所购买的服务器的详情。可以看到有一个本实例安全组。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286278.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286278.jpg)
 点击快速创建规则。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506288006.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506288006.jpg)
 在这里应该要配上基本的ssh，http80，当然你可以自定义宽口。
 配上这两个，并且你的服务内容也是在对应开放端口，这样就可以通过外网访问到你的网站内容了。
 # 用ssh 登录服务器

@@ -57,18 +57,18 @@ console.log(sum);
 node --inspect-brk index.js
 ```
 
-![屏幕快照2019-02-17-01.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-01.png)
+![屏幕快照2019-02-17-01.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-01.png)
 
 第三步，打开 chrome ，输入 [chrome://inspect](chrome://inspect)
 
 第四步, 点击 `configure` ，配置你的地址和端口, 然后回车，点击 done。
 
-![屏幕快照2019-02-17-02.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-02.png)
+![屏幕快照2019-02-17-02.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-02.png)
 
 
 第五步，点击 Target 下的 inspect。
 
-![屏幕快照2019-02-17-03.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-03.png)
+![屏幕快照2019-02-17-03.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-03.png)
 
 **示例二：**
 
@@ -98,7 +98,7 @@ node --inspect index.js
 
 第五步，在浏览器输入 [localhost:3000](localhost:3000)。便会跳出这个界面。
 
-![屏幕快照2019-02-17-04.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-04.png)
+![屏幕快照2019-02-17-04.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-04.png)
 
 
 --inspect-brk 和 --inspect 的区别（参考：https://nodejs.org/en/docs/guides/debugging-getting-started/#command-line-options）
@@ -111,15 +111,15 @@ node --inspect index.js
 示例一: `index.js`
 
 第一步，点击调试按钮，选择添加配置，用默认配置就ok。
-![屏幕快照2019-02-17-05.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-05.png)
+![屏幕快照2019-02-17-05.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-05.png)
 
 第二步，回到我们的 `index.js` 代码中，打上一个断点，vscode 打断点方式，在某一行代码前点击，会出现一个红点点。
 
-![屏幕快照2019-02-17-06.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-06.png)
+![屏幕快照2019-02-17-06.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-06.png)
 
 第三步，再点击调试按钮，点击启动程序前的箭头。
 
-![屏幕快照2019-02-17-07.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-07.png)
+![屏幕快照2019-02-17-07.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-07.png)
 
 恭喜你成功了！
 
@@ -129,14 +129,14 @@ node --inspect index.js
 
 第二步，按照示例一的方式，给我们代码打上断点。
 
-![屏幕快照2019-02-17-08.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-08.png)
+![屏幕快照2019-02-17-08.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-08.png)
 
 第三步，再点击调试按钮，点击启动程序前的箭头。
 
-![屏幕快照2019-02-17-09.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-09.png)
+![屏幕快照2019-02-17-09.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-09.png)
 
 第四步，访问[localhost:3000](localhost:3000)。可以看到，已经进入我们的断点啦。
-![屏幕快照2019-02-17-10.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-10.png)
+![屏幕快照2019-02-17-10.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-10.png)
 
 恭喜你成功了！
 
@@ -173,11 +173,11 @@ lanuch.json
 
 第二步，打上断点。我们给 `myPlugin/plugin.js` 的 `var filelist = 'In this build:\n\n';` 这一行打上断点。
 
-![屏幕快照2019-02-17-11.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-11.png)
+![屏幕快照2019-02-17-11.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-11.png)
 
 第三步，运行, 启动程序。
 
-![屏幕快照2019-02-17-12.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-12.png)
+![屏幕快照2019-02-17-12.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-12.png)
 
 到这里就大功告成，你可以放心地查看各个变量（ Compilation 包含哪些变量）, 整个过程是怎么发生的，都清晰地在我们眼前。
 
@@ -185,7 +185,7 @@ lanuch.json
 
 其实 babel 插件 和 webpack 插件是类似的。无非是一些小细节的不一致。我进行简单地演示，相信优秀的你看了 webpack 插件调试后，能够很快理解。
 
-![2019-02-17-21.18.42.gif](https://s3.qiufengh.com/blog/2019-02-17-21.18.42.gif)
+![2019-02-17-21.18.42.gif](https://s3.qiufeng.blue/blog/2019-02-17-21.18.42.gif)
 
 两个注意点：
 
@@ -225,7 +225,7 @@ function initComputed (vm: Component, computed: Object) {
 
 3. 然后在浏览器打开 vue-debug 下面 index.html 。
 
-![屏幕快照2019-02-17-13.png](https://s3.qiufengh.com/blog/屏幕快照2019-02-17-13.png)
+![屏幕快照2019-02-17-13.png](https://s3.qiufeng.blue/blog/屏幕快照2019-02-17-13.png)
 
 接下来你就可以一步一步慢慢地进行调试了。
 
@@ -239,4 +239,4 @@ function initComputed (vm: Component, computed: Object) {
 
 友情链接： https://huayifeng.top/
 
-![](https://s3.qiufengh.com/blog/erweima.jpg)
+![](https://s3.qiufeng.blue/blog/erweima.jpg)

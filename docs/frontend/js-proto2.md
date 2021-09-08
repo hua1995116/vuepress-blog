@@ -57,7 +57,7 @@ Object {say: function}，
     person.say();//person.say is not a function
 ```
 ##**一张图让你秒懂原型链**
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284317.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284317.jpg)
 其实，只需要明白原型对象的结构即可：
 
 ```javascript

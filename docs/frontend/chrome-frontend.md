@@ -2,7 +2,7 @@
 
 每当清晨的一缕阳光照进我的房间，打开电脑，看到一张令人赏心悦目的照片，整个心情都变好了。
 
-![WechatIMG1166](https://s3.qiufengh.com/blog/WechatIMG1166.jpeg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![WechatIMG1166](https://s3.qiufeng.blue/blog/WechatIMG1166.jpeg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 这是我要推荐的第一个插件
 
@@ -10,7 +10,7 @@
 
 将新标签页替换为具有待办事项，天气和灵感的个人仪表板。
 
-![image-20201026222323574](https://s3.qiufengh.com/blog/image-20201026222323574.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026222323574](https://s3.qiufeng.blue/blog/image-20201026222323574.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 每天一张好图，是一个能人心情变好的插件。
 
@@ -20,7 +20,7 @@
 
 ### Awesome Screenshot 截图与录屏
 
-![image-20201026222927483](https://s3.qiufengh.com/blog/image-20201026222927483.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026222927483](https://s3.qiufeng.blue/blog/image-20201026222927483.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 他提供了截图和录屏两个功能，并且能够截取长度，或者是可选区域的长途，可以说是截图的神器。
 
@@ -28,7 +28,7 @@
 
 ### Axure RP Extension for Chrome
 
-![image-20201026224323496](https://s3.qiufengh.com/blog/image-20201026224323496.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026224323496](https://s3.qiufeng.blue/blog/image-20201026224323496.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 这个插件能够帮助我们在chrome 中预览我们的原型图。从而避免了下载 axure 这个应用软件，可以节省空间。
 
@@ -38,7 +38,7 @@
 
 ### Copy Url Title to clipboard
 
-![image-20201026224609131](https://s3.qiufengh.com/blog/image-20201026224609131.png)
+![image-20201026224609131](https://s3.qiufeng.blue/blog/image-20201026224609131.png)
 
 这个插件支持5种形式的复制模式，其中 Markdown Link 和 Title: URL 是我常用的形式，有时候我们想要把好文章复制进我们的文章，单单复制一个 链接很容易忘记，这个时候有了他，我们可以轻松复制网站名称 + 链接
 
@@ -56,7 +56,7 @@
 
 ### Octotree - GitHub code tree
 
-![2020-10-26-22.56.43](https://s3.qiufengh.com/blog/2020-10-26-22.56.43.gif)
+![2020-10-26-22.56.43](https://s3.qiufeng.blue/blog/2020-10-26-22.56.43.gif)
 
 用了这个插件，结构瞬间变得清晰了。
 
@@ -82,7 +82,7 @@
 
 用了这一款插件，腰也不酸了，腿也不疼了，一口气上五楼。
 
-![image-20201026230723091](https://s3.qiufengh.com/blog/image-20201026230723091.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026230723091](https://s3.qiufeng.blue/blog/image-20201026230723091.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 这样看不香吗？
 
@@ -100,7 +100,7 @@
 
 ### 沙拉查词-聚合词典划词翻译
 
-![image-20201026231140885](https://s3.qiufengh.com/blog/image-20201026231140885.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026231140885](https://s3.qiufeng.blue/blog/image-20201026231140885.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 这个翻译工具聚合了多家翻译厂商，总有一款适合你。
 
@@ -110,17 +110,17 @@
 
 虽然这是一款小众的插件，但是真的很好用。直接能够用它保存下整篇文章。
 
-![image-20201026231341472](https://s3.qiufengh.com/blog/image-20201026231341472.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026231341472](https://s3.qiufeng.blue/blog/image-20201026231341472.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 并且这个文章，是以一个html文件的形式存在于本地，并且可以想原文章一样，可以划词而不是图片形式的存下来。
 
-![image-20201026231429735](https://s3.qiufengh.com/blog/image-20201026231429735.png)
+![image-20201026231429735](https://s3.qiufeng.blue/blog/image-20201026231429735.png)
 
 嗯。看完这文章，想要在手机上继续看，怎么办呢？
 
 ### 草料二维码
 
-![image-20201026231612034](https://s3.qiufengh.com/blog/image-20201026231612034.png)
+![image-20201026231612034](https://s3.qiufeng.blue/blog/image-20201026231612034.png)
 
 直接生成二维码。在手机继续浏览玩耍。
 
@@ -130,6 +130,6 @@
 
 直接用工具，将今天看过的链接都一键保存下来，明天继续看。
 
-![image-20201026231702439](https://s3.qiufengh.com/blog/image-20201026231702439.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026231702439](https://s3.qiufeng.blue/blog/image-20201026231702439.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-![image-20201026231802687](https://s3.qiufengh.com/blog/image-20201026231802687.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201026231802687](https://s3.qiufeng.blue/blog/image-20201026231802687.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)

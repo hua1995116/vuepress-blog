@@ -82,11 +82,11 @@ methods: {
 
 赶紧偷偷查资料，默默地在谷歌输入下了 vue debounce ...
 
-![image-20210124164233425](https://s3.qiufengh.com/blog/image-20210124164233425.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210124164233425](https://s3.qiufeng.blue/blog/image-20210124164233425.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 搜到了一些正确的打开方式。
 
-![image-20210124164405309](https://s3.qiufengh.com/blog/image-20210124164405309.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210124164405309](https://s3.qiufeng.blue/blog/image-20210124164405309.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 发现它这样是可以使用的，而我将他写到模板中不行。
 
@@ -98,13 +98,13 @@ emm。查不到，那开始思考？ 为什么这个写法不行？ 等等，我
 
 在浏览器输入下下了`vue 模板 在线`这几个关键词。
 
-![image-20210102131222649](https://s3.qiufengh.com/blog/image-20210102131222649.png)
+![image-20210102131222649](https://s3.qiufeng.blue/blog/image-20210102131222649.png)
 
 很快我们就查到了这个地址 https://template-explorer.vuejs.org/
 
 我们将我们的模板输入到左侧的输入框。
 
-![image-20210102131310059](https://s3.qiufengh.com/blog/image-20210102131310059.png)
+![image-20210102131310059](https://s3.qiufeng.blue/blog/image-20210102131310059.png)
 
 我们得到了这样的一个解析后的 `render` 函数。
 
@@ -213,13 +213,13 @@ if (!handler.modifiers) {
 
 https://jex.im/regulex/
 
-![image-20210124174535671](https://s3.qiufengh.com/blog/image-20210124174535671.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210124174535671](https://s3.qiufeng.blue/blog/image-20210124174535671.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 通过可视化可以看出，我们的事件方式如果是以上形态就会通过正则的检验（例如 `handle`, `handle['xx']`, `handle["xx"]`,`handle[xxx]`, `handle[0]`, `console.log ）`这些情况都是不会被包裹一层函数。
 
 还有一种情况就是 正则 `const fnExpRE = /^([\w$_]+|\([^)]*?\))\s*=>|^function(?:\s+[\w$]+)?\s*\(/`。
 
-![image-20210124174916857](https://s3.qiufengh.com/blog/image-20210124174916857.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210124174916857](https://s3.qiufeng.blue/blog/image-20210124174916857.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 简单来讲就是写一个匿名函数， `(xx) => {}` 或者 `funciton(){}`。
 
@@ -249,11 +249,11 @@ xxx.onclick = function($event) {
 
 `isFunctionInvocation`的检测就是将函数调用的部分去掉，如果去掉后，满足`方法路径`的情况，那么就会多一个 `return`。
 
-![image-20210125001734095](https://s3.qiufengh.com/blog/image-20210125001734095.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210125001734095](https://s3.qiufeng.blue/blog/image-20210125001734095.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 我们来画个图总结一下。
 
-![vue模板编译-事件](https://s3.qiufengh.com/blog/vue模板编译-事件.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![vue模板编译-事件](https://s3.qiufeng.blue/blog/vue模板编译-事件.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 而我们的情况是怎么样的呢？
 

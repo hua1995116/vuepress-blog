@@ -8,7 +8,7 @@
 
 一图览全文，可以先看看大纲适不适合自己，如果你喜欢则继续往下阅读。
 
-![一文了解文件下载](https://s3.qiufengh.com/blog/一文了解文件下载.png)
+![一文了解文件下载](https://s3.qiufeng.blue/blog/一文了解文件下载.png)
 
 这一节呢，主要介绍一些前置知识，对一些基础知识的介绍，如果你觉得你是这个。⬇️⬇️⬇️，你可以跳过前言。
 
@@ -25,13 +25,13 @@
 
 因此下载 url 主要有三种方式。(本文大部分以 blob 的方式进行演示)
 
-![image-20200830153314861](https://s3.qiufengh.com/blog/image-20200830153314861.png)
+![image-20200830153314861](https://s3.qiufeng.blue/blog/image-20200830153314861.png)
 
 **兼容性**
 
 可以看到它的兼容性也非常的可观（https://www.caniuse.com/#search=download）
 
-![image-20200817232216749](https://s3.qiufengh.com/blog/image-20200817232216749.png)
+![image-20200817232216749](https://s3.qiufeng.blue/blog/image-20200817232216749.png)
 
 为了避免很多代码的重复性，因为我抽离出了几个公共函数。(该部分可跳过，名字都比较可读，之后若是遇到不明白则可以在这里寻找)
 
@@ -88,7 +88,7 @@ export function base64ToBlob(base64, type) {
 >
 > 在线Demo: https://qiufeng.blue/demo/file-download/index.html
 
-![前端文件下载](https://s3.qiufengh.com/blog/前端文件下载.png)
+![前端文件下载](https://s3.qiufeng.blue/blog/前端文件下载.png)
 
 ## 后端
 
@@ -148,9 +148,9 @@ Content-Disposition: attachment; filename="filename.jpg"
 
 例如像以下的情况。
 
-![2020-08-30-17.01.52](https://s3.qiufengh.com/blog/2020-08-30-17.01.52.gif)
+![2020-08-30-17.01.52](https://s3.qiufeng.blue/blog/2020-08-30-17.01.52.gif)
 
-![006r3PQBjw1fav4dsikh6j308c0g5gm1](https://s3.qiufengh.com/blog/006r3PQBjw1fav4dsikh6j308c0g5gm1.jpg)
+![006r3PQBjw1fav4dsikh6j308c0g5gm1](https://s3.qiufeng.blue/blog/006r3PQBjw1fav4dsikh6j308c0g5gm1.jpg)
 
 这很可能是由于你的 `nginx` 少了这一行配置.
 
@@ -183,7 +183,7 @@ axios.get('http://localhost:8888/api/downloadUrl').then(res => {
 
 整个过程如下
 
-![image-20200830174735143](https://s3.qiufengh.com/blog/image-20200830174735143.png)
+![image-20200830174735143](https://s3.qiufeng.blue/blog/image-20200830174735143.png)
 
 ```html
 <button id="oBtnDownload">点击下载</button>
@@ -218,11 +218,11 @@ axios.get('http://localhost:8888/api/downloadUrl').then(res => {
 
 这种情况下，我需要模拟下后端小哥的骚操作，因此有后端代码。
 
-![994b6f2egy1fgryfevtpvj208c08cmxd](https://s3.qiufengh.com/blog/994b6f2egy1fgryfevtpvj208c08cmxd.jpg)
+![994b6f2egy1fgryfevtpvj208c08cmxd](https://s3.qiufeng.blue/blog/994b6f2egy1fgryfevtpvj208c08cmxd.jpg)
 
 核心过程
 
-![image-20200830174752476](https://s3.qiufengh.com/blog/image-20200830174752476.png)
+![image-20200830174752476](https://s3.qiufeng.blue/blog/image-20200830174752476.png)
 
 ```js
 // node 端
@@ -269,11 +269,11 @@ oBtnDownload.onclick = function(){
 
 方法一:  [`blob:` URL](https://developer.mozilla.org/zh-CN/docs/Web/API/URL.createObjectURL) 
 
-![image-20200831230800538](https://s3.qiufengh.com/blog/image-20200831230800538.png)
+![image-20200831230800538](https://s3.qiufeng.blue/blog/image-20200831230800538.png)
 
 方法二: [`data:` URL](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
 
-![image-20200831230810963](https://s3.qiufengh.com/blog/image-20200831230810963.png)
+![image-20200831230810963](https://s3.qiufeng.blue/blog/image-20200831230810963.png)
 
 由于 data:URL 会有长度的限制，因此下面的所有例子都会采用 blob 的方式来进行演示。
 
@@ -316,7 +316,7 @@ jsonBtn.onclick = () => {
 
 效果图
 
-![2020-08-30-17.53.32](https://s3.qiufengh.com/blog/2020-08-30-17.53.32.gif)
+![2020-08-30-17.53.32](https://s3.qiufeng.blue/blog/2020-08-30-17.53.32.gif)
 
 注释代码为 data:URL 的展示部分，由于是第一个例子，因此我讲展示代码，后面都省略了，但是你也可以通过调用 `downloadByDataURL` 方法，找不到该方法的定义请滑到文章开头哦~
 
@@ -328,7 +328,7 @@ excel 可以说是我们部分前端打交道很深的一个场景，什么数�
 
 表格长这个模样，比较简陋的形式
 
-![image-20200829170347728](https://s3.qiufengh.com/blog/image-20200829170347728.png)
+![image-20200829170347728](https://s3.qiufeng.blue/blog/image-20200829170347728.png)
 
 ```js
 const template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" '
@@ -346,17 +346,17 @@ const template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" '
 
 最终导出的效果
 
-![image-20200829170625763](https://s3.qiufengh.com/blog/image-20200829170625763.png)
+![image-20200829170625763](https://s3.qiufeng.blue/blog/image-20200829170625763.png)
 
 **element-ui 导出表格**
 
 没错，这个就是 `element-ui` 官方`table` 的例子。
 
-![image-20200829170543891](https://s3.qiufengh.com/blog/image-20200829170543891.png)
+![image-20200829170543891](https://s3.qiufeng.blue/blog/image-20200829170543891.png)
 
 导出效果如下，可以说非常完美。
 
-![image-20200829170912128](https://s3.qiufengh.com/blog/image-20200829170912128.png)
+![image-20200829170912128](https://s3.qiufeng.blue/blog/image-20200829170912128.png)
 
 这里我们用到了一个插件 https://github.com/SheetJS/sheetjs
 
@@ -387,7 +387,7 @@ methods: {
 
 ```
 
-![完美表情](https://s3.qiufengh.com/blog/6af89bc8gw1f8srz9343vj205i05ijr9.jpg)
+![完美表情](https://s3.qiufeng.blue/blog/6af89bc8gw1f8srz9343vj205i05ijr9.jpg)
 
 ### word
 
@@ -395,7 +395,7 @@ methods: {
 
 **简单示例**
 
-![2020-08-29-20.13.25](https://s3.qiufengh.com/blog/2020-08-29-20.13.25.gif)
+![2020-08-29-20.13.25](https://s3.qiufeng.blue/blog/2020-08-29-20.13.25.gif)
 
 
 
@@ -417,7 +417,7 @@ exportWord.onclick = () => {
 
 效果展示
 
-![image-20200830164208184](https://s3.qiufengh.com/blog/image-20200830164208184.png)
+![image-20200830164208184](https://s3.qiufeng.blue/blog/image-20200830164208184.png)
 
 **使用 `docx.js `插件**
 
@@ -464,9 +464,9 @@ exportWord.onclick = () => {
 
 效果（没有打广告...随便找了张图，强行不承认系列）
 
-![9150e4e5ly1fl8qavz6quj20hs0hsjvl](https://s3.qiufengh.com/blog/9150e4e5ly1fl8qavz6quj20hs0hsjvl.jpg)
+![9150e4e5ly1fl8qavz6quj20hs0hsjvl](https://s3.qiufeng.blue/blog/9150e4e5ly1fl8qavz6quj20hs0hsjvl.jpg)
 
-![2020-08-30-18.32.09](https://s3.qiufengh.com/blog/2020-08-30-18.32.09.gif)
+![2020-08-30-18.32.09](https://s3.qiufeng.blue/blog/2020-08-30-18.32.09.gif)
 
 ### zip下载
 
@@ -476,13 +476,13 @@ exportWord.onclick = () => {
 
 后来又以为https://www.iconfont.cn/打包下载图标的时候，使用了这个方案....发现....我又错了...但是我们分析一下.
 
-![image-20200829204540440](https://s3.qiufengh.com/blog/image-20200829204540440.png)
+![image-20200829204540440](https://s3.qiufeng.blue/blog/image-20200829204540440.png)
 
 它官网都是 svg 渲染的图标，对于 svg 下载的时候，完全可以使用前端打包下载。但是，它还支持 font 以及 jpg 格式，所以为了统一，采用了后端下载，能够理解。那我们就来实现这个它未完成的功能，当然我们还需要用到一个插件，就是 [jszip](https://github.com/Stuk/jszip)。
 
 这里我从以上找了两个 svg 的图标。
 
-![image-20200829204937044](https://s3.qiufengh.com/blog/image-20200829204937044.png)
+![image-20200829204937044](https://s3.qiufeng.blue/blog/image-20200829204937044.png)
 
 实现代码
 
@@ -514,15 +514,15 @@ download.onclick = () => {
     }
 ```
 
-![2020-08-29-20.52.42](https://s3.qiufengh.com/blog/2020-08-29-20.52.42.gif)
+![2020-08-29-20.52.42](https://s3.qiufeng.blue/blog/2020-08-29-20.52.42.gif)
 
 查看文件夹目录，已经将 SVG 打包下载完毕。
 
-![image-20200829205329532](https://s3.qiufengh.com/blog/image-20200829205329532.png)
+![image-20200829205329532](https://s3.qiufeng.blue/blog/image-20200829205329532.png)
 
 ### 浏览器文件系统（实验性）
 
-![image-20200817234129788](https://s3.qiufengh.com/blog/image-20200817234129788.png)
+![image-20200817234129788](https://s3.qiufeng.blue/blog/image-20200817234129788.png)
 
 在我电脑上都有这么一个浏览器，用来学习和调试 `chrome` 的最新新特性, 如果你的电脑没有，建议你安装一个。
 
@@ -551,7 +551,7 @@ download.onclick = () => {
 
 实现起来非常简单。却飞一般的感觉。
 
-![2020-08-18-00.13.29](https://s3.qiufengh.com/blog/2020-08-18-00.13.29.gif)
+![2020-08-18-00.13.29](https://s3.qiufeng.blue/blog/2020-08-18-00.13.29.gif)
 
 ## 其他场景
 
@@ -591,7 +591,7 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 
  https://github.com/jawidx/web-launch-app
 
-![image-20200830145258473](https://s3.qiufengh.com/blog/image-20200830145258473.png)
+![image-20200830145258473](https://s3.qiufeng.blue/blog/image-20200830145258473.png)
 
 
 
@@ -599,7 +599,7 @@ if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 
 最近在开发媒体流相关的工作的时候，发现在加载 mp4 文件的时候，发现了一个比较有意思的现象，视频流并不需要将整个 mp4 下载完才进行播放，并且伴随了很多状态码为 206 的请求，乍一看有点像流媒体(HLS等)的韵味。
 
-![2020-08-29-21.31.29](https://s3.qiufengh.com/blog/2020-08-29-21.31.29.gif)
+![2020-08-29-21.31.29](https://s3.qiufeng.blue/blog/2020-08-29-21.31.29.gif)
 
 
 
@@ -648,7 +648,7 @@ router.get('/api/rangeFile', async(ctx) => {
 
 发现 nginx 不需要写任何代码就默认支持了 range 头，想着我一定知道它到底是支持，还是加入了什么模块，或者是我默认开启了什么配置，找了半天没有找到什么额外的配置。
 
-![3630px-Nginx_logo-1](https://s3.qiufengh.com/blog/3630px-Nginx_logo-1.png)
+![3630px-Nginx_logo-1](https://s3.qiufeng.blue/blog/3630px-Nginx_logo-1.png)
 
 正当我准备放弃的时候，灵光一现，去看看源码吧，说不定会有发现，去查了 nginx 源码相关的内容，用了惯用的反推方式，才发现原来是`max_ranges`这个字段。
 
@@ -672,7 +672,7 @@ Nginx 配置文档 http://nginx.org/en/docs/http/ngx_http_core_module.html#max_r
 
 我们可以来总结一下，其实全文主要讲了(xbb)两个核心的知识，一个是 `blob` 一个` a` 标签，另外还要注意对于大文件，服务器的优化策略，可以通过 `Range` 来分片加载。
 
-![image-20200830181216353](https://s3.qiufengh.com/blog/image-20200830181216353.png)
+![image-20200830181216353](https://s3.qiufeng.blue/blog/image-20200830181216353.png)
 
 ## 参考资料
 

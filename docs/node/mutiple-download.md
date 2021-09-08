@@ -4,20 +4,20 @@
 
 没错，你没有看错，是前端多线程，而不是`Node`。这一次的探索起源于最近开发中，有遇到视频流相关的开发需求发现了一个特殊的状态码，他的名字叫做 `206`~
 
-![屏幕快照 2020-09-21 23.21.05](https://s3.qiufengh.com/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-09-21%2023.21.05.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![屏幕快照 2020-09-21 23.21.05](https://s3.qiufeng.blue/blog/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-09-21%2023.21.05.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 
 为了防止本文的枯燥，先上效果图镇文。(以一张`3.7M` 大小的图片为例)。
 
 **动画效果对比（单线程-左 VS 10个线程-右）** 
 
-![single-vs-multiple-donwload](https://s3.qiufengh.com/blog/single-vs-multiple-donwload.gif?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![single-vs-multiple-donwload](https://s3.qiufeng.blue/blog/single-vs-multiple-donwload.gif?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 
 
 **时间对比（单线程 VS 10个线程）**
 
-![image-20200915235421355](https://s3.qiufengh.com/blog/image-20200915235421355.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200915235421355](https://s3.qiufeng.blue/blog/image-20200915235421355.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 
 
@@ -105,7 +105,7 @@ Range的格式为：
 
 主流浏览器目前都支持这个特性。
 
-![image-20200916002624861](https://s3.qiufengh.com/blog/image-20200916002624861.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200916002624861](https://s3.qiufeng.blue/blog/image-20200916002624861.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 ### 服务器支持
 
@@ -150,7 +150,7 @@ https://github.com/pillarjs/send/blob/0.17.1/index.js#L680
 
 我们先来看下流程架构图总览。单线程很简单，正常下载就可以了，不懂的可以参看我[上一篇](https://juejin.im/post/6867469476196155400)文章。多线程的话，会比较麻烦一些，需要按片去下载，下载好后，需要进行合并再进行下载。（关于blob等下载方式依旧可以参看[上一篇](https://juejin.im/post/6867469476196155400)）
 
-![1600705973008](https://s3.qiufengh.com/blog/1600705973008.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![1600705973008](https://s3.qiufeng.blue/blog/1600705973008.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 **服务端代码**
 
@@ -336,7 +336,7 @@ int g_max_sockets_per_group[] = {
 
 我用单个线程和多个线程进行分别下载了6次，看上去速度是差不多的。那么为什么和我们预期的不一样呢?
 
-![image-20200919165242745](https://s3.qiufengh.com/blog/image-20200919165242745.png)
+![image-20200919165242745](https://s3.qiufeng.blue/blog/image-20200919165242745.png)
 
 ## 探索失败的原因
 
@@ -344,11 +344,11 @@ int g_max_sockets_per_group[] = {
 
 **6个线程并发**
 
-![image-20200919170313455](https://s3.qiufengh.com/blog/image-20200919170313455.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200919170313455](https://s3.qiufeng.blue/blog/image-20200919170313455.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 **单个线程**
 
-![image-20200919170512650](https://s3.qiufengh.com/blog/image-20200919170512650.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200919170512650](https://s3.qiufeng.blue/blog/image-20200919170512650.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 我们按照3.7M 82ms 的速度来算的话，大约为 1ms 下载 46kb，而实际情况可以看到，533kb ，平均就要下载 20ms 左右（已经刨去了连接时间，纯 content 下载时间）。
 
@@ -362,11 +362,11 @@ int g_max_sockets_per_group[] = {
 
 **单线程**
 
-![IMG_01](https://s3.qiufengh.com/blog/IMG_01.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![IMG_01](https://s3.qiufeng.blue/blog/IMG_01.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 **多线程**
 
-![IMG_02](https://s3.qiufengh.com/blog/IMG_02.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![IMG_02](https://s3.qiufeng.blue/blog/IMG_02.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 没错，由于我们的服务器是一根大水管，流速是一定的，并且我们客户端没有限制。如果是单线程跑的话，那么会跑满用户的最大的速度。如果是多线程呢，以3个线程为例子的话，相当于每个线程都跑了原先线程三分之一的速度。合起来的速度和单个线程是没有差别的。
 
@@ -378,7 +378,7 @@ int g_max_sockets_per_group[] = {
 
 ### 服务器带宽远大于用户带宽，限制单连接网速
 
-![IMG_03](https://s3.qiufengh.com/blog/IMG_03.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![IMG_03](https://s3.qiufeng.blue/blog/IMG_03.jpg?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 如果服务器限制了单个宽带的下载速度，大部分也是这种情况，例如百度云就是这样，例如明明你是 10M 的宽带，但是实际下载速度只有 100kb/s ，这种情况下，我们就可以开启多线程去下载，因为它往往限制的是单个TCP的下载，当然在线上环境不是说可以让用户开启无限多个线程，还是会有限制的，会限制你当前IP的最大TCP。这种情况下下载的上限往往是你的用户最大速度。按照上面的例子，如果你开10个线程已经达到了最大速度，因为再大，你的入口已经被限制死了，那么各个线程之间就会抢占速度，再多开线程也没有用了。
 
@@ -433,7 +433,7 @@ const url = 'http://limit.qiufeng.com/360_0388.jpg';
 
 测试下载速度
 
-![image-20200919201613507](https://s3.qiufengh.com/blog/image-20200919201613507.png)
+![image-20200919201613507](https://s3.qiufeng.blue/blog/image-20200919201613507.png)
 
 还记得上面说的吗，关于 `HTTP/1.1` 同一站点只能并发 6 个请求，多余的请求会放到下一个批次。但是 `HTTP/2.0` 不受这个限制，多路复用代替了 `HTTP/1.x` 的**序列和阻塞机制**。让我们来升级 `HTTP/2.0` 来测试一下。
 
@@ -478,19 +478,19 @@ server {
 const m = 1024 * 400;
 ```
 
-![image-20200919200203877](https://s3.qiufengh.com/blog/image-20200919200203877.png)
+![image-20200919200203877](https://s3.qiufeng.blue/blog/image-20200919200203877.png)
 
 12个线程
 
-![image-20200919202302096](https://s3.qiufengh.com/blog/image-20200919202302096.png)
+![image-20200919202302096](https://s3.qiufeng.blue/blog/image-20200919202302096.png)
 
 24个线程
 
-![image-20200919202138838](https://s3.qiufengh.com/blog/image-20200919202138838.png)
+![image-20200919202138838](https://s3.qiufeng.blue/blog/image-20200919202138838.png)
 
 当然线程不是越多越好，经过测试，发现线程达到一定数量的时候，反而速度会更加缓慢。以下是 36个并发请求的效果图。
 
-![image-20200919202427985](https://s3.qiufengh.com/blog/image-20200919202427985.png)
+![image-20200919202427985](https://s3.qiufeng.blue/blog/image-20200919202427985.png)
 
 ## 实际应用探索
 
@@ -502,7 +502,7 @@ https://study.163.com/course/courseLearn.htm?courseId=1004500008#/learn/video?le
 
 我们打开控制台，很容易地发现这个下载 url，直接一个裸奔的 mp4 下载地址。
 
-![image-20200920222053726](https://s3.qiufengh.com/blog/image-20200920222053726.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200920222053726](https://s3.qiufeng.blue/blog/image-20200920222053726.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 把我们的测试脚本从控制台输入进行。
 
@@ -513,13 +513,13 @@ https://github.com/hua1995116/node-demo/blob/master/file-download/example/downlo
 
 **直接下载**
 
-![image-20200920221657541](https://s3.qiufengh.com/blog/image-20200920221657541.png)
+![image-20200920221657541](https://s3.qiufeng.blue/blog/image-20200920221657541.png)
 
 
 
 **多线程下载**
 
-![image-20200920221853959](https://s3.qiufengh.com/blog/image-20200920221853959.png)
+![image-20200920221853959](https://s3.qiufeng.blue/blog/image-20200920221853959.png)
 
 可以看到由于网易云课堂对单个TCP的下载速度并没有什么限制没有那么严格，提升的速度不是那么明显。
 
@@ -527,17 +527,17 @@ https://github.com/hua1995116/node-demo/blob/master/file-download/example/downlo
 
 我们就来测试一下网页版的百度云。
 
-![image-20200919210106839](https://s3.qiufengh.com/blog/image-20200919210106839.png)
+![image-20200919210106839](https://s3.qiufeng.blue/blog/image-20200919210106839.png)
 
 以一个 16.6M的文件为例。
 
 打开网页版百度云盘的界面，点击下载
 
-![image-20200920222309345](https://s3.qiufengh.com/blog/image-20200920222309345.png)
+![image-20200920222309345](https://s3.qiufeng.blue/blog/image-20200920222309345.png)
 
 这个时候点击暂停, 打开 `chrome -> 更多 -> 下载内容 -> 右键复制下载链接`
 
-![image-20200922004619680](https://s3.qiufengh.com/blog/image-20200922004619680.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200922004619680](https://s3.qiufeng.blue/blog/image-20200922004619680.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 依旧用上述的网易云课程下载课程的脚本。只不过你需要改一下参数。
 
@@ -550,19 +550,19 @@ m 改成 1024 * 1024 * 2 合适的分片大小~
 
 百度云多单个TCP连接的限速，真的是惨无人道，足足花了217秒！！！就一个17M的文件，平时我们饱受了它多少的折磨。（除了VIP玩家）
 
-![image-20200919211105023](https://s3.qiufengh.com/blog/image-20200919211105023.png)
+![image-20200919211105023](https://s3.qiufeng.blue/blog/image-20200919211105023.png)
 
 **多线程下载**
 
-![image-20200919210516632](https://s3.qiufengh.com/blog/image-20200919210516632.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200919210516632](https://s3.qiufeng.blue/blog/image-20200919210516632.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 由于是HTTP/1.1 因此我们只要开启6个以及以上的线程下载就好了。以下是多线程下载的速度，约用时 46 秒。
 
-![image-20200919210550840](https://s3.qiufengh.com/blog/image-20200919210550840.png)
+![image-20200919210550840](https://s3.qiufeng.blue/blog/image-20200919210550840.png)
 
 我们通过这个图再来切身感受一下速度差异。
 
-![image-20200922010911389](https://s3.qiufengh.com/blog/image-20200922010911389.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20200922010911389](https://s3.qiufeng.blue/blog/image-20200922010911389.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 真香，免费且只靠我们前端自己实现了这个功能，太tm香了，你还不赶紧来试试？？
 

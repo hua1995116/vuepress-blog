@@ -242,16 +242,16 @@ export default connect()(Basic)
 ```
 运用了函数式编程方式：
 我们可以看看普通继承和函数式编程的差异，函数编程简洁了不少。也可以看到react-router在4.0版本后发生了一些变化。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284530.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284530.png)
 
 
 ## 效果图
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285346.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285346.png)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285001.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285001.png)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284344.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284344.png)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285009.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285009.png)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286518.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286518.png)

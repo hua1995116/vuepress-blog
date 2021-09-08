@@ -2,7 +2,7 @@
 
 
 用js实现表格排序。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284765.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284765.png)
 第一点击以降序排列，第二次点击以升序排列
 html代码
 

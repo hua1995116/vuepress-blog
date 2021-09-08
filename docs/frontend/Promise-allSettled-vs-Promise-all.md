@@ -63,8 +63,8 @@ Hello! 🧑‍🌾
 
 `Promise.allSettled()`
 
-![image-20200819004559123](https://s3.qiufengh.com/blog/image-20200819004559123.png)
+![image-20200819004559123](https://s3.qiufeng.blue/blog/image-20200819004559123.png)
 
 `promise.all()`
 
-![image-20200819004619627](https://s3.qiufengh.com/blog/image-20200819004619627.png)
+![image-20200819004619627](https://s3.qiufeng.blue/blog/image-20200819004619627.png)

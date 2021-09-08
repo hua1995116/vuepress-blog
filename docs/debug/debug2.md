@@ -33,33 +33,33 @@ chrome devTools 有一个名叫 Overrides 的功能。这个功能对于我们�
 2. 通过按 `Command+Option+I (Mac)` 或 `Control+Shift+I（Windows、Linux）`，打开 DevTools。 此快捷方式可打开 Console 面板。
 3. 点击 source 按钮
 
-![1550042488255.jpg](https://s3.qiufengh.com/blog/1550042488255.jpg)
+![1550042488255.jpg](https://s3.qiufeng.blue/blog/1550042488255.jpg)
 
 4. 点击箭头所示按钮，找到 Overrides, 选中。
 5. 点击 Select folders for Overrides。选择一个本地的空文件夹目录。
 
 
 6. 跳出授权，点击允许
-![1550043161526.jpg](https://s3.qiufengh.com/blog/1550043161526.jpg)
+![1550043161526.jpg](https://s3.qiufeng.blue/blog/1550043161526.jpg)
 
 
 ## 开始
 
 这是我们刚才的页面
-![1550044581302.jpg](https://s3.qiufengh.com/blog/1550044581302.jpg)
+![1550044581302.jpg](https://s3.qiufeng.blue/blog/1550044581302.jpg)
 
 假设我们设计稿需要我们将背景色改成红色，并且字体大小改成22px。我们来进行修改。修改完成后刷新页面。打开后发现是这样的。
 
-![1550047816288.jpg](https://s3.qiufengh.com/blog/1550047816288.jpg)
+![1550047816288.jpg](https://s3.qiufeng.blue/blog/1550047816288.jpg)
 
 继续点击 source 标签。点击 Page 按钮。
 
-![1550048001733.jpg](https://s3.qiufengh.com/blog/1550048001733.jpg)
+![1550048001733.jpg](https://s3.qiufeng.blue/blog/1550048001733.jpg)
 
 
 打开我们demo3.html，将head中的 title 改成 debug03，并且保存（mac: command + s， windows: ctrl + s）。
 
-![1550048078356.jpg](https://s3.qiufengh.com/blog/1550048078356.jpg)
+![1550048078356.jpg](https://s3.qiufeng.blue/blog/1550048078356.jpg)
 
 再次刷新页面，发现我们的页面 title 已经成功被修改了。
 
@@ -67,7 +67,7 @@ chrome devTools 有一个名叫 Overrides 的功能。这个功能对于我们�
 
 好了。我们已经完成了我们所有的修改了。
 
-![1550048674847.jpg](https://s3.qiufengh.com/blog/1550048674847.jpg)
+![1550048674847.jpg](https://s3.qiufeng.blue/blog/1550048674847.jpg)
 
 可以发现我们所有的文件下面都有一个小蓝点。这个就是修改后的文件储存在一开始选择的文件夹中。
 
@@ -77,11 +77,11 @@ chrome devTools 有一个名叫 Overrides 的功能。这个功能对于我们�
 
 继续打开 devTools ，点击右上角的三个小点 -> More tools -> Changes
 
-![1550049006069.jpg](https://s3.qiufengh.com/blog/1550049006069.jpg)
+![1550049006069.jpg](https://s3.qiufeng.blue/blog/1550049006069.jpg)
 
 可以看到我们刚才的所有修改啦。
 
-![1550049082173.jpg](https://s3.qiufengh.com/blog/1550049082173.jpg)
+![1550049082173.jpg](https://s3.qiufeng.blue/blog/1550049082173.jpg)
 
 
 到此我们已经完成了 Overrides 调试线上的方法了。
@@ -114,7 +114,7 @@ npx webpack --watch --progress (npm >= v5.2.0)
 
 然后在我们的 dist 目录下会生成我们打包后的 js
 
-![1550052278719.jpg](https://s3.qiufengh.com/blog/1550052278719.jpg)
+![1550052278719.jpg](https://s3.qiufeng.blue/blog/1550052278719.jpg)
 
 1. 打开: http://yifenghua.win/example/debugger/demo4.html
 
@@ -124,16 +124,16 @@ npx webpack --watch --progress (npm >= v5.2.0)
 
 4. 点击 Tools 中的 Map Local 进行配置 。
 
-![1550052700177.jpg](https://s3.qiufengh.com/blog/1550052700177.jpg)
+![1550052700177.jpg](https://s3.qiufeng.blue/blog/1550052700177.jpg)
 
 5. Add 一个规则
 
-![1550052759668.jpg](https://s3.qiufengh.com/blog/1550052759668.jpg)
+![1550052759668.jpg](https://s3.qiufeng.blue/blog/1550052759668.jpg)
 
 6. 将刚才 netWork 中的 url 映射到本地地址（即刚才我们 clone 项目的位置），如图所示
 
 
-![1550052892041.jpg](https://s3.qiufengh.com/blog/1550052892041.jpg)
+![1550052892041.jpg](https://s3.qiufeng.blue/blog/1550052892041.jpg)
 
 7. 对我们本地内容进行改动。改成如下所示
 
@@ -148,7 +148,7 @@ card.onclick = function() {
 
 9. 查看 charles 日志
 
-![1550053079374.jpg](https://s3.qiufengh.com/blog/1550053079374.jpg)
+![1550053079374.jpg](https://s3.qiufeng.blue/blog/1550053079374.jpg)
 
 
 可以看到已经成功将文件映射到本地。这样，我们就可以实时地调试我们的线上的文件啦。你可以插入各种标志点以及 debugger。
@@ -188,18 +188,18 @@ npx webpack --watch --progress
 
 给 charles 再增加一个 Map Local
 
-![1550054237183.jpg](https://s3.qiufengh.com/blog/1550054237183.jpg)
+![1550054237183.jpg](https://s3.qiufeng.blue/blog/1550054237183.jpg)
 
 
 现在打开 http://yifenghua.win/example/debugger/demo4.html
 
 点击 Card link，发现报错。
 
-![1550054389531.jpg](https://s3.qiufengh.com/blog/1550054389531.jpg)
+![1550054389531.jpg](https://s3.qiufeng.blue/blog/1550054389531.jpg)
 
 点击 index.js ，可以看到我们的能直接定位到源码啦。
 
-![1550054429653.jpg](https://s3.qiufengh.com/blog/1550054429653.jpg)
+![1550054429653.jpg](https://s3.qiufeng.blue/blog/1550054429653.jpg)
 
 # 总结
 
@@ -209,4 +209,4 @@ npx webpack --watch --progress
 
 友情链接： https://huayifeng.top/
 
-![](https://s3.qiufengh.com/blog/erweima.jpg)
+![](https://s3.qiufeng.blue/blog/erweima.jpg)

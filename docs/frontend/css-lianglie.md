@@ -32,7 +32,7 @@ css代码：
 }
 ```
 效果如下
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284786.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284786.png)
 第二种：
 css代码：
 

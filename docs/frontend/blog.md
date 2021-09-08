@@ -172,13 +172,13 @@ fs.readFile('./template1.html', 'utf8', (err, template)=>{
 # 扩展
 
 分页：再此基础上我又对其进行了扩展，增加了一个分页的功能。
-![tagdata.json](https://s3.qiufengh.com/blog/1568533450468.png)
+![tagdata.json](https://s3.qiufeng.blue/blog/1568533450468.png)
 
 文件目录：.md 文件的目录（待开发）
 
 归档：在json目录下生成tagdata.json 
 
-![tagdata.json](https://s3.qiufengh.com/blog/1568533450378.png)
+![tagdata.json](https://s3.qiufeng.blue/blog/1568533450378.png)
 # 使用
 
 ```Git

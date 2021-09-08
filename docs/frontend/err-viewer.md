@@ -18,7 +18,7 @@
 
 其次，也有利于我们发布的产品，能够及时发现我们的错误。如果一个产品在新的迭代中，发生不可描述的错误。
 
-![https://s3.qiufengh.com/blog/1568533450466.gif](https://s3.qiufengh.com/blog/1568533450466.gif)
+![https://s3.qiufeng.blue/blog/1568533450466.gif](https://s3.qiufeng.blue/blog/1568533450466.gif)
 
 对！就是不可描述。我们总不可能等待用户的反馈投诉，到那个时候黄花菜都凉了。
 
@@ -30,13 +30,13 @@
 
 
 
-![https://s3.qiufengh.com/blog/1568533450488.gif](https://s3.qiufengh.com/blog/1568533450488.gif)
+![https://s3.qiufeng.blue/blog/1568533450488.gif](https://s3.qiufeng.blue/blog/1568533450488.gif)
 
 兄弟们原谅我，只能帮你们到这里了。
 
 接下来请看。
 
-![https://s3.qiufengh.com/blog/1568533450383.png](https://s3.qiufengh.com/blog/1568533450383.png)
+![https://s3.qiufeng.blue/blog/1568533450383.png](https://s3.qiufeng.blue/blog/1568533450383.png)
 
 以上是我们需要做的一些事情。
 
@@ -59,7 +59,7 @@
 
 没错这就是我们要监控的页面。这个.....真不是我懒。
 
-![https://s3.qiufengh.com/blog/1568533450398.gif](https://s3.qiufengh.com/blog/1568533450398.gif)
+![https://s3.qiufeng.blue/blog/1568533450398.gif](https://s3.qiufeng.blue/blog/1568533450398.gif)
 
 然后接下来我一共设计了3块数据
 
@@ -241,13 +241,13 @@ charts/csvData/2017-12-16time.csv
 
 下面是可视化的图表，显示的是每天各个时间段的信息。
 
-![https://s3.qiufengh.com/blog/1568533450392.png](https://s3.qiufengh.com/blog/1568533450392.png)
+![https://s3.qiufeng.blue/blog/1568533450392.png](https://s3.qiufeng.blue/blog/1568533450392.png)
 
 
 
 界面可能不是特别美观，还请见谅。
 
-![https://s3.qiufengh.com/blog/1568533450476.gif](https://s3.qiufengh.com/blog/1568533450476.gif)
+![https://s3.qiufeng.blue/blog/1568533450476.gif](https://s3.qiufeng.blue/blog/1568533450476.gif)
 
 ## 环境
 
@@ -314,7 +314,7 @@ function setPrase() {
 ```
 
 
-![https://s3.qiufengh.com/blog/1568533450395.gif](https://s3.qiufengh.com/blog/1568533450395.gif)
+![https://s3.qiufeng.blue/blog/1568533450395.gif](https://s3.qiufeng.blue/blog/1568533450395.gif)
 
 ---------------------------------------------------------------------------
 2017-12-20

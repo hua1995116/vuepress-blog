@@ -103,7 +103,7 @@ WebSocket传输的数据都是以Frame（帧）的形式实现的，就像TCP/UD
 
 **示意图**
 
-![ws.png](https://s3.qiufengh.com/blog/ws.png)
+![ws.png](https://s3.qiufeng.blue/blog/ws.png)
 
 
 ## parse

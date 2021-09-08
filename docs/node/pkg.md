@@ -44,12 +44,12 @@ github: https://github.com/zerolty/auto-version
 # 手动与auto-vers比较
 
 下面是我们需要手动改（前提需要知道改成什么，并且不能忘记修改！）
-![auto-vers-manual.gif](https://s3.qiufengh.com/blog/1568533450852.gif)
+![auto-vers-manual.gif](https://s3.qiufeng.blue/blog/1568533450852.gif)
 
 
 下面是使用了auto-vers的方式。
 
-![auto-vers-auto.gif](https://s3.qiufengh.com/blog/1568533451244.gif)
+![auto-vers-auto.gif](https://s3.qiufeng.blue/blog/1568533451244.gif)
 
 # 拥有的功能
 
@@ -98,7 +98,7 @@ cat package.json
 ```
 auto-vers -i -c
 ```
-![auto-vers-confirm.gif](https://s3.qiufengh.com/blog/1568533450891.gif)
+![auto-vers-confirm.gif](https://s3.qiufeng.blue/blog/1568533450891.gif)
 
 
 ### 提示模式
@@ -106,7 +106,7 @@ auto-vers -i -c
 ```
 auto-vers -t
 ```
-![auto-vers-tip1.gif](https://s3.qiufengh.com/blog/1568533450886.gif)
+![auto-vers-tip1.gif](https://s3.qiufeng.blue/blog/1568533450886.gif)
 
 如果你不想更新 , 你可以使用 `ctrl` + `c` 去停止。
 
@@ -127,7 +127,7 @@ or
 ```
 auto-vers -v 1.2.0 
 ```
-![auto-vers-direct.gif](https://s3.qiufengh.com/blog/1568533450988.gif)
+![auto-vers-direct.gif](https://s3.qiufeng.blue/blog/1568533450988.gif)
 
 
 
@@ -257,4 +257,4 @@ https://www.sitepoint.com/semantic-versioning-why-you-should-using/
 
 # 更多请关注
 
-![](https://s3.qiufengh.com/blog/gongzhonghao.png)
+![](https://s3.qiufeng.blue/blog/gongzhonghao.png)

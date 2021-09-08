@@ -113,11 +113,11 @@ server {
 
 效果图
 
-![1679de4dfd9c54f2](https://s3.qiufengh.com/blog/1679de4dfd9c54f2.jpg)
+![1679de4dfd9c54f2](https://s3.qiufeng.blue/blog/1679de4dfd9c54f2.jpg)
 
 如果没有协议这一栏，可以右键工具栏。
 
-![1679de75bd365cae](https://s3.qiufengh.com/blog/1679de75bd365cae.jpg)
+![1679de75bd365cae](https://s3.qiufeng.blue/blog/1679de75bd365cae.jpg)
 
 参考资料
 https://blog.fazero.me/2017/01/06/upgrate-nginx-and-use-http2/

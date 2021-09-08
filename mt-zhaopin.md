@@ -59,10 +59,10 @@
 
 前端以外方向可以扫码这个内推。
 
-![qrcode-neitui](https://s3.qiufengh.com/blog/qrcode-neitui.png)
+![qrcode-neitui](https://s3.qiufeng.blue/blog/qrcode-neitui.png)
 
 ## 找我评估
 
 可以直接投，也可以联系我评估一下简历哦~ 如果感觉想聊聊，可以加我的微信 `qiufengblue`，当然单纯的交个朋友也欢迎啦。
 
-![WechatIMG79](https://s3.qiufengh.com/blog/WechatIMG79.jpeg)
+![WechatIMG79](https://s3.qiufeng.blue/blog/WechatIMG79.jpeg)

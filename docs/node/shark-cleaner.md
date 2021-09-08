@@ -2,7 +2,7 @@
 
 ## 前言
 
-![1584517625611](https://s3.qiufengh.com/blog/1584517625611.jpg)
+![1584517625611](https://s3.qiufeng.blue/blog/1584517625611.jpg)
 
 就是这个恶毒的提示，太让我烦恼了，一开始我用了腾讯的 lemon 清理工具，但是发现他并不能很好地解决我的问题，没有办法完全找出我的缓存文件。由于本人是 256G Mac （穷....），真的，256G 太不够用了（当然不是因为我....的原因），俗话说贫穷限制了我的想象力，但是没有限制我的创造力。另一点，就是本人是个写前端的，通过对本地的`node_modules` ， `npm` ，`yarn cache` 等缓存的分析，发现让我大吃一惊，几十G的缓存。
 
@@ -10,7 +10,7 @@
 
 这是它已经为我清理出的`node_modules`垃圾。
 
-![1584506218384](https://s3.qiufengh.com/blog/1584506218384.jpg)
+![1584506218384](https://s3.qiufeng.blue/blog/1584506218384.jpg)
 
 ## 技术方案
 
@@ -50,49 +50,49 @@ https://github.com/voidcosmos/npkill
 
 因此我采用了一种 `web + node cli `  的方式。下面是工具的主架构，有点类似于` electron` 的思路吧
 
-![image-20200323183613601](https://s3.qiufengh.com/blog/image-20200323183613601.png)
+![image-20200323183613601](https://s3.qiufeng.blue/blog/image-20200323183613601.png)
 
 ## 功能实现
 
-视频展示地址: https://s3.qiufengh.com/shark-cleaner/shark-cleaner.mp4
+视频展示地址: https://s3.qiufeng.blue/shark-cleaner/shark-cleaner.mp4
 
 ### 自定义目录扫描
 
 如果你的项目都在一个目录下，建议填写你的项目主目录，这样会大大加快扫描的速度。
 
-<img src="https://s3.qiufengh.com/shark-cleaner/shark-init.jpg" width="300"/>
+<img src="https://s3.qiufeng.blue/shark-cleaner/shark-init.jpg" width="300"/>
 
-<img src="https://s3.qiufengh.com/shark-cleaner/shark-scanner.jpg" width="300"/>
+<img src="https://s3.qiufeng.blue/shark-cleaner/shark-scanner.jpg" width="300"/>
 
 
 
-<img src="https://s3.qiufengh.com/shark-cleaner/shark-computed.jpg" width="300"/>
+<img src="https://s3.qiufeng.blue/shark-cleaner/shark-computed.jpg" width="300"/>
 
 ### 支持静态目录扫描
 
 由于一些目录是固定的，因此为静态列表扫描方式。
 
-![image-20200323201436758](https://s3.qiufengh.com/blog/image-20200323201436758.png)
+![image-20200323201436758](https://s3.qiufeng.blue/blog/image-20200323201436758.png)
 
 ### 支持详情查看
 
 获取 `package.json` 中的 `author` 和 `description` 进行展示，以及标注完整路径，可以帮助回忆，来确定是否删除。
 
-![image-20200323201418168](https://s3.qiufengh.com/blog/image-20200323201418168.png)
+![image-20200323201418168](https://s3.qiufeng.blue/blog/image-20200323201418168.png)
 
 ### 支持多选
 
 文件太多了？shift + click 来支持多选模式。
 
-![2020-03-23-20.22.19](https://s3.qiufengh.com/blog/2020-03-23-20.22.19.gif)
+![2020-03-23-20.22.19](https://s3.qiufeng.blue/blog/2020-03-23-20.22.19.gif)
 
 ### i18n支持
 
 国外用户也可以轻松享受到这个工具带来的遍历
 
-![image-20200323202346856](https://s3.qiufengh.com/blog/image-20200323202346856.png)
+![image-20200323202346856](https://s3.qiufeng.blue/blog/image-20200323202346856.png)
 
-![image-20200323202329590](https://s3.qiufengh.com/blog/image-20200323202329590.png)
+![image-20200323202329590](https://s3.qiufeng.blue/blog/image-20200323202329590.png)
 
 
 

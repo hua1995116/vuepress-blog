@@ -198,10 +198,10 @@ function useCallback(callback, args) {
 也可以通过以下图来理解
 
 第一次渲染，将每个状态都缓存到数组中。
-![first-render.png](https://s3.qiufengh.com/blog/first-render.png)
+![first-render.png](https://s3.qiufeng.blue/blog/first-render.png)
 
 每次重新渲染，获取数组中每个的缓存状态。
-![re-render.png](https://s3.qiufengh.com/blog/re-render.png)
+![re-render.png](https://s3.qiufeng.blue/blog/re-render.png)
 
 以下为了能够清晰地让大家明白原理，进行了一些删减。但是核心逻辑不变。
 
@@ -293,25 +293,25 @@ function Counter() {
 
 ### 初始化
 
-![1-初始化.png](https://s3.qiufengh.com/blog/1-初始化.png)
+![1-初始化.png](https://s3.qiufeng.blue/blog/1-初始化.png)
 
 ###  第一次渲染
 
 将所有的状态都存进闭包中。
 
-![1-第一次渲染.png](https://s3.qiufengh.com/blog/1-第一次渲染.png)
+![1-第一次渲染.png](https://s3.qiufeng.blue/blog/1-第一次渲染.png)
 
 ### 事件触发
 
 改变了第二个状态的value值。
 
-![1-事件触发.png](https://s3.qiufengh.com/blog/1-事件触发.png)
+![1-事件触发.png](https://s3.qiufeng.blue/blog/1-事件触发.png)
 
 ### 第二次渲染
 
 将所有状态依次取出，进行渲染。
 
-![1-第二次渲染.png](https://s3.qiufengh.com/blog/1-第二次渲染.png)
+![1-第二次渲染.png](https://s3.qiufeng.blue/blog/1-第二次渲染.png)
 
 
 ## 后记

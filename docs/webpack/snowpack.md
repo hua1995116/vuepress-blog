@@ -4,13 +4,13 @@
 
 前几天听一个朋友说到 `snowpack`, 便去去看了下这个包是干什么的，看了下官网，发现这个东西还是蛮有意思的。号称 `无需打包工具（Webpack，Parcel）便能将代码结果实时展现在浏览器中`。可以先看以下的图，是不是很诱人？
 
-![ENtxlBtU8AAmh62.jpeg](https://s3.qiufengh.com/blog/ENtxlBtU8AAmh62.jpeg)
+![ENtxlBtU8AAmh62.jpeg](https://s3.qiufeng.blue/blog/ENtxlBtU8AAmh62.jpeg)
 
 snowpack 以 ES Modules 为主，如果对 ES Modules 不熟悉的朋友，请先查看我的上一篇文章。
 
 ## 为什么使用 snowpack
 
-![ENt4hdjUEAATBqh.jpeg](https://s3.qiufengh.com/blog/ENt4hdjUEAATBqh.jpeg)
+![ENt4hdjUEAATBqh.jpeg](https://s3.qiufeng.blue/blog/ENt4hdjUEAATBqh.jpeg)
 
 在 ESM 出现之前，JavaScript 的模块化就有各式各样的规范，主要有 CommonJS, AMD, CMD, UMD 等规范，最为广泛的就是 Node.js 的 CommonJS，使用 ​module.exports​ 和 ​require​ 来导出导入模块，它是 npm 中的模块最主要提供的格式。由于浏览器并不直接支持这些模块，因此打包工具（Webpack，Browserify，Parcel 等）出现了。
 
@@ -25,7 +25,7 @@ snowpack 以 ES Modules 为主，如果对 ES Modules 不熟悉的朋友，请�
 
 不用担心，目前使用的90%的浏览器都支持 ESM 语法。自2018年初以来，所有现代浏览器(Firefox、Chrome、Edge、Safari)都支持ESM。
 
-![1582028874457.jpg](https://s3.qiufengh.com/blog/1582028874457.jpg)
+![1582028874457.jpg](https://s3.qiufeng.blue/blog/1582028874457.jpg)
 
 ## 示例
 
@@ -85,7 +85,7 @@ npx servor --reload
 
 
 
-![屏幕快照 2020-02-18-21.03.23.png](https://s3.qiufengh.com/blog/屏幕快照%202020-02-18-21.03.23.png)
+![屏幕快照 2020-02-18-21.03.23.png](https://s3.qiufeng.blue/blog/屏幕快照%202020-02-18-21.03.23.png)
 
 
 
@@ -149,7 +149,7 @@ window.addEventListener("load", () =>
 npm run start
 ```
 
-![屏幕快照-2020-02-18-22.11.04.png](https://s3.qiufengh.com/blog/屏幕快照-2020-02-18-22.11.04.png)
+![屏幕快照-2020-02-18-22.11.04.png](https://s3.qiufeng.blue/blog/屏幕快照-2020-02-18-22.11.04.png)
 
 **使用图片**
 
@@ -286,11 +286,11 @@ import Foo from '/web_modules/package-name.js?v=1.2.3';
 **snowpack 劣势**
 1. 对 ES Modules 的依赖性强，在npm 上虽然 ES Modules 的包在逐渐增加，但是短期内需要包都需要做额外的处理。例如我想引入 `Antd`, 发现其中依赖了很多 `CommonJS` 的模块以及样式未使用 CSS-in-JS, 引入较为繁琐。
 
-![D3Uk1PSU4AAPg0b.jpeg](https://s3.qiufengh.com/blog/D3Uk1PSU4AAPg0b.jpeg)
+![D3Uk1PSU4AAPg0b.jpeg](https://s3.qiufeng.blue/blog/D3Uk1PSU4AAPg0b.jpeg)
 
-![1581942499648.jpg](https://s3.qiufengh.com/blog/1581942499648.jpg)
+![1581942499648.jpg](https://s3.qiufeng.blue/blog/1581942499648.jpg)
 
-![1581942520735.jpg](https://s3.qiufengh.com/blog/1581942520735.jpg)
+![1581942520735.jpg](https://s3.qiufeng.blue/blog/1581942520735.jpg)
 
 2. 对于一些 `css`，`images` 资源处理不够友好，需要额外手动处理，并且底层使用 `rollup` 来进行一次 `ES Modules` 的导出太过于生硬, 没有强大的自定义的插件或者配置。
 3. 太多依赖包会造成网络问题
@@ -301,4 +301,4 @@ import Foo from '/web_modules/package-name.js?v=1.2.3';
 对于现阶段的 `snowpack` 来说还是太年轻，但是年轻总是充满希望和可能。
 
 ## 关注 
-![gongzhonghao.png](https://s3.qiufengh.com/blog/gongzhonghao.png)
+![gongzhonghao.png](https://s3.qiufeng.blue/blog/gongzhonghao.png)

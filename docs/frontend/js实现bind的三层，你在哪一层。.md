@@ -2,7 +2,7 @@
 
 最近在帮女朋友复习 JS 相关的基础知识，遇到不会的问题，她就会来问我。
 
-![image-20210511013512798](https://s3.qiufengh.com/blog/image-20210511013512798.png)
+![image-20210511013512798](https://s3.qiufeng.blue/blog/image-20210511013512798.png)
 
 这不是很简单？三下五除二，分分钟解决。
 
@@ -14,15 +14,15 @@ function bind(fn, obj, ...arr) {
 
 于是我就将这段代码发了过去
 
-![image-20210511013602940](https://s3.qiufengh.com/blog/image-20210511013602940.png)
+![image-20210511013602940](https://s3.qiufeng.blue/blog/image-20210511013602940.png)
 
 这时候立马被女朋友进行了一连串的灵魂拷问。
 
-![image-20210511013907433](https://s3.qiufengh.com/blog/image-20210511013907433.png)
+![image-20210511013907433](https://s3.qiufeng.blue/blog/image-20210511013907433.png)
 
 这个时候，我马老师就坐不住了，我不服气，我就去复习了一下 bind，发现太久不写基础代码，还是会需要一点时间复习，这一次我得写一个有深度的 bind，深的马老师的真传，给他分成了五层速记法。
 
-![dasima](https://s3.qiufengh.com/blog/dasima.jpeg)
+![dasima](https://s3.qiufeng.blue/blog/dasima.jpeg)
 
 ## 第一层 - 绑定在原型上的方法
 
@@ -41,7 +41,7 @@ myfun._bind();
 
 想要详细理解这方面的可以看这张图和这篇文章（https://github.com/mqyqingfeng/blog/issues/2）
 
-![js-prototype](https://s3.qiufengh.com/blog/js-prototype.png)
+![js-prototype](https://s3.qiufeng.blue/blog/js-prototype.png)
 
 
 

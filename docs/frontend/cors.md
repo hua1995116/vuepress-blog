@@ -12,11 +12,11 @@
 
 **重要的说明: 在文中，web 端地址为 localhost:8000 服务端地址为 localhost:8080,这一点希望你能记住，会贯穿全文，你也可以把此处的两端的地址代入你自己的地址。**
 
-![cors](https://s3.qiufengh.com/blog/cors.png)
+![cors](https://s3.qiufeng.blue/blog/cors.png)
 
 以下所有代码均在 [https://github.com/hua1995116/node-demo/tree/master/node-cors](https://github.com/hua1995116/node-demo/tree/master/node-cors)
 
-![image-20200413192431636](https://s3.qiufengh.com/blog/image-20200413192431636.png)
+![image-20200413192431636](https://s3.qiufeng.blue/blog/image-20200413192431636.png)
 
 ## 一、跨域是什么？
 
@@ -30,7 +30,7 @@
 
 当跨域时会收到以下错误
 
-![image-20200413205559124](https://s3.qiufengh.com/blog/image-20200413205559124.png)
+![image-20200413205559124](https://s3.qiufeng.blue/blog/image-20200413205559124.png)
 
 ### 2.同源示例
 
@@ -38,7 +38,7 @@
 
 `http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument`
 
-![image-20200412171942421](https://s3.qiufengh.com/blog/image-20200412171942421.png)
+![image-20200412171942421](https://s3.qiufeng.blue/blog/image-20200412171942421.png)
 
 只有当
 
@@ -177,19 +177,19 @@ axios.defaults.withCredentials = true;
 
 这里请求的方式，在 `chrome` 中是能看到返回值的，但是只要不满足以上其一，浏览器会报错，获取不到返回值。
 
-![image-20200412201424024](https://s3.qiufengh.com/blog/image-20200412201424024.png)
+![image-20200412201424024](https://s3.qiufeng.blue/blog/image-20200412201424024.png)
 
 ```
 Access to XMLHttpRequest at 'http://127.0.0.1:8080/api/corslist' from origin 'http://127.0.0.1:8000' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Credentials' header in the response is '' which must be 'true' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
 ```
 
-![image-20200412201411481](https://s3.qiufengh.com/blog/image-20200412201411481.png)
+![image-20200412201411481](https://s3.qiufeng.blue/blog/image-20200412201411481.png)
 
 ```
 Access to XMLHttpRequest at 'http://127.0.0.1:8080/api/corslist' from origin 'http://127.0.0.1:8000' has been blocked by CORS policy: The value of the 'Access-Control-Allow-Origin' header in the response must not be the wildcard '*' when the request's credentials mode is 'include'. The credentials mode of requests initiated by the XMLHttpRequest is controlled by the withCredentials attribute.
 ```
 
-![image-20200412201530087](https://s3.qiufengh.com/blog/image-20200412201530087.png)
+![image-20200412201530087](https://s3.qiufeng.blue/blog/image-20200412201530087.png)
 
 #### d.前端示例
 
@@ -215,9 +215,9 @@ Access to XMLHttpRequest at 'http://127.0.0.1:8080/api/corslist' from origin 'ht
 </script>
 ```
 
-![image-20200412201158778](https://s3.qiufengh.com/blog/image-20200412201158778.png)
+![image-20200412201158778](https://s3.qiufeng.blue/blog/image-20200412201158778.png)
 
-![image-20200412195829232](https://s3.qiufengh.com/blog/image-20200412195829232.png)
+![image-20200412195829232](https://s3.qiufeng.blue/blog/image-20200412195829232.png)
 
 ##### 小结
 
@@ -231,11 +231,11 @@ Access to XMLHttpRequest at 'http://127.0.0.1:8080/api/corslist' from origin 'ht
 
 **代理前**
 
-![image-20200412202320482](https://s3.qiufengh.com/blog/image-20200412202320482.png)
+![image-20200412202320482](https://s3.qiufeng.blue/blog/image-20200412202320482.png)
 
 **代理后**
 
-![image-20200412202358759](https://s3.qiufengh.com/blog/image-20200412202358759.png)
+![image-20200412202358759](https://s3.qiufeng.blue/blog/image-20200412202358759.png)
 
 这样，所有的资源以及请求都在一个域名下了。
 
@@ -386,7 +386,7 @@ cors_proxy
 
 **效果展示**
 
-![image-20200413161243734](https://s3.qiufengh.com/blog/image-20200413161243734.png)
+![image-20200413161243734](https://s3.qiufeng.blue/blog/image-20200413161243734.png)
 
 **缺点**
 
@@ -402,9 +402,9 @@ cors_proxy
 
 在 `tools/map remote` 中设置代理
 
-![image-20200412232733437](https://s3.qiufengh.com/blog/image-20200412232733437.png)
+![image-20200412232733437](https://s3.qiufeng.blue/blog/image-20200412232733437.png)
 
-![image-20200412232724518](https://s3.qiufengh.com/blog/image-20200412232724518.png)
+![image-20200412232724518](https://s3.qiufeng.blue/blog/image-20200412232724518.png)
 
 ##### 前端代码
 
@@ -449,17 +449,17 @@ router.post("/api/login", async ctx => {
 
 访问 http://localhost:8000/charles
 
-![image-20200412232231554](https://s3.qiufengh.com/blog/image-20200412232231554.png)
+![image-20200412232231554](https://s3.qiufeng.blue/blog/image-20200412232231554.png)
 
-![image-20200412232752837](https://s3.qiufengh.com/blog/image-20200412232752837.png)
+![image-20200412232752837](https://s3.qiufeng.blue/blog/image-20200412232752837.png)
 
 完美解决。
 
 唔。这里又有一个注意点。在 `Mac mojave 10.14` 中会出现 `charles` 抓不到本地包的情况。这个时候需要自定义一个域名，然后配置`hosts`指定到`127.0.0.1`。然后修改访问方式 `http://localhost.charlesproxy.com:8000/charles`。
 
-![image-20200412233258107](https://s3.qiufengh.com/blog/image-20200412233258107.png)
+![image-20200412233258107](https://s3.qiufeng.blue/blog/image-20200412233258107.png)
 
-![image-20200412233317027](https://s3.qiufengh.com/blog/image-20200412233317027.png)
+![image-20200412233317027](https://s3.qiufeng.blue/blog/image-20200412233317027.png)
 
 ### 3.Nginx 反向代理
 
@@ -467,7 +467,7 @@ router.post("/api/login", async ctx => {
 
 Nginx 则是通过反向代理的方式，（这里也需要自定义一个域名）这里就是保证我当前域，能获取到静态资源和接口，不关心是怎么获取的。[nginx 安装教程](https://blog.csdn.net/diaojw090/article/details/89135073)
 
-![image-20200412233536522](https://s3.qiufengh.com/blog/image-20200412233536522.png)
+![image-20200412233536522](https://s3.qiufeng.blue/blog/image-20200412233536522.png)
 
 配置下 hosts
 
@@ -540,7 +540,7 @@ router.post("/api/login", async ctx => {
 
 浏览器显示
 
-![image-20200413000229326](https://s3.qiufengh.com/blog/image-20200413000229326.png)
+![image-20200413000229326](https://s3.qiufeng.blue/blog/image-20200413000229326.png)
 
 ### 4.JSONP
 
@@ -897,7 +897,7 @@ b.html 为中间代理页，与 a.html 同域，内容为空。
 
 #### 效果展示
 
-![image-20200413143102377](https://s3.qiufengh.com/blog/image-20200413143102377.png)
+![image-20200413143102377](https://s3.qiufeng.blue/blog/image-20200413143102377.png)
 
 嗯，使用起来很香，但是再次提醒，一般情况千万别轻易使用这个方式，这个方式好比七伤拳，使用的好威力无比，使用不好，很容易伤到自己。
 
@@ -915,7 +915,7 @@ b.html 为中间代理页，与 a.html 同域，内容为空。
 
 https://zerolty.com/node-demo/index.html
 
-![image-20200413190413758](https://s3.qiufengh.com/blog/image-20200413190413758.png)
+![image-20200413190413758](https://s3.qiufeng.blue/blog/image-20200413190413758.png)
 
 你会发现，这个和真实的百度一模一样，如果再把域名搞的相似一些，是不是很容易被骗，如果可以进行 dom 操作...那么大家的信息在这种钓鱼网站眼里都是一颗颗小白菜，等着被收割。
 
@@ -929,11 +929,11 @@ https://zerolty.com/node-demo/index.html
 
 欢迎关注公众号 **「秋风的笔记」**，主要记录日常中觉得有意思的工具以及分享开发实践，保持深度和专注度。
 
-<img src="https://s3.qiufengh.com/blog/weixin-gongzhonghao.png" alt="weixin-gongzhonghao" style="width: 500px;text-align:center" />
+<img src="https://s3.qiufeng.blue/blog/weixin-gongzhonghao.png" alt="weixin-gongzhonghao" style="width: 500px;text-align:center" />
 
 也可以扫码加我微信好友，拉你进交流群聊 5 毛钱的天。群里有很多大佬，解决问题也很积极，说实话，这篇文章就是一个例子，发现群里好多人常常遇到这相关的问题，干脆来一篇总结。
 
-<img src="https://s3.qiufengh.com/blog/1581349909092.jpg" alt="1581349909092" style="width: 300px;text-align:center" />
+<img src="https://s3.qiufeng.blue/blog/1581349909092.jpg" alt="1581349909092" style="width: 300px;text-align:center" />
 
 ## 参考
 

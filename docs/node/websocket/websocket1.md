@@ -10,7 +10,7 @@ https://github.com/hua1995116/webchat
 —————————————————————————————
 继上一个项目[用vuejs仿网易云音乐（实现听歌以及搜索功能）](http://blog.csdn.net/blueblueskyhua/article/details/68156734)后，发现上一个项目单纯用vue的model管理十分混乱，然后我去看了看vuex，打算做一个项目练练手，又不想做一个重复的项目，这次我就放弃颜值，打算走心派。结合了后台nodejs，以及数据库mongodb来开发了一个实时聊天系统。这个系统可以说是一统江山，也算是实现前端程序员的一个梦了，前后通吃。自认为是一个比全的项目。项目地址：[https://github.com/hua1995116/webchat](https://github.com/hua1995116/webchat) 觉得好的请顺手来个star。
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284980.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284980.jpg)
 
 **技术栈**
 
@@ -41,11 +41,11 @@ vue init webpack my-project-name
 ```
 结构大致是这样的
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285439.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285439.png)
 
 好！既然我们是实战项目，我就不多说这些配置问题。不然又跑题了。不然又要被小哥哥小姐姐们打了。
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284958.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284958.jpg)
 
 **前端**
 
@@ -417,8 +417,8 @@ http://qiufengh.com:8081改成自己的项目地址。
 ```
 
 最后上几张图。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284360.gif)
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284977.gif)
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284346.gif)
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284821.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284360.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284977.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284346.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284821.gif)
 

@@ -30,9 +30,9 @@ git checkout dev
 
 运行，（以下情况默认你本地网络没有问题，能够正常clone）
 
-![image-20180904230252159](https://s3.qiufengh.com/blog/2018-09-07/image-20180904230252159.png)
+![image-20180904230252159](https://s3.qiufeng.blue/blog/2018-09-07/image-20180904230252159.png)
 
-![image-20180904230401160](https://s3.qiufengh.com/blog/2018-09-07/image-20180904230401160.png)
+![image-20180904230401160](https://s3.qiufeng.blue/blog/2018-09-07/image-20180904230401160.png)
 
 看到上述结果是不是大家会有疑惑，what？为什么会有error输出，clone正确，并且正确地切换了分支。为什么在clone就报错了，还有Switched to a new branch 'dev'，多么正常的一句话，有错吗，why？why？why？心中充满了许多的疑问。
 
@@ -138,7 +138,7 @@ cd webchat
 git checkout -q dev 
 ```
 
-![image-20180905002458823](https://s3.qiufengh.com/blog/2018-09-07/image-20180905002458823.png)
+![image-20180905002458823](https://s3.qiufeng.blue/blog/2018-09-07/image-20180905002458823.png)
 
 已经不输出error了。
 
@@ -182,7 +182,7 @@ https://unix.stackexchange.com/questions/99263/what-does-21-in-this-command-mean
 
 
 
-![image](https://s3.qiufengh.com/blog/2018-09-07/image.png)
+![image](https://s3.qiufeng.blue/blog/2018-09-07/image.png)
 
 
 
@@ -194,7 +194,7 @@ http://git.661346.n2.nabble.com/Bugreport-Git-responds-with-stderr-instead-of-st
 
 看完通篇，可以看到有这么一个人说了这样的一段，非常的中肯
 
-![image-20180905003037811](https://s3.qiufengh.com/blog/2018-09-07/image-20180905003037811.png)
+![image-20180905003037811](https://s3.qiufeng.blue/blog/2018-09-07/image-20180905003037811.png)
 
 大意如下：
 
@@ -218,7 +218,7 @@ https://github.com/git/git/blob/master/builtin/checkout.c#L703
 
 
 
-![image-20180905003840195](https://s3.qiufengh.com/blog/2018-09-07/image-20180905003840195.png)
+![image-20180905003840195](https://s3.qiufeng.blue/blog/2018-09-07/image-20180905003840195.png)
 
 
 
@@ -242,7 +242,7 @@ https://github.com/peff
 
 
 
-![image-20180905004157471](https://s3.qiufengh.com/blog/2018-09-07/image-20180905004157471.png)
+![image-20180905004157471](https://s3.qiufeng.blue/blog/2018-09-07/image-20180905004157471.png)
 
 
 

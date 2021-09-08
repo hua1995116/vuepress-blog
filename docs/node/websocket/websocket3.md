@@ -20,9 +20,9 @@ https://github.com/hua1995116/webchat/tree/dev
 **1.梳理项目目录结构**
 
 原目录：
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284481.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284481.jpg)
 新目录
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506287135.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506287135.jpg)
 主要是多了一个api目录，view目录和一个Basetransition.vue文件。
 api的作用为对axios的统一处理
 view使得页面和组件分离，因为一般写都是混在一起，会导致不太清楚
@@ -35,7 +35,7 @@ Basetransition.vue为一个切换特效的基本文件
 **3.将公共工具utils抽取出来**
 
 里面有三个工具，
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286295.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286295.jpg)
 
 分别为处理时间，localStoragec存储，处理url的query参数
 **4.页面与组件分离**
@@ -133,7 +133,7 @@ mounted() {
 [https://github.com/zhengguorong/pageAinimate](https://github.com/zhengguorong/pageAinimate)并且在他的基础上，我再进行了优化，让我们的项目页面切换变成了牛逼哄哄的样子。
 **“顺畅的不像话“，看起来分不清楚是app还是h5**
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286226.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286226.gif)
 
 可以看我的Basetransition.vue页面。
 
@@ -188,11 +188,11 @@ css
 
 3.加入loading, 优化处理
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506287156.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506287156.gif)
 
 4.加入静态组件，仿苹果弹窗(Alert, confirm)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286222.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286222.gif)
 
 5.加入用户缓存机制，不必每次刷新重新登录了
 
@@ -208,14 +208,14 @@ setItem(key, value, duration)，参数分别为，属性名，属性值，缓存
 
 因为服务器比较渣，所以还是能体谅这个速度，我们主要看前后对比时间。
 重构前：
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286303.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286303.jpg)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284422.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284422.jpg)
 
 重构后：
 ![这里写图片描述](http://img.blog.csdn.net/20171005164633707?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYmx1ZWJsdWVza3lodWE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506286899.jpg)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506286899.jpg)
 
 比较之下还是有很大的改善的。剩下的自己慢慢体会吧。
 

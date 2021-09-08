@@ -23,10 +23,10 @@
 因此这一款高颜值方便的统计工具诞生。
 
 
-![](https://s3.qiufengh.com/blog/1568533450472.png)
+![](https://s3.qiufeng.blue/blog/1568533450472.png)
 
 高颜图
-![](https://s3.qiufengh.com/blog/1568533450657.png)
+![](https://s3.qiufeng.blue/blog/1568533450657.png)
 
 玩具源码
 
@@ -67,7 +67,7 @@ Node兼容性
 
 
 
-![](https://s3.qiufengh.com/blog/1568533450638.jpg)
+![](https://s3.qiufeng.blue/blog/1568533450638.jpg)
 
 通过commander来获取用户的一些自定义配置
 
@@ -269,7 +269,7 @@ Step1
 打开https://www.npmjs.com/signup
 
 
-![](https://s3.qiufengh.com/blog/1568533450634.jpg)
+![](https://s3.qiufeng.blue/blog/1568533450634.jpg)
 
 注册一个账号
 
@@ -366,14 +366,14 @@ travis还有个好处，在别人给你提交pr的时候，可以自动运行测
 
 
 
-![](https://s3.qiufengh.com/blog/1568533450651.png)
+![](https://s3.qiufeng.blue/blog/1568533450651.png)
 
 https://codecov.io/gh
 
 这是一个统计代码覆盖率的工具，在npm run test中添加他，在pr的时候可以看到覆盖率的统计
 
 
-![](https://s3.qiufengh.com/blog/1568533450771.jpg)
+![](https://s3.qiufeng.blue/blog/1568533450771.jpg)
 
 
 # 安装&使用
@@ -410,12 +410,12 @@ $ linec -o
 # 效果图
 基础模式
 
-![](https://s3.qiufengh.com/blog/1568533450657.png)
+![](https://s3.qiufeng.blue/blog/1568533450657.png)
 
 导出后打开html
 
 
-![](https://s3.qiufengh.com/blog/1568533450645.png)
+![](https://s3.qiufeng.blue/blog/1568533450645.png)
 
 
 # 结尾

@@ -85,7 +85,7 @@ git search [search_term]
 git search createHotContext
 ```
 
-![image-20201001204951416](https://s3.qiufengh.com/blog/image-20201001204951416.png)
+![image-20201001204951416](https://s3.qiufeng.blue/blog/image-20201001204951416.png)
 
 ## `git here`
 
@@ -105,7 +105,7 @@ git config --global alias.here '!git init && sh ~/my/git.sh && git add . && git 
 
 也有人说，我不改也能提交啊，=。= 为啥要改？那是你不知道强迫症....看到这种灰色头像的提交真的是心里焦灼。
 
-![image-20201001210508185](https://s3.qiufengh.com/blog/image-20201001210508185.png)
+![image-20201001210508185](https://s3.qiufeng.blue/blog/image-20201001210508185.png)
 
 ## `git who`
 
@@ -225,7 +225,7 @@ git plg # plg - Pretty Log
 
 `git log`没什么问题，除了它有点丑陋，没有颜色差异，如果要自定义它，我们需要在 google 上查询相关的命令。 幸运的是，我们有别名(alias)。 使用该命令的别名，你将获得非常漂亮的日志。
 
-![image-20201001223111514](https://s3.qiufengh.com/blog/image-20201001223111514.png)
+![image-20201001223111514](https://s3.qiufeng.blue/blog/image-20201001223111514.png)
 
 ## `git fresh`
 
@@ -254,7 +254,7 @@ git fresh src main # Don't do this unless you know what you are doing
 
 现在我们成功将 `script` 目录拆成了单独的项目。
 
-![image-20201001224453823](https://s3.qiufengh.com/blog/image-20201001224453823.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201001224453823](https://s3.qiufeng.blue/blog/image-20201001224453823.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 再来看 `commit` 记录，依旧保留了` script` 的相关` commit `记录，对于管理项目来说非常有帮助。
 
@@ -273,7 +273,7 @@ Date:   Thu Oct 1 22:37:21 2020 +0800
 git reset --hard refs/original/refs/heads/{branch_name}
 ```
 
-![image-20201001224735002](https://s3.qiufengh.com/blog/image-20201001224735002.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201001224735002](https://s3.qiufeng.blue/blog/image-20201001224735002.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 还可以继续拆分,这个时候拆分需要先清除一下备份~
 

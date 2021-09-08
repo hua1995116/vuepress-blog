@@ -15,17 +15,17 @@
 ####**功能分析与设计**
 首先我先参考了现有的一些APP的设计与开发，然后决定做了歌单和搜索两个模块，本身主要以前端为主，后端代码并没有研究，这里要感谢这位同学写的[API](https://github.com/zvenshy/venmusic)。
 如果你没有API也没有关系，这并不影响我们的开发，你可以写如下形式的json数据进行模拟：
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284320.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284320.png)
 
 **vuejs**
 
 路由结构如下
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284503.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284503.png)
 
 以下是组件
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284409.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284409.png)
 
 1.歌单部分：
 数据主要由API提供，源码中有具体地址。需要了解audio标签，不熟悉的同学看[audio](http://www.cnblogs.com/tianma3798/p/6033108.html)
@@ -64,11 +64,11 @@ this.$nextTick(() => {
 ```
 
 最后上几张效果图
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285676.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285676.gif)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284321.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284321.gif)
 
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506285018.gif)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506285018.gif)
 
 github项目地址：
 [https://github.com/hua1995116/musiccloudWebapp/](https://github.com/hua1995116/musiccloudWebapp/)

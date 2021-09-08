@@ -5,11 +5,11 @@
 
 千呼万唤的全球2020的JS报告终于出来了。顺便附上2020全球CSS报告地址 [2020年度全球CSS报告新鲜出炉](https://segmentfault.com/a/1190000038427691)
 
-![image-20210114001259007](https://s3.qiufengh.com/blog/image-20210114001259007.png)
+![image-20210114001259007](https://s3.qiufeng.blue/blog/image-20210114001259007.png)
 
 我们来看看这一个糟糕却又不平凡的一年，JS发生了什么样的变化。
 
-![image-20210114001739976](https://s3.qiufengh.com/blog/image-20210114001739976.png)
+![image-20210114001739976](https://s3.qiufeng.blue/blog/image-20210114001739976.png)
 
 尽管2020年很糟糕，但 JavaScript 作为一个整体仍然设法向前发展。随着语言本身的不断改进，得益于诸如**可选链操作符**和**空值合并操作符**并等新特性，TypeScript静态类型的普及更是将JS带到了一个全新的高度。
 
@@ -23,7 +23,7 @@
 
 采样对象一共为 20744 位开发者。
 
-![image-20210114003014449](https://s3.qiufengh.com/blog/image-20210114003014449.png)
+![image-20210114003014449](https://s3.qiufeng.blue/blog/image-20210114003014449.png)
 
 ## 特性
 
@@ -31,7 +31,7 @@
 
 这图表显示了按类别分组的所有特性的不同采用率。外圈的大小对应于了解某项功能的用户总数，而内圈则代表实际使用过该功能的用户。
 
-![image-20210114003419236](https://s3.qiufengh.com/blog/image-20210114003419236.png)
+![image-20210114003419236](https://s3.qiufeng.blue/blog/image-20210114003419236.png)
 
 ## 技术现状
 
@@ -39,67 +39,67 @@
 
 每条线从2016年到2020年（粗部为2020）。纵轴越高，表示一项技术被更多的人使用，横轴越大，表示有更多的用户想要学习，或者曾经使用过，还会再次使用。
 
-![image-20210114004041187](https://s3.qiufengh.com/blog/image-20210114004041187.png)
+![image-20210114004041187](https://s3.qiufeng.blue/blog/image-20210114004041187.png)
 
 可以看出随着年限的的增长。webpack、Express、TypeScript、Jest、React 可以说是非常强势了。
 
 ### 风味（Flavors）
 
-![image-20210114011042569](https://s3.qiufengh.com/blog/image-20210114011042569.png)
+![image-20210114011042569](https://s3.qiufeng.blue/blog/image-20210114011042569.png)
 
 可以看出 TypeScript 依旧独领风骚，其次就是 Elm ，但是 PureScript 也是一个值得关注的增强类型语言。
 
-![image-20210114004722545](https://s3.qiufengh.com/blog/image-20210114004722545.png)
+![image-20210114004722545](https://s3.qiufeng.blue/blog/image-20210114004722545.png)
 
 对 TypeScript 的熟悉度一片叫好。
 
 **其他工具**
 
-![image-20210114004757675](https://s3.qiufengh.com/blog/image-20210114004757675.png)
+![image-20210114004757675](https://s3.qiufeng.blue/blog/image-20210114004757675.png)
 
 ### 前端框架
 
-![image-20210114011217904](https://s3.qiufengh.com/blog/image-20210114011217904.png)
+![image-20210114011217904](https://s3.qiufeng.blue/blog/image-20210114011217904.png)
 
 正如开头所说，svelte 的出现真的是对前端行业的冲击，原以为三大框架（React、Vue.js、Angular）包揽所有的时候，它出现了，一度成为了第四名（使用量），但是从兴趣度和满意度来看，它未来的潜力不可估量。
 
 兴趣度
 
-![image-20210114011448248](https://s3.qiufengh.com/blog/image-20210114011448248.png)
+![image-20210114011448248](https://s3.qiufeng.blue/blog/image-20210114011448248.png)
 
 满意度
 
-![image-20210114011511595](https://s3.qiufengh.com/blog/image-20210114011511595.png)
+![image-20210114011511595](https://s3.qiufeng.blue/blog/image-20210114011511595.png)
 
 ### 数据层
 
-![image-20210114011556857](https://s3.qiufengh.com/blog/image-20210114011556857.png)
+![image-20210114011556857](https://s3.qiufeng.blue/blog/image-20210114011556857.png)
 
 使用排名比较高的状态管理依旧是Redux、Vuex、Mobx。 数据管理为 GraphQL 和 Apollo，并且 XState 横空出世。
 
 **其他工具**
 
-![image-20210114005333559](https://s3.qiufengh.com/blog/image-20210114005333559.png)
+![image-20210114005333559](https://s3.qiufeng.blue/blog/image-20210114005333559.png)
 
 ### 后端框架
 
-![image-20210114011713944](https://s3.qiufengh.com/blog/image-20210114011713944.png)
+![image-20210114011713944](https://s3.qiufeng.blue/blog/image-20210114011713944.png)
 
 Express 依旧是统治地位，而 Next 和 Nuxt 这些服务端渲染的框架也逐渐成为大家的所选的框架。
 
 **其他工具**
 
-![image-20210114005400642](https://s3.qiufengh.com/blog/image-20210114005400642.png)
+![image-20210114005400642](https://s3.qiufeng.blue/blog/image-20210114005400642.png)
 
 ### 测试框架
 
-![image-20210114011830965](https://s3.qiufengh.com/blog/image-20210114011830965.png)
+![image-20210114011830965](https://s3.qiufeng.blue/blog/image-20210114011830965.png)
 
 Jest和 Mocha 在使用量上依旧是统治地位，但是新增了 Testing Libray 很强劲。
 
 以下是满意度排行。
 
-![image-20210114005427559](https://s3.qiufengh.com/blog/image-20210114005427559.png)
+![image-20210114005427559](https://s3.qiufeng.blue/blog/image-20210114005427559.png)
 
 什么是 `Testing Library` ？用于 DOM 和 UI 组件测试的一系列工具，主要 API 包含 DOM 查询，更可以和其他测试工具(jest、cypress)配合，用于更多场景(react、vue、svelte)。而它是 React 的官方推荐。
 
@@ -109,27 +109,27 @@ Jest和 Mocha 在使用量上依旧是统治地位，但是新增了 Testing Lib
 
 ### 打包工具
 
-![image-20210114011945951](https://s3.qiufengh.com/blog/image-20210114011945951.png)
+![image-20210114011945951](https://s3.qiufeng.blue/blog/image-20210114011945951.png)
 
 虽然短时间内 webpack 使用量还处于霸主地位，这一年打包工具的发生了巨大的变化。
 
 以下为满意度
 
-![image-20210114010039881](https://s3.qiufengh.com/blog/image-20210114010039881.png)
+![image-20210114010039881](https://s3.qiufeng.blue/blog/image-20210114010039881.png)
 
 可以说这里发生了天翻地覆的变化。从 Parcel 到 Snowpack ，再到后来的 esbuild ，每一个都是打包的好手，至于 Vite 为什么没有在其中，我猜想，Vite 最开始只是为了解决 Vue 单个框架的方向，受众面不够广泛（现在它已经支持了多种框架的打包了）。
 
 放张图来看看这些 bundleless 工具的速度吧。
 
-![image-20210114010649085](https://s3.qiufengh.com/blog/image-20210114010649085.png)
+![image-20210114010649085](https://s3.qiufeng.blue/blog/image-20210114010649085.png)
 
 **其他工具**
 
-![image-20210114010412943](https://s3.qiufengh.com/blog/image-20210114010412943.png)
+![image-20210114010412943](https://s3.qiufeng.blue/blog/image-20210114010412943.png)
 
 移动和桌面端
 
-![image-20210114012121186](https://s3.qiufengh.com/blog/image-20210114012121186.png)
+![image-20210114012121186](https://s3.qiufeng.blue/blog/image-20210114012121186.png)
 
 Electron 依旧是桌面端的第一选择， Cordova 和 React Native 也是移动跨端的热门选择。但是新出的 Capacitor 值得关注。
 
@@ -137,31 +137,31 @@ Electron 依旧是桌面端的第一选择， Cordova 和 React Native 也是移
 
 **常用的工具函数库有？**
 
-![image-20210114012305700](https://s3.qiufengh.com/blog/image-20210114012305700.png)
+![image-20210114012305700](https://s3.qiufeng.blue/blog/image-20210114012305700.png)
 
 **其他工具函数库**
 
-![image-20210114012350566](https://s3.qiufengh.com/blog/image-20210114012350566.png)
+![image-20210114012350566](https://s3.qiufeng.blue/blog/image-20210114012350566.png)
 
 **JavaScript 运行时选择**
 
-![image-20210114012435704](https://s3.qiufengh.com/blog/image-20210114012435704.png)
+![image-20210114012435704](https://s3.qiufeng.blue/blog/image-20210114012435704.png)
 
 **经常使用那（些）文字編輯器？**
 
-![image-20210114012456227](https://s3.qiufengh.com/blog/image-20210114012456227.png)
+![image-20210114012456227](https://s3.qiufeng.blue/blog/image-20210114012456227.png)
 
 **常用用于开发的浏览器有哪些？**
 
-![image-20210114012519560](https://s3.qiufengh.com/blog/image-20210114012519560.png)
+![image-20210114012519560](https://s3.qiufeng.blue/blog/image-20210114012519560.png)
 
 ## 资料
 
 **常用的 blog 和杂志？**
 
-![image-20210114012556370](https://s3.qiufengh.com/blog/image-20210114012556370.png)
+![image-20210114012556370](https://s3.qiufeng.blue/blog/image-20210114012556370.png)
 
 **关注了哪些网站和课程？**
 
-![image-20210114012616128](https://s3.qiufengh.com/blog/image-20210114012616128.png)
+![image-20210114012616128](https://s3.qiufeng.blue/blog/image-20210114012616128.png)
 

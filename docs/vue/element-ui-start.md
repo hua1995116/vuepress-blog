@@ -32,7 +32,7 @@
 
 简单概括来讲，就是你对一个事物下意识的判定。
 
-![521abef50a43e595b4d69d721a776857_1440w](https://s3.qiufengh.com/blog/521abef50a43e595b4d69d721a776857_1440w.jpg)
+![521abef50a43e595b4d69d721a776857_1440w](https://s3.qiufeng.blue/blog/521abef50a43e595b4d69d721a776857_1440w.jpg)
 
 那么心智模型又是怎么和源码学习结合在一起的呢？其实这也是经验的积累，对项目工程化的熟悉，例如源码库有很多目录，我们会有一套默认的书写方式，我们知道 `src` 目录下放的是源码、test 下放的是测试用例、`packages` 目录可以联想到 `monorepo` 风格多包单独抽离，想到 `yarn workspace`，例如` yarn workspace` 你用 `npm` 安装是会出错的，这如果你是重度  `npm` 用户，这就够你喝一壶的等等。。。这些都是我们的心智模型，所以一些大佬源码阅读的多了，就会形成一套流水线式的套路，先找 `package.json` ，去确定主入口，然后一步一步地去往内层读，大多数的目录名称都是语义化的。唯一阻碍你的可能就是英文意思，这个....读多了也能克服，我反正英语渣....
 
@@ -72,11 +72,11 @@ git clone -b xxx --depth=1 xxxx
 
 如果你看的源码库不太复杂，你也可以选择在线查看, 当然不是 `github` 上面，那样太慢了。可以装一个叫做 `Gitpod Online IDE`的插件。
 
-![image-20200420232349711](https://s3.qiufengh.com/blog/image-20200420232349711.png)
+![image-20200420232349711](https://s3.qiufeng.blue/blog/image-20200420232349711.png)
 
 
 
-![image-20200420232418856](https://s3.qiufengh.com/blog/image-20200420232418856.png)
+![image-20200420232418856](https://s3.qiufeng.blue/blog/image-20200420232418856.png)
 
 然后会在 clone 的地方多出一个小按钮，点击后。
 

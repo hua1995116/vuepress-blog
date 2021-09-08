@@ -2,7 +2,7 @@
 
 其实这个问题对于服务端而言是常见的问题，但是还是想讲一讲。回归问题，服务端最常用的两种方式就是 REST 和 RPC。
 
-![image-20200406164304121](https://s3.qiufengh.com/blog/image-20200406164304121.png)
+![image-20200406164304121](https://s3.qiufeng.blue/blog/image-20200406164304121.png)
 
 ## 什么是 REST
 
@@ -53,7 +53,7 @@ app.listen(3001);
 
 ### 客户端呈现
 
-![image-20200406172749853](https://s3.qiufengh.com/blog/image-20200406172749853.png)
+![image-20200406172749853](https://s3.qiufeng.blue/blog/image-20200406172749853.png)
 
 
 
@@ -210,7 +210,7 @@ thrift
 
 ### 性能对比
 
-![image-20200406182224521](https://s3.qiufengh.com/blog/image-20200406182224521.png)
+![image-20200406182224521](https://s3.qiufeng.blue/blog/image-20200406182224521.png)
 
 来源: https://cnodejs.org/topic/553a1cad63b7692e48bbb715
 

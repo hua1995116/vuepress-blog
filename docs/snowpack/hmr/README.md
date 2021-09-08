@@ -6,7 +6,7 @@
 
 我们先从入口开始讲起。
 
-![image-20201008204321155](https://s3.qiufengh.com/blog/image-20201008204321155.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201008204321155](https://s3.qiufeng.blue/blog/image-20201008204321155.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 我将 `index.js`复制了出来。
 
@@ -236,7 +236,7 @@ async function runModuleDispose(id) {
 
 上面描述的有点抽象，下面用途来描述一下主要的流程。
 
-![image-20201009233222226](https://s3.qiufengh.com/blog/image-20201009233222226.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201009233222226](https://s3.qiufeng.blue/blog/image-20201009233222226.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 1. 创建了 hmr 的实例
 2. 创建 app 实例
@@ -473,11 +473,11 @@ entry.isHmrEnabled = true;
 
 以下用图形化来解释，b.js 更新冒泡到 index.js 是我们所不期望。
 
-![image-20201011165628322](https://s3.qiufengh.com/blog/image-20201011165628322.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011165628322](https://s3.qiufeng.blue/blog/image-20201011165628322.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 而` b.js` 的修改冒泡到 `a.js` 是我们所期望的。
 
-![image-20201011165727732](https://s3.qiufengh.com/blog/image-20201011165727732.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011165727732](https://s3.qiufeng.blue/blog/image-20201011165727732.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 而`b.js` 冒泡到 `a.js`是我们所期望的。
 
@@ -546,7 +546,7 @@ for (const importUrl of outdatedDependencies) {
 
 这个是在做什么呢。这里主要是讲老的依赖进行删除，然后增加新的依赖，类似于一个简版 `diff`。
 
-![image-20201011192628620](https://s3.qiufengh.com/blog/image-20201011192628620.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011192628620](https://s3.qiufeng.blue/blog/image-20201011192628620.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 例如我们的 `index.js` 旧的依赖的是  
 
@@ -575,7 +575,7 @@ https://github.com/pikapkg/snowpack/blob/f1fd2cb181c1fe6ce2f158159a6fc3191e7456b
 
 `const chokidar = await import('chokidar');`作者主要用来了 `chokidar` 来进行监听本地文件的改动。这个库能够高性能地去使用文件监听。
 
-![image-20201011194330922](https://s3.qiufengh.com/blog/image-20201011194330922.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011194330922](https://s3.qiufeng.blue/blog/image-20201011194330922.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 像 `VS Code`、`gulp`、`karma`、`pm2`、`webpack` 监听文件改动也是使用了这个库。
 

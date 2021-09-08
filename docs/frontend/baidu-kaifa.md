@@ -12,13 +12,13 @@ https://kaifa.baidu.com/
 
 我们先来搜索 `vue` 看看开发者搜索引擎的效果。
 
-![image-20210101163903028](https://s3.qiufengh.com/blog/image-20210101163903028.png)
+![image-20210101163903028](https://s3.qiufeng.blue/blog/image-20210101163903028.png)
 
 第一个结果就是 vue 的官网、后面都是  vue 开发相关的资料。
 
 我们再来看看原百度的效果
 
-![image-20210101164331618](https://s3.qiufengh.com/blog/image-20210101164331618.png)
+![image-20210101164331618](https://s3.qiufeng.blue/blog/image-20210101164331618.png)
 
 一屏下来全是广告....
 
@@ -26,21 +26,21 @@ https://kaifa.baidu.com/
 
 ### 百度搜索
 
-![image-20210101165648536](https://s3.qiufengh.com/blog/image-20210101165648536.png)
+![image-20210101165648536](https://s3.qiufeng.blue/blog/image-20210101165648536.png)
 
 ### 百度-开发者搜索beta
 
-![image-20210101165717682](https://s3.qiufengh.com/blog/image-20210101165717682.png)
+![image-20210101165717682](https://s3.qiufeng.blue/blog/image-20210101165717682.png)
 
 ### 谷歌搜索
 
-![image-20210101165752893](https://s3.qiufengh.com/blog/image-20210101165752893.png)
+![image-20210101165752893](https://s3.qiufeng.blue/blog/image-20210101165752893.png)
 
 然后还有一个致命的缺点，专用搜索引擎太封闭了... 搜索女神还要切换网页？？
 
-![image-20210101170631871](https://s3.qiufengh.com/blog/image-20210101170631871.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20210101170631871](https://s3.qiufeng.blue/blog/image-20210101170631871.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-![image-20210101170828131](https://s3.qiufengh.com/blog/image-20210101170828131.png)
+![image-20210101170828131](https://s3.qiufeng.blue/blog/image-20210101170828131.png)
 
 总结起来谷歌搜索还是太香了。
 

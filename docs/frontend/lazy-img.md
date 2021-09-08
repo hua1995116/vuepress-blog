@@ -20,7 +20,7 @@
 在以前，为了限制屏幕外图像对页面加载时间的影响，开发人员需要使用JavaScript库（如 [LazySizes](https://github.com/aFarkas/lazysizes)）来推迟获取这些图像，直到用户在它们附近滚动。
 
 
-![without-lazyload@2x.png](https://s3.qiufengh.com//blog/without-lazyload@2x.png)
+![without-lazyload@2x.png](https://s3.qiufeng.blue//blog/without-lazyload@2x.png)
 
 一个页面加载211张图片, 没有延迟加载的版本需要获取10MB的图像数据。 延迟加载版本（使用LazySizes）预先加载250KB - 当用户滚动体验时，将获取其他图像。 看 [WPT](https://webpagetest.org/video/compare.php?tests=190406_2K_30b9b9cd6b48735a41bce2daee27b7f5,190406_6R_4ce0ac65b7e11d2e132e4ea8d887edd9)
 
@@ -36,7 +36,7 @@
 
 不指定属性将与设置load = auto具有相同的影响。
 
-![loading-attribute@2x.png](https://s3.qiufengh.com//blog/loading-attribute@2x.png)
+![loading-attribute@2x.png](https://s3.qiufeng.blue//blog/loading-attribute@2x.png)
 
 `<img>`和`<iframe>`的加载属性正在作为[HTML标准](https://github.com/whatwg/html/pull/3752)的一部分进行处理。
 
@@ -200,7 +200,7 @@ canary --user-data-dir="$(mktemp -d)" --enable-features=LazyImageLoading --blink
 
 在Chrome中加载的实现细节是它在页面加载时获取前2KB的图像。 如果服务器支持范围请求，则前2KB可能包含图像尺寸。 这使我们能够生成/显示具有相同尺寸的占位符。 前2KB也可能包括像图标这样的资产的整个图像。
 
-![lazy-load-devtools.png](https://s3.qiufengh.com//blog/lazy-load-devtools.png)
+![lazy-load-devtools.png](https://s3.qiufeng.blue//blog/lazy-load-devtools.png)
 
 当用户即将看到它时，Chrome会抓取其余的图像字节。Chrome DevTools的一个警告是，这可能导致（1）在DevTools网络面板中“出现”双重提取和（2）资源计时对每个图像有2个请求。
 

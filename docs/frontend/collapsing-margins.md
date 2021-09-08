@@ -27,7 +27,7 @@
 
 效果(https://codepen.io/hua1995116/pen/WNQyKBY):
 
-![image-20200517160937926](https://s3.qiufengh.com/blog/image-20200517160937926.png)
+![image-20200517160937926](https://s3.qiufeng.blue/blog/image-20200517160937926.png)
 
 
 
@@ -149,7 +149,7 @@ p::first-line {
 </div>
 ```
 
-![image-20200517185343290](https://s3.qiufengh.com/blog/image-20200517185343290.png)
+![image-20200517185343290](https://s3.qiufeng.blue/blog/image-20200517185343290.png)
 
 像我刚才所说乍一看，两种效果是一样的。但是他们真的一样么？当然不是！我们给他们加上宽度。
 
@@ -163,7 +163,7 @@ p {
 
 `::first-line `的形态
 
-![image-20200517185652868](https://s3.qiufengh.com/blog/image-20200517185652868.png)
+![image-20200517185652868](https://s3.qiufeng.blue/blog/image-20200517185652868.png)
 
 在真实的渲染中我们可以理解为 
 
@@ -177,7 +177,7 @@ p {
 
 `:first-child`的形态
 
-![image-20200517185714812](https://s3.qiufengh.com/blog/image-20200517185714812.png)
+![image-20200517185714812](https://s3.qiufeng.blue/blog/image-20200517185714812.png)
 
 ### 小结
 
@@ -207,7 +207,7 @@ p {
 
 https://www.w3.org/TR/CSS22/box.html#margin-properties
 
-![image-20200517192743042](https://s3.qiufengh.com/blog/image-20200517192743042.png)
+![image-20200517192743042](https://s3.qiufeng.blue/blog/image-20200517192743042.png)
 
 可以看到 `margin-top` 主要有三种形态。第一种是固定值，第二种为百分比，第三种为 auto，这里我们主要来看下 百分比的计算。
 
@@ -451,7 +451,7 @@ https://www.w3.org/TR/CSS22/box.html#margin-properties
 
 在 Firefox 和 IE 下的效果（谷歌失效，原因可能和谷歌浏览器实现有关，暂未深追。）
 
-![image-20200519203941769](https://s3.qiufengh.com/blog/image-20200519203941769.png)
+![image-20200519203941769](https://s3.qiufeng.blue/blog/image-20200519203941769.png)
 
 可以看到如果在在没有 `clearance` 的情况下，父元素底部是会随着子元素一起坍塌的，但是如果中间有 `clearance` 的情况下，父元素的底部则不会坍塌。
 
@@ -478,7 +478,7 @@ https://www.w3.org/TR/CSS22/box.html#margin-properties
 
 效果：
 
-![image-20200518001513036](https://s3.qiufengh.com/blog/image-20200518001513036.png)
+![image-20200518001513036](https://s3.qiufeng.blue/blog/image-20200518001513036.png)
 
 可以看到这种情况下，父子元素下边距并不会发生边距坍塌。
 
@@ -543,7 +543,7 @@ float: left;
 </div>
 ```
 
-![image-20200519013902840](https://s3.qiufengh.com/blog/image-20200519013902840.png)
+![image-20200519013902840](https://s3.qiufeng.blue/blog/image-20200519013902840.png)
 
 ##### 2.clearance
 
@@ -570,7 +570,7 @@ float: left;
     </div>
 ```
 
-![image-20200519001450483](https://s3.qiufengh.com/blog/image-20200519001450483.png)
+![image-20200519001450483](https://s3.qiufeng.blue/blog/image-20200519001450483.png)
 
 ##### case2
 
@@ -595,7 +595,7 @@ float: left;
     </div>
 ```
 
-![image-20200519001526280](https://s3.qiufengh.com/blog/image-20200519001526280.png)
+![image-20200519001526280](https://s3.qiufeng.blue/blog/image-20200519001526280.png)
 
 
 
@@ -619,7 +619,7 @@ float: left;
     <div>距离顶上50px</div>
 ```
 
-![image-20200519001635407](https://s3.qiufengh.com/blog/image-20200519001635407.png)
+![image-20200519001635407](https://s3.qiufeng.blue/blog/image-20200519001635407.png)
 
 ##### case4
 
@@ -642,7 +642,7 @@ float: left;
     </div>
 ```
 
-![image-20200519001704179](https://s3.qiufengh.com/blog/image-20200519001704179.png)
+![image-20200519001704179](https://s3.qiufeng.blue/blog/image-20200519001704179.png)
 
 ### 边距塌陷如何解决
 
@@ -722,8 +722,8 @@ https://stackoverflow.com/questions/25350805/margin-collapse-and-clearance
 
 欢迎关注公众号 **「秋风的笔记」**，主要记录日常中觉得有意思的工具以及分享开发实践，保持深度和专注度。
 
-<img src="https://s3.qiufengh.com/blog/weixin-gongzhonghao.png" alt="weixin-gongzhonghao" style="width: 500px;text-align:center" />
+<img src="https://s3.qiufeng.blue/blog/weixin-gongzhonghao.png" alt="weixin-gongzhonghao" style="width: 500px;text-align:center" />
 
 也可以扫码加我微信好友，进交流群。
 
-<img src="https://s3.qiufengh.com/blog/1581349909092.jpg" alt="1581349909092" style="width: 300px;text-align:center" />
+<img src="https://s3.qiufeng.blue/blog/1581349909092.jpg" alt="1581349909092" style="width: 300px;text-align:center" />

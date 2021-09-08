@@ -1,6 +1,6 @@
 <template>
   <div class="qr">
-    <img src="https://s3.qiufengh.com/blog/erweima.jpg" alt="秋风的比较" width="120" height="120" loading="lazy">
+    <img src="https://s3.qiufeng.blue/blog/erweima.jpg" alt="秋风的比较" width="120" height="120" loading="lazy">
     <p class="we-intro">
       如果你对前端，Node，开源项目感兴趣请关注我的公众号<span class="we-highlight">秋风的笔记</span>。
     </p>
@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: 'QR'
-}
+  name: "QR",
+};
 </script>
 
 <style>
@@ -22,7 +22,7 @@ export default {
 
 .qr .we-intro {
   color: #0006;
-  font-size: .8em;
+  font-size: 0.8em;
   width: 54%;
 }
 

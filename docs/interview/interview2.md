@@ -3,9 +3,9 @@
 
 前端时间做了网易前端实习的笔试题，偶像想起，总结一下，前面的选择题，我就不一一细说了，主要考察的是对于前端的基础，以及计算机基础，这次主要讲下算法题。所有算法我均用js所写，不同语言思路均相同。
 （以下都是我对题目的简述）
-**1.小易学了集合，已知集合有三个性质：确定性、互异性、无序性，现有以下算式**![这里写图片描述](https://s3.qiufengh.com/blog/1579506284518.png)
+**1.小易学了集合，已知集合有三个性质：确定性、互异性、无序性，现有以下算式**![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284518.png)
 **输入x,y,z,w确定集合内元素的个数。**
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284561.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284561.png)
 **input:1,2,3,4**
 **output:4**
 
@@ -140,7 +140,7 @@ process.stdin.on('end', function () {
 
 **除了以上算法题目最后还有一题js的demo题**
 有以下表格。点击成绩能够使表格按成绩从高到底排序。
-![这里写图片描述](https://s3.qiufengh.com/blog/1579506284511.png)
+![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284511.png)
 
 此题的方法就查看我之前的一篇博客
 [http://blog.csdn.net/blueblueskyhua/article/details/68929578](http://blog.csdn.net/blueblueskyhua/article/details/68929578)

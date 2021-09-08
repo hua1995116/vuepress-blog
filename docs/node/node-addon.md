@@ -634,7 +634,7 @@ vscode 默认不支持 `c/c++` 的调试，先安装 `c/c++` 插件。
 
 给 `list.cc` 打上断点。在调试面板 找到 `(lldb) Launch`。单击运行，就可以看到效果了。
 
-![屏幕快照-2019-12-23-2.png](https://s3.qiufengh.com/blog/屏幕快照-2019-12-23-2.png)
+![屏幕快照-2019-12-23-2.png](https://s3.qiufeng.blue/blog/屏幕快照-2019-12-23-2.png)
 
 ## 如何发布
 
@@ -684,7 +684,7 @@ vscode 默认不支持 `c/c++` 的调试，先安装 `c/c++` 插件。
 ```
 npm publish
 ```
-![1577073485544.jpg](https://s3.qiufengh.com/blog/1577073485544.jpg)
+![1577073485544.jpg](https://s3.qiufeng.blue/blog/1577073485544.jpg)
 
 ## 比较效率
 
@@ -725,4 +725,4 @@ https://www.ibm.com/developerworks/cn/opensource/os-cn-v8engine/
 https://nodejs.org/dist/latest/docs/api/n-api.html
 
 ## 欢迎关注公众号
-![](https://s3.qiufengh.com/blog/gongzhonghao.png)
+![](https://s3.qiufeng.blue/blog/gongzhonghao.png)

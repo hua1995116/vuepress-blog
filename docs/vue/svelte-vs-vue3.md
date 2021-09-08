@@ -2,7 +2,7 @@
 
 近日尤大亲自创建了一个仓库用来对 Svelte 和 Vue3 组件进行了评测。这其实对我来说非常的感兴趣，因为我最近在业务项目中采用了 Svelte 进行了开发。
 
-![image-20210711185119613](https://s3.qiufengh.com/blog/image-20210711185119613.png)
+![image-20210711185119613](https://s3.qiufeng.blue/blog/image-20210711185119613.png)
 
 那么到底结果到底是如何呢？(期待的眼神，以为尤大要写 Svelte 代码来进行评测了。
 
@@ -12,7 +12,7 @@ Vue 大家都很熟悉了，如果你不知道 Svelte 是啥？可以看[后起�
 
 下面是`Jacek Schae`大神的统计，使用市面上主流的框架，来编写同样的 Realword 应用的体积：
 
-<img src="https://s3.qiufengh.com/blog/image-20210711222239287.png" style="width: 500px">
+<img src="https://s3.qiufeng.blue/blog/image-20210711222239287.png" style="width: 500px">
 
 下面就请看详细的研究步骤，如果你对研究步骤不感兴趣，可以直接跳到最后看结论。
 

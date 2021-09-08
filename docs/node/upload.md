@@ -54,7 +54,7 @@ Content-Type: text/plain
 
 好了讲完了这些前置知识，我们接下来要进入我们的主题了。面对File, formData,Blob,Base64,ArrayBuffer,到底怎么做？还有文件上传不仅仅是前端的事。服务端也可以文件上传（例如我们利用某云，把静态资源上传到 OSS 对象存储）。服务端和客户端也有各种类型，Buffer，Stream，Base64....头秃，怎么搞？不急，就是因为上传文件不单单是前端的事，所以我将以下上传文件的一方称为**请求端**，接受文件一方称为**接收方**。我会以请求端各种上传方式，接收端是怎么解析我们的文件以及我们最终的杀手锏调试工具-wireshark来进行讲解。
 
-![file-upload](https://s3.qiufengh.com/blog/file-upload.png)
+![file-upload](https://s3.qiufeng.blue/blog/file-upload.png)
 
 ## 请求端
 
@@ -73,19 +73,19 @@ Content-Type: text/plain
 
 我们选择文件后上传，发现后端返回了文件不存在。
 
-![image-20200328191433694](https://s3.qiufengh.com/blog/image-20200328191433694.png)
+![image-20200328191433694](https://s3.qiufeng.blue/blog/image-20200328191433694.png)
 
 不用着急，熟悉的同学可能立马知道是啥原因了。嘘，知道了也听我慢慢叨叨。
 
 我们打开控制台，由于表单提交会进行网页跳转，因此我们勾选`preserve log` 来进行日志追踪。
 
-![image-20200328191807526](https://s3.qiufengh.com/blog/image-20200328191807526.png)
+![image-20200328191807526](https://s3.qiufeng.blue/blog/image-20200328191807526.png)
 
-![image-20200328191733536](https://s3.qiufengh.com/blog/image-20200328191733536.png)
+![image-20200328191733536](https://s3.qiufeng.blue/blog/image-20200328191733536.png)
 
 我们可以发现其实 `FormData` 中 `file` 字段显示的是文件名，并没有将真正的内容进行传输。再看请求头。
 
-![image-20200328192020599](https://s3.qiufengh.com/blog/image-20200328192020599.png)
+![image-20200328192020599](https://s3.qiufeng.blue/blog/image-20200328192020599.png)
 
 发现是请求头和预期不符，也印证了 `application/x-www-form-urlencoded` 无法进行文件上传。
 
@@ -98,7 +98,7 @@ Content-Type: text/plain
 </form>
 ```
 
-![image-20200328192539734](https://s3.qiufengh.com/blog/image-20200328192539734.png)
+![image-20200328192539734](https://s3.qiufeng.blue/blog/image-20200328192539734.png)
 
 发现文件上传成功，简单的表单上传就是像以上一样简单。但是你得熟记文件上传的格式以及类型。
 
@@ -136,15 +136,15 @@ submit.onclick = () => {
 </script>
 ```
 
-![image-20200328192539734](https://s3.qiufengh.com/blog/image-20200328192539734.png)
+![image-20200328192539734](https://s3.qiufeng.blue/blog/image-20200328192539734.png)
 
 以上几种方式都是可以的。但是呢，请求库这么多，我随便在 npm 上一搜就有几百个请求相关的库。
 
-![image-20200328194431932](https://s3.qiufengh.com/blog/image-20200328194431932.png)
+![image-20200328194431932](https://s3.qiufeng.blue/blog/image-20200328194431932.png)
 
 **因此，掌握请求库的写法并不是我们的目标，目标只有一个还是掌握文件上传的请求头和请求内容。**
 
-![image-20200328194625420](https://s3.qiufengh.com/blog/image-20200328194625420.png)
+![image-20200328194625420](https://s3.qiufeng.blue/blog/image-20200328194625420.png)
 
 #### Blob
 
@@ -219,7 +219,7 @@ axios.post('http://localhost:7787/files', form);
 
 对于浏览器端的文件上传，可以归结出一个套路，所有东西核心思路就是构造出 `File` 对象。然后观察请求 `Content-Type`，再看请求体是否有信息缺失。而以上这些二进制数据类型的转化可以看以下表。
 
-![transform.77175c26](https://s3.qiufengh.com/blog/transform.77175c26.jpg)
+![transform.77175c26](https://s3.qiufeng.blue/blog/transform.77175c26.jpg)
 
 图片来源 ([https://shanyue.tech/post/binary-in-frontend/#%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5](https://shanyue.tech/post/binary-in-frontend/#数据输入))
 
@@ -253,7 +253,7 @@ request.post({
 })
 ```
 
-![image-20200328234106276](https://s3.qiufengh.com/blog/image-20200328234106276.png)
+![image-20200328234106276](https://s3.qiufeng.blue/blog/image-20200328234106276.png)
 
 发现报了一个错误，正像上面所说，浏览器端报错，可以用`NetWork`。那么服务端怎么办？这个时候我们拿出我们的利器 -- `wireshark`
 
@@ -261,11 +261,11 @@ request.post({
 
 设置配置 `tcp.port == 7787`,这个是我们后端的端口。
 
-![image-20200328234316233](https://s3.qiufengh.com/blog/image-20200328234316233.png)
+![image-20200328234316233](https://s3.qiufeng.blue/blog/image-20200328234316233.png)
 
 运行上述文件 `node request-error.js`
 
-![image-20200328234543643](https://s3.qiufengh.com/blog/image-20200328234543643.png)
+![image-20200328234543643](https://s3.qiufeng.blue/blog/image-20200328234543643.png)
 
 我们来找到我们发送的这条`http`的请求报文。中间那堆乱七八糟的就是我们的文件内容。
 
@@ -333,7 +333,7 @@ request.post({
 
 打开源码我们很容易地就可以找到关于 formData 这块相关的内容 https://github.com/request/request/blob/3.0/request.js#L21
 
-![image-20200328235629308](https://s3.qiufengh.com/blog/image-20200328235629308.png)
+![image-20200328235629308](https://s3.qiufeng.blue/blog/image-20200328235629308.png)
 
 就是利用`form-data`，我们先来看看 `formData` 的方式。
 
@@ -531,7 +531,7 @@ MultipartParser.prototype.write = function(buffer) {
 
 我们来看` wireshark` 抓到的包
 
-![image-20200329144355168](https://s3.qiufengh.com/blog/image-20200329144355168.png)
+![image-20200329144355168](https://s3.qiufeng.blue/blog/image-20200329144355168.png)
 
 我用红色进行了分割标记，对应的就是`formidable`所分割的片段 ，所以说这个包主要是将大段的 `buffer` 进行分割，然后循环处理。
 
@@ -541,7 +541,7 @@ MultipartParser.prototype.write = function(buffer) {
 
 我来总结一下`formidable`对于文件的处理流程。
 
-![formible-process](https://s3.qiufengh.com/blog/formible-process.png)
+![formible-process](https://s3.qiufeng.blue/blog/formible-process.png)
 
 ### 原生 Node
 
