@@ -1,5 +1,18 @@
 # 开源项目汇集
 
+## react-resume-site
+
+<iframe src="https://ghbtns.com/github-btn.html?user=hua1995116&repo=react-resume-site&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=hua1995116&repo=react-resume-site&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>
+
+<img src="https://img.shields.io/badge/language-vue-{背景色}.svg"/>
+
+木及简历，一款markdown的在线简历工具。
+
+在线地址： [https://www.mujicv.com/](https://www.mujicv.com/)
+
+> 项目地址: https://github.com/hua1995116/react-resume-site
+
 ## webchat
 
 <iframe src="https://ghbtns.com/github-btn.html?user=hua1995116&repo=webchat&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>

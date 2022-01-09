@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
-const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview, canvas } = require('./algorithm.header')
+const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview, canvas, svelte } = require('./algorithm.header')
 
 function getFrontMatter (path, pp = './post') {
   const posts = require(pp)
@@ -67,13 +67,15 @@ module.exports = {
           {text: 'debug系列', link: '/debug/' },
           {text: 'webpack系列', link: '/webpack/' },
           {text: 'canvas系列', link: '/canvas/' },
-      ]},
-      { text: 'Node 实践', link: '/node/' },
+        ]
+      },
+      { text: 'Svelte系列', link: '/svelte/' },
+      { text: 'Node系列', link: '/node/' },
       { text: '面试', link: '/interview/' },
       // { text: '机器学习', link: '/machine/' },
       { text: '算法', link: '/algorithm/' },
       { text: '前端运维', link: '/op/' },
-      { text: '我的开源项目', link: '/open/' },
+      { text: '开源项目', link: '/open/' },
       // { text: 'react 实践', link: '/react/' },
       // { text: 'vue 实践', link: '/vue/' },
       // { text: '关于我', link: '/about' },
@@ -98,6 +100,7 @@ module.exports = {
       '/webpack/': webpack,
       '/interview/': interview,
       '/canvas/': canvas,
+      '/svelte/': svelte
     },
     lastUpdated: 'Last Updated'
   },
@@ -136,6 +139,7 @@ module.exports = {
           extendMetaByPath($page, 'vue');
           extendMetaByPath($page, 'interview');
           extendMetaByPath($page, 'node/websocket');
+          extendMetaByPath($page, 'svelte');
         //   // extendMetaByPath($page, 'node')
           // if ($page.path.includes('/post')) {
           //   const fm = getFrontMatter($page.path)

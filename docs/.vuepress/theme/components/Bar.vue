@@ -19,8 +19,8 @@
 .bar-container .bar-intro {
   padding: 1rem;
   margin-top: 1rem;
-  background: #3eaf7c33;
-  color: #888;
+  background: #eaf7fe;
+  color: rgb(87, 87, 87);
 }
 
 .bar-container .text {
