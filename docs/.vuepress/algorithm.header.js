@@ -10,6 +10,7 @@ const webpack = require('../webpack/meta.json')
 const interview = require('../interview/meta.json')
 const canvas = require('../canvas/meta.json')
 const svelte = require('../svelte/meta.json')
+const three = require('../three/meta.json')
 
 function getHeader (posts) {
   const getPostPair = x => [x.path, x.sideTitle || x.title]
@@ -39,5 +40,6 @@ module.exports = {
   webpack: getHeader(webpack),
   interview: getHeader(interview),
   canvas: getHeader(canvas),
-  svelte: getHeader(svelte)
+  svelte: getHeader(svelte),
+  three: getHeader(three)
 }
