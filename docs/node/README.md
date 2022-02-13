@@ -10,7 +10,7 @@
 
 [shark-cleaner: 一个Node Cli 实现的垃圾清理工具(深层清理开发垃圾)](./shark-cleaner.md)
 
-[开发一个Node高颜代码统计工具](./node-cli-count)
+[开发一个Node高颜代码统计工具](./node-cli-count.md)
 
 [pkg版本规范管理自动化最佳实践](./pkg.md)
 
