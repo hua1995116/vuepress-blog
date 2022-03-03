@@ -111,6 +111,11 @@ export default {
       console.log(this.$site.pages);
       return [
         {
+          title: "万一 Github 不让用了，Gitee同步指南请收好",
+          "date": "2022-03-03 22:33:54",
+          "path": "frontend/gitee-guide.html",
+        },
+        {
           title: "尤大亲自评测 Vue3 和 Svelte(19个组件后Vue更好!)",
           date: "2021-07-11 22:33:54",
           path: "vue/svelte-vs-vue3.html",
