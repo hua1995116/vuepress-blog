@@ -1,5 +1,12 @@
 [
     {
+        "title": "从源码安装谷歌浏览器插件",
+        "date": "2022-03-15 22:33:54",
+        "path": "chrome-extension-source-install",
+        "keywords": "chrome-extension",
+        "description": "3个步骤搞定从源码安装 chrome 插件。"
+    },
+    {
         "title": "万一 Github 不让用了，Gitee同步指南请收好",
         "date": "2022-03-03 22:33:54",
         "path": "gitee-guide",
