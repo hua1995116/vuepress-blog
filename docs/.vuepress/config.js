@@ -25,7 +25,7 @@ const outputConfig = {}
 
 if (process.env.NODE_ENV === 'production') {
   outputConfig.output = {
-    publicPath: 'https://cdn.jsdelivr.net/gh/hua1995116/vuepress-blog@master/docs/.vuepress/dist/'
+    publicPath: 'https://cdn.qiufeng.blue/'
   }
     
 }
