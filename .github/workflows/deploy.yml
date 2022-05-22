@@ -17,7 +17,6 @@ jobs:
           driver: qiniu
           region: cn-east-2
           bucket: qiufeng-blue
-          exclude: assets
           dist: docs/.vuepress/dist
         env:
           UPTOC_UPLOADER_AK: ${{ secrets.UPTOC_UPLOADER_KEYID }}
