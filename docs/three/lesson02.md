@@ -338,3 +338,11 @@ boxBody4
 - 定义墙
 
 好了，以上就是本章的全部内容了，下一个篇章再见。
+
+github地址：https://github.com/hua1995116/Fly-Three.js
+
+系列连载首发地址：
+
+1.  [Three.js系列: 造个海洋球池来学习物理引擎](https://www.qiufeng.blue/three/lesson02.html)
+2.  [Three.js系列: 游戏中的第一、三人称视角](https://www.qiufeng.blue/three/lesson01.html)
+
