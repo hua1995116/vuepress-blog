@@ -46,8 +46,13 @@
       <hr />
       <ul class="friend-link">
         <li>
-          <a href="https://resume.mdedit.online/"
+          <a href="https://www.mujicv.com/"
             >木及简历(Markdown就能写出好简历)</a
+          >
+        </li>
+        <li>
+          <a href="https://kalacloud.com"
+            >卡拉云低代码工具</a
           >
         </li>
         <!-- 
