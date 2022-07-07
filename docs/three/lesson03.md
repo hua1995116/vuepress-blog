@@ -1,4 +1,4 @@
-# Three.js系列，在元宇宙看电影，享受 VR 视觉盛宴
+# Three.js系列: 在元宇宙看电影，享受 VR 视觉盛宴
 
 本文 gihtub 地址: [https://github.com/hua1995116/Fly-Three.js](https://github.com/hua1995116/Fly-Three.js)
 
