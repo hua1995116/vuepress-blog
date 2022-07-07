@@ -183,7 +183,7 @@ void main()
 
 那么 Three.js 中的 textureVideo 到底是如何实现视频的播放的呢？
 
-![Untitled](Three%20js%E7%B3%BB%E5%88%97%EF%BC%8C%E5%9C%A8%E5%85%83%E5%AE%87%E5%AE%99%E7%9C%8B%E7%94%B5%E5%BD%B1%EF%BC%8C%E4%BA%AB%E5%8F%97%20VR%20%E8%A7%86%E8%A7%89%E7%9B%9B%E5%AE%B4%202a17b1037679462ab882b22542474a72/YTpHYzTadxPCMwGQ.png)
+<img src="https://s3.qiufeng.blue/blog/YTpHYzTadxPCMwGQ.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
 
 通过查看源码（[https://github.com/mrdoob/three.js/blob/6e897f9a42d615403dfa812b45663149f2d2db3e/src/textures/VideoTexture.js](https://github.com/mrdoob/three.js/blob/6e897f9a42d615403dfa812b45663149f2d2db3e/src/textures/VideoTexture.js)）源码非常的少，VideoTexture 继承了 Texture ，最大的一点就是通过 **requestVideoFrameCallback 这个方法，**我们来看看它的定义，**发现 mdn 没有相关的示例，我们来到了 w3c 规范中寻找** [https://wicg.github.io/video-rvfc/](https://wicg.github.io/video-rvfc/)
 
@@ -262,5 +262,3 @@ renderer.setAnimationLoop( function () {
 或者也可以像我一样买一个 Oculus  然后躺着看大片
 
 <img src="https://s3.qiufeng.blue/blog/fekrfywXEbScm8J2.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
-
-[https://www.thegamer.com/oculus-quest-2-how-to-browse-the-web-youtube-vr-guide/](https://www.thegamer.com/oculus-quest-2-how-to-browse-the-web-youtube-vr-guide/)
