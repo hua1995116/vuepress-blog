@@ -54,7 +54,8 @@ scene.add(cubeMesh);
 
 效果如下:
 
-<img src="https://s3.qiufeng.blue/blog/A8dK3MQkmDMEwPEM.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+
+![](https://s3.qiufeng.blue/blog/A8dK3MQkmDMEwPEM.png?imageView2/0/format/webp/q/75/w/400)
 
 然后紧接着加入我们的视频内容，想要把视频放入到3d场景中，需要用到两样东西，一个是 html 的 video 标签，另一个是 Three.js 中的视频纹理 VideoTexture 
 
@@ -90,7 +91,8 @@ const cubeMesh = new THREE.Mesh(geometry, cubeMaterial);
 scene.add(cubeMesh);
 ```
 
-<img src="https://s3.qiufeng.blue/blog/zRGiH5BkEyGMMkJY.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+
+![](https://s3.qiufeng.blue/blog/zRGiH5BkEyGMMkJY.png?imageView2/0/format/webp/q/75/w/400)
 
 我们看到皮神明显被拉伸了，这里就出现了一个问题就是纹理的拉伸。这也很好理解，我们的屏幕是 1 : 1 的，但是我们的视频却是 16:9 的。想要解决其实也很容易，要么就是让我们的屏幕大小更改，要么就是让我们的视频纹理渲染的时候更改比例。
 
@@ -117,9 +119,9 @@ scene.add(cubeMesh);
 
 因此如果纹理图是一张16:9 的，想要映射到一个长方形的面中，那么纹理图必要会被拉伸，就像我们上面的视频一样，上面的图为了表现出电视机的厚度所以没有那么明显，可以看一下的图。（第一张比较暗是因为 Three.js 默认贴图计算了光照，先忽略这一点）
 
-<img src="https://s3.qiufeng.blue/blog/fPBCy2cACtaiYSQ8.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:33%;" />
+![](https://s3.qiufeng.blue/blog/fPBCy2cACtaiYSQ8.png?imageView2/0/format/webp/q/75/w/400)
 
-<img src="https://s3.qiufeng.blue/blog/hpZKWXbbAwHnKCAE.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:33%;" />
+![](https://s3.qiufeng.blue/blog/hpZKWXbbAwHnKCAE.png?imageView2/0/format/webp/q/75/w/400)
 
 我们先来捋一捋，假设我们的图片的映射是按照 图1-1，拉伸的情况下  (80,80,0) 映射的是 uv(1，1 )，但是其实我们期望的是点(80, 80 * 9/16, 0) 映射的是 uv(1,1)，所以问题变成了像素点位 (80, 80 * 9/16, 0) 的uv值 如何变成 (80, 80, 0) 的uv 值，更加简单一些就是如何让 80 * 9 / 16 变成 80，答案显而易见，就是 让 80 * 9 / 16 像素点的 v 值 乘以  16 / 9，这样就能找到了 uv(1,1) 的像素值。然后我们就可以开始写 shader 了。
 
@@ -152,7 +154,7 @@ void main()
 `
 ```
 
-<img src="https://s3.qiufeng.blue/blog/CDBtWdseZMBEnQWN.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+![](https://s3.qiufeng.blue/blog/CDBtWdseZMBEnQWN.png?imageView2/0/format/webp/q/75/w/400)
 
 然后我们看到我们画面已经正常了，但是在整体屏幕的下方，所以还差一点点我们需要将它移动到屏幕的中央。
 
@@ -179,11 +181,11 @@ void main()
 
 好了，到现在为止，我们的图像显示正常啦~ 
 
-<img src="https://s3.qiufeng.blue/blog/anATpWPQbcXMw5ba.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+![](https://s3.qiufeng.blue/blog/anATpWPQbcXMw5ba.png?imageView2/0/format/webp/q/75/w/400)
 
 那么 Three.js 中的 textureVideo 到底是如何实现视频的播放的呢？
 
-<img src="https://s3.qiufeng.blue/blog/YTpHYzTadxPCMwGQ.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+![](https://s3.qiufeng.blue/blog/YTpHYzTadxPCMwGQ.png?imageView2/0/format/webp/q/75/w/400)
 
 通过查看源码（[https://github.com/mrdoob/three.js/blob/6e897f9a42d615403dfa812b45663149f2d2db3e/src/textures/VideoTexture.js](https://github.com/mrdoob/three.js/blob/6e897f9a42d615403dfa812b45663149f2d2db3e/src/textures/VideoTexture.js)）源码非常的少，VideoTexture 继承了 Texture ，最大的一点就是通过 **requestVideoFrameCallback 这个方法，**我们来看看它的定义，**发现 mdn 没有相关的示例，我们来到了 w3c 规范中寻找** [https://wicg.github.io/video-rvfc/](https://wicg.github.io/video-rvfc/)
 
@@ -247,18 +249,19 @@ renderer.setAnimationLoop( function () {
 
 由于 iphone 太拉胯不支持 webXR ，特地借了台安卓机（安卓机需要下载 Google Play、Chrome 、Google VR），添加以上步骤后，就会如下显示：
 
-<img src="https://s3.qiufeng.blue/blog/kaeCjDWjKcNKzzXi.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:33%;" />
+![](https://s3.qiufeng.blue/blog/kaeCjDWjKcNKzzXi.png?imageView2/0/format/webp/q/75/w/400)
 
 点击 `ENTER XR` 按钮后，即可进入 VR 场景。
 
-<img src="https://s3.qiufeng.blue/blog/KwGCmRWZX5GtCK4D.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+
+![](https://s3.qiufeng.blue/blog/KwGCmRWZX5GtCK4D.png?imageView2/0/format/webp/q/75)
 
 然后我们我们可以再花20块钱就可以买个谷歌眼镜 cardboard。体验地址如下：
 
 [https://fly-three-js.vercel.app/lesson03/code/index4.html](https://fly-three-js.vercel.app/lesson03/code/index3.html)
 
-<img src="https://s3.qiufeng.blue/blog/Zs8ibmCW56XJSrwe.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+![](https://s3.qiufeng.blue/blog/Zs8ibmCW56XJSrwe.png?imageView2/0/format/webp/q/75)
 
 或者也可以像我一样买一个 Oculus  然后躺着看大片
 
-<img src="https://s3.qiufeng.blue/blog/fekrfywXEbScm8J2.png?imageView2/0/format/webp/q/75" alt="Untitled" style="zoom:50%;" />
+![](https://s3.qiufeng.blue/blog/fekrfywXEbScm8J2.png?imageView2/0/format/webp/q/75)
