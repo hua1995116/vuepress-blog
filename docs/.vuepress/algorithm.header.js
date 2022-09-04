@@ -12,6 +12,13 @@ const canvas = require('../canvas/meta.json')
 const svelte = require('../svelte/meta.json')
 const three = require('../three/meta.json')
 
+const git = require('../git/meta.json')
+const grow = require('../grow/meta.json')
+const news = require('../news/meta.json')
+const practice = require('../practice/meta.json')
+const vscode = require('../vscode/meta.json')
+
+
 function getHeader (posts) {
   const getPostPair = x => [x.path, x.sideTitle || x.title]
   if (posts[0] && posts[0].category) {
@@ -41,5 +48,11 @@ module.exports = {
   interview: getHeader(interview),
   canvas: getHeader(canvas),
   svelte: getHeader(svelte),
-  three: getHeader(three)
+  three: getHeader(three),
+  git: getHeader(git),
+  grow: getHeader(grow),
+  news: getHeader(news),
+  practice: getHeader(practice),
+  vscode: getHeader(vscode),
+  
 }

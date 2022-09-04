@@ -37,18 +37,6 @@
 
 [原生JS实现ajax上传文件并显示进度条](./js-upload.md)
 
-
-## 开发效率
-
-[CodePen vue SFC 、flutter 在线玩耍来袭](./codepen-vue-flutter.md)
-
-[提高前端开发者效率的11个必备的网站](./11-must-website.md)
-
-[教你如何搭建一个自动化构建的博客](./blog.md)
-
-[教你如何打造出一个前端可视化监控系统](./err-viewer.md)
-
-
 ## css
 
 [[重拾CSS]一道面试题来看伪元素、包含块和高度坍塌](./collapsing-margins.md)
@@ -56,23 +44,3 @@
 [css实现左边定宽右边自适应的两列布局5种方法](css-lianglie.md)
 
 [css3实现圆环加载进度条动画](./css-loading.md)
-
-
-## git
-
-[git stderr(错误流)探秘](./git-err.md)
-
-
-## 文章
-
-[肉身翻墙应该注意什么，一个澳洲程序员的自述](goabord.md)
-
-[《秋风日常第一期》白板协作工具 LeanBoard](./leanboard.md)
-
-[web上的原生图片懒加载(译)](./lazy-img.md)
-
-[前端学习历程](./learn.md)
-
-[《秋风日常第二期》一个快速找出待SEO图片的技巧](./seo-img.md)
-
-[在 vscode 中写 Markdown 如何装X](./vscode-x.md)
