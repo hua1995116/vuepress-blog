@@ -12,7 +12,42 @@
 
 .main-page {
   flex: 1;
-  padding-right: 3rem;
+  // padding-right: 3rem;
+  h2 {
+    border-bottom: 0;
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
+.main-header {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-social {
+  display: flex;
+  justify-content: center;
+  a {
+    margin-left: 10px;
+    color: #818181
+    .iconfont {
+      font-size: 28px
+    }
+    &:hover {
+      color: #000
+    }
+  }
+
+}
+
+.main-bottom {
+  margin-top: 50px;
+  text-align: center;
+  height: 40px;
 }
 
 .aside-item {
@@ -26,8 +61,14 @@
   display: none;
 }
 
+.archive-post-container {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
 .archive-post {
-  line-height: 1.6; 
+  line-height: 1.5; 
+  margin-top: 20px;
 }
 
 .aside-page {

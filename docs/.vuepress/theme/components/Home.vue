@@ -1,29 +1,82 @@
 <template>
   <div class="container">
     <main class="main-page">
+      <div class="main-header">
+        <h1>秋风</h1>
+        <p>一名前端开发也是一位独立开发者，产品《 <a href="https://www.mujicv.com" target="_blank">木及简历</a> 》, AR/VR爱好者, 对 Three.js感兴趣, 喜欢探索新鲜事物。</p>
+      </div>
+      <div class="main-social">
+        <a href="https://github.com/hua1995116" target="_blank">
+          <i class="iconfont icon-github-fill"></i>
+        </a>
+        <a href="https://twitter.com/qiufenghyf" target="_blank">
+          <i class="iconfont icon-twitter-circle-fill"></i>
+        </a>
+        <a href="https://weibo.com/u/5342294054" target="_blank">
+          <i class="iconfont icon-weibo-circle-fill"></i>
+        </a>
+        <a href="https://www.yuque.com/qiufenghhh" target="_blank">
+          <i class="iconfont icon-yuque-fill"></i>
+        </a>
+        <a href="https://s3.qiufeng.blue/blog/WechatIMG313.jpeg?imageView2/0/w/300" target="_blank">
+          <i class="iconfont icon-wechat-fill"></i>
+        </a>
+        <a href="https://okjk.co/37TPe5" target="_blank">
+          <i class="iconfont icon-jike"></i>
+        </a>
+        
+      </div>
+
       <!-- <h3>系列文章</h3>
       <hr>
       <ul>
 
       </ul> -->
-      <h3>最新文章</h3>
-      <hr />
-      <div
-        v-for="post in recentPosts"
-        class="archive-post"
-        :key="post.path + ':recent'"
-      >
-        <span
-          v-text="dayjs(post.date).format('YYYY/MM/DD')"
-          class="archive-post-date"
-        ></span>
-        <router-link class="nav-link" :to="post.path">{{
-          post.title
-        }}</router-link>
+      <h2>最近文章</h2>
+      
+      <div class="archive-post-container">
+        <div
+          v-for="post in recentPosts"
+          class="archive-post"
+          :key="post.path + ':recent'"
+        >
+          <span
+            v-text="dayjs(post.frontmatter.date).format('YYYY/MM/DD')"
+            class="archive-post-date"
+          ></span>
+          <router-link class="nav-link" :to="post.path">{{
+            post.title
+          }}</router-link>
+        </div>
+        <div class="archive-post">
+          <router-link
+            class="nav-link"
+            to="/post"
+          >更多文章前往分类查看...</router-link>
+        </div>
       </div>
-      <div class="archive-post">
+      
+      <div class="main-bottom">
+        Copyright © 2022 - 秋风的笔记
+        <a href="https://beian.miit.gov.cn/">浙ICP备16040413号-7</a>
+      </div>
+       <!-- <h3>友情链接</h3>
+        <hr />
+        <ul class="friend-link">
+          <li>
+            <a href="https://www.mujicv.com/"
+              >木及简历(Markdown就能写出好简历)</a
+            >
+          </li>
+          <li>
+            <a href="https://kalacloud.com"
+              >卡拉云低代码工具</a
+            >
+          </li>
+        </ul> -->
+      <!-- <div class="archive-post">
         <router-link class="nav-link" to="/frontend">更多文章...</router-link>
-      </div>
+      </div> -->
       <!-- <h3>热门文章</h3>
       <hr>
       <div v-for="post in hotPosts" class="archive-post" :key="post.path + ':hot'">
@@ -40,7 +93,7 @@
         >更多文章...</router-link>
       </div> -->
     </main>
-    <aside class="aside-page">
+    <!-- <aside class="aside-page">
       <Bar />
       <h3>友情链接</h3>
       <hr />
@@ -55,25 +108,6 @@
             >卡拉云低代码工具</a
           >
         </li>
-        <!-- 
-        <li>
-          <a href="http://www.inode.club">程序员成长指北</a>
-        </li>
-        <li>
-          <a href="https://biaochenxuying.cn/">夜尽天明的个人博客网站</a>
-        </li>
-        <li>
-          <a href="https://liuxiangyang.space">刘向洋，记录工作记录生活</a>
-        </li>
-        <li>
-          <a href="https://ouyang.wang">Ouyang's Blog</a>
-        </li>
-        <li>
-          <a href="http://www.javadaily.cn">Java 日知录</a>
-        </li>
-        <li>
-          <a href="https://blog.yinuxy.com/">YINUXY | 理想的生活就是生活的理想</a>
-        </li> -->
       </ul>
       <hr />
       <h3>找到我</h3>
@@ -87,7 +121,7 @@
       </ul>
       <h3>备案号</h3>
       <a href="https://beian.miit.gov.cn/">浙ICP备16040413号-7</a>
-    </aside>
+    </aside> -->
   </div>
 </template>
 
@@ -114,6 +148,15 @@ export default {
     },
     recentPosts() {
       console.log(this.$site.pages);
+      const pages = this.$site.pages
+        .filter(
+          (page) => page.title && page.frontmatter.date
+        )
+        .sort((x, y) => dayjs(y.frontmatter.date) - dayjs(x.frontmatter.date))
+        .slice(0, 20);
+      console.log(pages);
+      return pages;
+     
       return [
         {
           title: "万一 Github 不让用了，Gitee同步指南请收好",

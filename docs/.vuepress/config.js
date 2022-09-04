@@ -12,12 +12,14 @@ function getFrontMatter (path, pp = './post') {
 function extendMetaByPath (page, path) {
   if (page.path.includes(`/${path}`)) {
     const fm = getFrontMatter(page.path, `../${path}/meta.json`)
+    // console.log("page===", fm, page.path);
     if (fm) {
       page.frontmatter = {
+        ...page.frontmatter,
         ...fm,
-        ...page.frontmatter
       }
     }
+    
   }
 }
 
@@ -44,6 +46,7 @@ module.exports = {
   description: '',
   head: [
     ['link', { rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon' }],
+    ['link', { rel: "stylesheet", href: "//at.alicdn.com/t/c/font_3628743_4xl29jxdfaf.css" } ], 
     ['script', {}, `
     var _hmt = _hmt || [];
     (function() {
@@ -114,6 +117,12 @@ module.exports = {
         'ga': 'UA-112201282-4'
       }
     ], 
+    [
+      'sitemap',
+      {
+        hostname: 'https://qiufeng.blue'
+      },
+    ],
     (options, ctx) => {
       return {
         name: 'archive',
@@ -142,6 +151,16 @@ module.exports = {
           extendMetaByPath($page, 'interview');
           extendMetaByPath($page, 'node/websocket');
           extendMetaByPath($page, 'svelte');
+          extendMetaByPath($page, 'three');
+          extendMetaByPath($page, 'op');
+          extendMetaByPath($page, 'algorithm');
+          extendMetaByPath($page, 'babel');
+          extendMetaByPath($page, 'canvas');
+          extendMetaByPath($page, 'frontend');
+          extendMetaByPath($page, 'interview');
+          // extendMetaByPath($page, 'database');
+
+          
         //   // extendMetaByPath($page, 'node')
           // if ($page.path.includes('/post')) {
           //   const fm = getFrontMatter($page.path)
