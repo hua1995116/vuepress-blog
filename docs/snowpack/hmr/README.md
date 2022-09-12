@@ -6,14 +6,14 @@
 
 我们先从入口开始讲起。
 
-![image-20201008204321155](https://s3.qiufeng.blue/blog/image-20201008204321155.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201008204321155](https://s3.mdedit.online/blog/image-20201008204321155.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 我将 `index.js`复制了出来。
 
 ```javascript
-import * as  __SNOWPACK_HMR__ from '/__snowpack__/hmr.js';
+import * as __SNOWPACK_HMR__ from "/__snowpack__/hmr.js";
 import.meta.hot = __SNOWPACK_HMR__.createHotContext(import.meta.url);
-import __SNOWPACK_ENV__ from '/__snowpack__/env.js';
+import __SNOWPACK_ENV__ from "/__snowpack__/env.js";
 import.meta.env = __SNOWPACK_ENV__;
 
 import { createApp } from "/web_modules/vue.js";
@@ -32,7 +32,7 @@ if (import.meta.hot) {
 }
 ```
 
-我们可以看到`import * as  __SNOWPACK_HMR__ from '/__snowpack__/hmr.js';`从第一句就可以看到引入了 hmr 模块，并且将 `import.meta.url` 作为 导入模块的一个方法参数传入。
+我们可以看到`import * as __SNOWPACK_HMR__ from '/__snowpack__/hmr.js';`从第一句就可以看到引入了 hmr 模块，并且将 `import.meta.url` 作为 导入模块的一个方法参数传入。
 
 那么这个 `import.meta.url` 是什么呢 ?
 
@@ -40,7 +40,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/imp
 
 我们来看看 MDN 上的例子来解释。
 
-`import.meta`是一个给JavaScript模块暴露特定上下文的元数据属性的对象。它包含了这个模块的信息，比如说这个模块的URL。
+`import.meta`是一个给 JavaScript 模块暴露特定上下文的元数据属性的对象。它包含了这个模块的信息，比如说这个模块的 URL。
 
 **示例**
 
@@ -56,9 +56,9 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/imp
 console.log(import.meta); // { url: "file:///home/user/my-module.mjs" }
 ```
 
-通过以上例子我们知道 `import.meta.url`就是当前加载 js 的完整url。
+通过以上例子我们知道 `import.meta.url`就是当前加载 js 的完整 url。
 
-我们当前的url为 `http://localhost:8080/`，对应的 `index.js` 的 `import.meta.url` 就是 `http://localhost:8080/_dist_/index.js` 。
+我们当前的 url 为 `http://localhost:8080/`，对应的 `index.js` 的 `import.meta.url` 就是 `http://localhost:8080/_dist_/index.js` 。
 
 接着往下看，我们就看到使用了`__SNOWPACK_HMR__.createHotContext` 赋值给的 `import.meta.hot`对象。
 
@@ -80,7 +80,6 @@ export function createHotContext(fullUrl) {
   REGISTERED_MODULES[id] = state;
   return state;
 }
-
 ```
 
 首先是将传入的`import.meta.url` 构造了 URL 对象并获取了 `pathname`，以`http://localhost:8080/_dist_/index.js`为例，就是获取到了 `_dist/_index.js`，然后到一个名叫 `REGISTERED_MODULES` 模块中来查找该模块是否注册，如果注册的话，就会运行一段逻辑。我们目前是未注册的情况，以后再来讲解注册的情况。可以看到如果为注册就到了是 `HotModuleState` 这个类实例化的过程。然后将它注册到 `REGISTERED_MODULES`,并返回实例化的对象。
@@ -115,7 +114,7 @@ class HotModuleState {
       return;
     }
     if (!this.isAccepted) {
-      sendSocketMessage({id: this.id, type: 'hotAccept'});
+      sendSocketMessage({ id: this.id, type: "hotAccept" });
       this.isAccepted = true;
     }
     if (!Array.isArray(_deps)) {
@@ -126,11 +125,11 @@ class HotModuleState {
       callback = () => {};
     }
     const deps = _deps.map((dep) => {
-      const ext = dep.split('.').pop();
+      const ext = dep.split(".").pop();
       if (!ext) {
-        dep += '.js';
-      } else if (ext !== 'js') {
-        dep += '.proxy.js';
+        dep += ".js";
+      } else if (ext !== "js") {
+        dep += ".proxy.js";
       }
       return new URL(dep, `${window.location.origin}${this.id}`).pathname;
     });
@@ -153,7 +152,7 @@ if (import.meta.hot) {
 }
 ```
 
-看到，如果 hmr ，注册成功的话，会先调用 hmr 模块的 `accept` 方法，然后再调用 `dispose` 方法，而 dispose 方法中的回调是 vue 实例销毁的方法。那我们就来分析一下 `accept`  和 `dispose `方法到底干了什么。
+看到，如果 hmr ，注册成功的话，会先调用 hmr 模块的 `accept` 方法，然后再调用 `dispose` 方法，而 dispose 方法中的回调是 vue 实例销毁的方法。那我们就来分析一下 `accept` 和 `dispose`方法到底干了什么。
 
 ```js
 accept(_deps, callback = true) {
@@ -236,32 +235,28 @@ async function runModuleDispose(id) {
 
 上面描述的有点抽象，下面用途来描述一下主要的流程。
 
-![image-20201009233222226](https://s3.qiufeng.blue/blog/image-20201009233222226.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201009233222226](https://s3.mdedit.online/blog/image-20201009233222226.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 1. 创建了 hmr 的实例
 2. 创建 app 实例
 3. 将 app 销毁的回调函数加入到 hmr 销毁队列中
-4. app挂载到了实体元素上面
+4. app 挂载到了实体元素上面
 5. 文件热更新更后，查询当前文件是否已经已经创建 hmr 实例。
 6. 执行当前 hmr 实例中的 disposeCallbacks 的回调函数队列。
 7. 销毁当前实例
 8. 更新到视图上
 9. 创建新的实例
-10. 将新实例app2的回调函数加入到 原 hmr 实例的 disposeCallbacks 队列里
+10. 将新实例 app2 的回调函数加入到 原 hmr 实例的 disposeCallbacks 队列里
 
 之后文件热更新，不断循环 5 - 10。
 
-
-
-上面我们就讲完了前端部分的热更新，但是我们还没有讲 第一次文件加载以及后面文件改动后的第二次文件加载进行串联，这个就需要后端来进行串联。前端与后端建立websocket通信，后端通知前端去加载对应的文件。那么下面我们来讲讲这个桥梁部分。
-
-
+上面我们就讲完了前端部分的热更新，但是我们还没有讲 第一次文件加载以及后面文件改动后的第二次文件加载进行串联，这个就需要后端来进行串联。前端与后端建立 websocket 通信，后端通知前端去加载对应的文件。那么下面我们来讲讲这个桥梁部分。
 
 那我们来看看后端 HMR 模块
 
 https://github.com/pikapkg/snowpack/blob/f1fd2cb181c1fe6ce2f158159a6fc3191e7456b4/snowpack/src/hmr-server-engine.ts
 
-包含空行一共139行代码。
+包含空行一共 139 行代码。
 
 ```javascript
 import WebSocket from 'ws';
@@ -442,7 +437,7 @@ registerListener(client: WebSocket) {
 ...
 ```
 
-为什么我把这部分单独拎出来讲呢？这部分其实很简单，就是注册了一个` messages` 事件，等待客户端发送信息给服务端，但是这里也涉及到了一个部分 `message.type === 'hotAccept'` 当这个条件成立的时候，会去影响到我们的第三个部分，这里我们只需要注意一下就行，后面会详细讲到。
+为什么我把这部分单独拎出来讲呢？这部分其实很简单，就是注册了一个`messages` 事件，等待客户端发送信息给服务端，但是这里也涉及到了一个部分 `message.type === 'hotAccept'` 当这个条件成立的时候，会去影响到我们的第三个部分，这里我们只需要注意一下就行，后面会详细讲到。
 
 ```js
 entry.isHmrAccepted = true;
@@ -465,7 +460,7 @@ entry.isHmrEnabled = true;
     └── b.js
 ```
 
-`index.js` 引入` a.js` ,` a.js` 引入` b.js` 。
+`index.js` 引入`a.js` ,`a.js` 引入`b.js` 。
 
 这个时候我们修改 `b.js` ，如果我们不依赖分析，那么我们会一股脑儿去刷新 `index.js` ，因为只要`index.js`重新载入 ，那么我们 `a.js` 和 `b.js` 也会被重新导入，从而达到 `b.js` 也更新的效果。
 
@@ -473,11 +468,11 @@ entry.isHmrEnabled = true;
 
 以下用图形化来解释，b.js 更新冒泡到 index.js 是我们所不期望。
 
-![image-20201011165628322](https://s3.qiufeng.blue/blog/image-20201011165628322.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011165628322](https://s3.mdedit.online/blog/image-20201011165628322.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-而` b.js` 的修改冒泡到 `a.js` 是我们所期望的。
+而`b.js` 的修改冒泡到 `a.js` 是我们所期望的。
 
-![image-20201011165727732](https://s3.qiufeng.blue/blog/image-20201011165727732.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011165727732](https://s3.mdedit.online/blog/image-20201011165727732.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 而`b.js` 冒泡到 `a.js`是我们所期望的。
 
@@ -519,12 +514,12 @@ isHmrEnabled: true
 
 ```js
 const newEntry: Dependency = {
-      dependencies: new Set(),
-      dependents: new Set(),
-      needsReplacement: false,
-      needsReplacementCount: 0,
-      isHmrEnabled: false,
-      isHmrAccepted: false,
+  dependencies: new Set(),
+  dependents: new Set(),
+  needsReplacement: false,
+  needsReplacementCount: 0,
+  isHmrEnabled: false,
+  isHmrAccepted: false,
 };
 ```
 
@@ -546,9 +541,9 @@ for (const importUrl of outdatedDependencies) {
 
 这个是在做什么呢。这里主要是讲老的依赖进行删除，然后增加新的依赖，类似于一个简版 `diff`。
 
-![image-20201011192628620](https://s3.qiufeng.blue/blog/image-20201011192628620.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011192628620](https://s3.mdedit.online/blog/image-20201011192628620.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
-例如我们的 `index.js` 旧的依赖的是  
+例如我们的 `index.js` 旧的依赖的是
 
 ```
 [ '/__snowpack__/hmr.js',
@@ -567,51 +562,49 @@ for (const importUrl of outdatedDependencies) {
 
 那么就会加入 `'/_dist_/Demo.js'` 删减 `'/__snowpack__/hmr.js'`、`'/_dist_/App.js'`。
 
-
-
 我们已经和前端建立了联系，那么，什么时候去发送消息呢？这个时候我们就要来看看，我们的文件监听模块。
 
 https://github.com/pikapkg/snowpack/blob/f1fd2cb181c1fe6ce2f158159a6fc3191e7456b4/snowpack/src/commands/dev.ts#L901
 
 `const chokidar = await import('chokidar');`作者主要用来了 `chokidar` 来进行监听本地文件的改动。这个库能够高性能地去使用文件监听。
 
-![image-20201011194330922](https://s3.qiufeng.blue/blog/image-20201011194330922.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201011194330922](https://s3.mdedit.online/blog/image-20201011194330922.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 像 `VS Code`、`gulp`、`karma`、`pm2`、`webpack` 监听文件改动也是使用了这个库。
 
 ```js
-	async function onWatchEvent(fileLoc) {
-    logger.info(colors.cyan('File changed...'));
-    handleHmrUpdate(fileLoc);
-    inMemoryBuildCache.delete(fileLoc);
-    filesBeingDeleted.add(fileLoc);
-    await cacache.rm.entry(BUILD_CACHE, fileLoc);
-    filesBeingDeleted.delete(fileLoc);
+async function onWatchEvent(fileLoc) {
+  logger.info(colors.cyan("File changed..."));
+  handleHmrUpdate(fileLoc);
+  inMemoryBuildCache.delete(fileLoc);
+  filesBeingDeleted.add(fileLoc);
+  await cacache.rm.entry(BUILD_CACHE, fileLoc);
+  filesBeingDeleted.delete(fileLoc);
+}
+const watcher = chokidar.watch(
+  mountedDirectories.map(([dirDisk]) => dirDisk),
+  {
+    ignored: config.exclude,
+    persistent: true,
+    ignoreInitial: true,
+    disableGlobbing: false,
   }
-  const watcher = chokidar.watch(
-    mountedDirectories.map(([dirDisk]) => dirDisk),
-    {
-      ignored: config.exclude,
-      persistent: true,
-      ignoreInitial: true,
-      disableGlobbing: false,
-    },
-  );
-  watcher.on('add', (fileLoc) => onWatchEvent(fileLoc));
-  watcher.on('change', (fileLoc) => onWatchEvent(fileLoc));
-  watcher.on('unlink', (fileLoc) => onWatchEvent(fileLoc));
+);
+watcher.on("add", (fileLoc) => onWatchEvent(fileLoc));
+watcher.on("change", (fileLoc) => onWatchEvent(fileLoc));
+watcher.on("unlink", (fileLoc) => onWatchEvent(fileLoc));
 ```
 
 如果文件改动了、增加、删除，都会触发 `onWatchEvent` 这个事件。
 
 ```js
 async function onWatchEvent(fileLoc) {
-    logger.info(colors.cyan('File changed...'));
-    handleHmrUpdate(fileLoc);
-    inMemoryBuildCache.delete(fileLoc);
-    filesBeingDeleted.add(fileLoc);
-    await cacache.rm.entry(BUILD_CACHE, fileLoc);
-    filesBeingDeleted.delete(fileLoc);
+  logger.info(colors.cyan("File changed..."));
+  handleHmrUpdate(fileLoc);
+  inMemoryBuildCache.delete(fileLoc);
+  filesBeingDeleted.add(fileLoc);
+  await cacache.rm.entry(BUILD_CACHE, fileLoc);
+  filesBeingDeleted.delete(fileLoc);
 }
 ```
 
@@ -619,45 +612,45 @@ async function onWatchEvent(fileLoc) {
 
 ```js
 function handleHmrUpdate(fileLoc: string) {
-    if (isLiveReloadPaused) {
-      return;
-    }
-    let updateUrl = getUrlFromFile(mountedDirectories, fileLoc, config);
-    if (!updateUrl) {
-      return;
-    }
+  if (isLiveReloadPaused) {
+    return;
+  }
+  let updateUrl = getUrlFromFile(mountedDirectories, fileLoc, config);
+  if (!updateUrl) {
+    return;
+  }
 
-    // Append ".proxy.js" to Non-JS files to match their registered URL in the client app.
-    if (!updateUrl.endsWith('.js')) {
-      updateUrl += '.proxy.js';
-    }
-    // Check if a virtual file exists in the resource cache (ex: CSS from a Svelte file)
-    // If it does, mark it for HMR replacement but DONT trigger a separate HMR update event.
-    // This is because a virtual resource doesn't actually exist on disk, so we need the main
-    // resource (the JS) to load first. Only after that happens will the CSS exist.
+  // Append ".proxy.js" to Non-JS files to match their registered URL in the client app.
+  if (!updateUrl.endsWith(".js")) {
+    updateUrl += ".proxy.js";
+  }
+  // Check if a virtual file exists in the resource cache (ex: CSS from a Svelte file)
+  // If it does, mark it for HMR replacement but DONT trigger a separate HMR update event.
+  // This is because a virtual resource doesn't actually exist on disk, so we need the main
+  // resource (the JS) to load first. Only after that happens will the CSS exist.
   // 检查资源缓存中是否存在一个虚拟文件（例如：来自Svelte文件的CSS），如果存在，将其标记为HMR替换，但不要触发一个单独的HMR更新事件。资源（JS）先加载。只有在这之后，CSS才会存在。
   // 为什么呢？因为资源只有在请求 .vue 这样的文件找到后，才会进行构建生成新的 css。
 
-    const virtualCssFileUrl = updateUrl.replace(/.js$/, '.css');
-    const virtualNode = hmrEngine.getEntry(`${virtualCssFileUrl}.proxy.js`);
-    if (virtualNode) {
-      hmrEngine.markEntryForReplacement(virtualNode, true);
-    }
-    // If the changed file exists on the page, trigger a new HMR update.
-    if (hmrEngine.getEntry(updateUrl)) {
-      updateOrBubblejs(updateUrl, new Set());
-      return;
-    }
-   	if (inMemoryBuildCache.has(fileLoc)) {
-      hmrEngine.broadcastMessage({type: 'reload'});
-      return;
-    }
+  const virtualCssFileUrl = updateUrl.replace(/.js$/, ".css");
+  const virtualNode = hmrEngine.getEntry(`${virtualCssFileUrl}.proxy.js`);
+  if (virtualNode) {
+    hmrEngine.markEntryForReplacement(virtualNode, true);
+  }
+  // If the changed file exists on the page, trigger a new HMR update.
+  if (hmrEngine.getEntry(updateUrl)) {
+    updateOrBubblejs(updateUrl, new Set());
+    return;
+  }
+  if (inMemoryBuildCache.has(fileLoc)) {
+    hmrEngine.broadcastMessage({ type: "reload" });
+    return;
+  }
 }
 ```
 
 其中又涉及到 `getUrlFromFile` ,这个函数的作用是，将本地的文件，映射到网络的 url 。例如 本地 `src/App.vue` 映射到 `_dist_/App.js`。然后接下来步骤是尝试看看当前路径是否为虚拟文件（所谓虚拟文件就是不实际存在，是一种 hack 的形式，例如 ES Modules 无法直接导入 css 等文件）。如果是虚拟文件的话，作一个标记，等下载虚拟文件的承载实体请求到的时候，再进行更新。如果不是上述情况，那么继续运行下面的步骤，如果在热更新模块中能找到当前的构建 url，则调用 `updateOrBubblejs` 。
 
-这个函数就和它的字面意思一样，会往上冒泡，如果当前模块没有注册热更新模块，那么该模块会往上找他的父级，如果父级找不到就会找爷爷级。那么为什么会有这样的冒泡呢？原因我们在说热更新依赖的时候说了，最小化就近更新原则。如果找不到的话会调用 `hmrEngine.broadcastMessage({type: 'reload'});`， 就是刷新整个页面。` handleHmrUpdate` 函数最后也是如此，也会调用 `hmrEngine.broadcastMessage({type: 'reload'});`
+这个函数就和它的字面意思一样，会往上冒泡，如果当前模块没有注册热更新模块，那么该模块会往上找他的父级，如果父级找不到就会找爷爷级。那么为什么会有这样的冒泡呢？原因我们在说热更新依赖的时候说了，最小化就近更新原则。如果找不到的话会调用 `hmrEngine.broadcastMessage({type: 'reload'});`， 就是刷新整个页面。`handleHmrUpdate` 函数最后也是如此，也会调用 `hmrEngine.broadcastMessage({type: 'reload'});`
 
 最后清空当前文件的缓存，能够让下次请求的时候重新构建，而不是寻找缓存模块。
 
@@ -670,9 +663,4 @@ filesBeingDeleted.delete(fileLoc);
 
 至此热更新的所有模块都讲完了。
 
-
-
-
-
-前端  ->  后端   ->  文件改动  -> 后端监听 -> 通知前端
-
+前端 -> 后端 -> 文件改动 -> 后端监听 -> 通知前端

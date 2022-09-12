@@ -1,6 +1,6 @@
-# MongoDB系列一: Replica Set 集群搭建实战
+# MongoDB 系列一: Replica Set 集群搭建实战
 
-随着内部产品业务的搭建，单机的mongo已经无法满足生产需求，对于单机迁移、损坏等问题，简单的单机数据备份已经无法满足，因为采用了集群方式来满足容灾以及数据快速恢复等功能，下面我就来讲讲如何搭建集群来避免这些问题。
+随着内部产品业务的搭建，单机的 mongo 已经无法满足生产需求，对于单机迁移、损坏等问题，简单的单机数据备份已经无法满足，因为采用了集群方式来满足容灾以及数据快速恢复等功能，下面我就来讲讲如何搭建集群来避免这些问题。
 
 ### 准备工作
 
@@ -14,16 +14,14 @@ mongo3
 
 ### 采用策略
 
-Mongo有三种集群方式
-1.Replica Set副本
-2.Sharding分片
-3.Master-slave主备
+Mongo 有三种集群方式
+1.Replica Set 副本
+2.Sharding 分片
+3.Master-slave 主备
 
-比较常用的为1，2两种方式， 在日后的篇章中将详细介绍两者的区别。
+比较常用的为 1，2 两种方式， 在日后的篇章中将详细介绍两者的区别。
 
-当前我们采用的是  Replica Set 搭建方式。这是官方教程，我们会跟着官方教程，以及对官方未说明的一些信息进行补充。https://docs.mongodb.com/manual/tutorial/deploy-replica-set/#overview
-
-
+当前我们采用的是 Replica Set 搭建方式。这是官方教程，我们会跟着官方教程，以及对官方未说明的一些信息进行补充。https://docs.mongodb.com/manual/tutorial/deploy-replica-set/#overview
 
 ### 简述
 
@@ -31,13 +29,11 @@ Mongo有三种集群方式
 
 ![](https://docs.mongodb.com/manual/_images/replica-set-read-write-operations-primary.bakedsvg.svg)
 
-
-
 复制节点复制主节点的 oplog 并将操作应用于其数据集，使得复制节点成为主节点的一个镜像。 如果主节点停止时候，在复制节点中将会选出新的主节点。
 
 ![](https://docs.mongodb.com/manual/_images/replica-set-primary-with-two-secondaries.bakedsvg.svg)
 
-自动故障转移，当主节点与集合中的其他成员通信的时间超过配置的electionTimeoutMillis期间（默认为10秒）时，符合条件的复制节点将会被选举成新主节点。 群集尝试完成新主节点的选举并恢复正常操作。
+自动故障转移，当主节点与集合中的其他成员通信的时间超过配置的 electionTimeoutMillis 期间（默认为 10 秒）时，符合条件的复制节点将会被选举成新主节点。 群集尝试完成新主节点的选举并恢复正常操作。
 
 ![](https://docs.mongodb.com/manual/_images/replica-set-trigger-election.bakedsvg.svg)
 
@@ -63,13 +59,9 @@ Mongo有三种集群方式
 
 2.每个节点都是完整备份，数据冗余
 
-
-
 ### 基础搭建
 
-
 分别在 3 台机器安装 mongo
-
 
 用户权限
 
@@ -95,11 +87,12 @@ touch data/mongodb.log
 cd data
 ```
 
-在这里我们采用配置文件的方式启动，先不配置验证，等设置完用户组后，再进行， 为了安全考虑，我们将修改默认端口，分别使用 8410,8411,8412。  `[your replSet name]` 改成你自己 replSet 的名字， 例如 `rs0` (自己取)
+在这里我们采用配置文件的方式启动，先不配置验证，等设置完用户组后，再进行， 为了安全考虑，我们将修改默认端口，分别使用 8410,8411,8412。 `[your replSet name]` 改成你自己 replSet 的名字， 例如 `rs0` (自己取)
 
 ```
 vim mongodb.conf
 ```
+
 ```shell
 #端口号
 port = 8410
@@ -119,13 +112,12 @@ logappend = true
 #keyFile = ~/mongodb/data/keyFile
 ```
 
-启动mongo
+启动 mongo
 
 ```
 cd ..
 ./bin/mongod --config ~/mongodb/data/mongodb.conf
 ```
-
 
 mongo2,mongo3 同 mongo1。只需要修改端口, 其他都与 mongo1 一样的步骤。
 
@@ -149,7 +141,6 @@ port = 8412
 ...
 ```
 
-
 在三台机器都启动好后，我们来到 mongo1 机器。
 
 连接 mongodb
@@ -158,7 +149,7 @@ port = 8412
 ./bin/mongo 127.0.0.1:8410
 ```
 
-配置集群(mongo1为你的机器地址)
+配置集群(mongo1 为你的机器地址)
 
 ```shell
 cfg = {"_id" : "[your replSet name]", "members" : [{"_id" : 0,"host" : "mongo1:8410"}]}
@@ -166,21 +157,21 @@ rs.initiate(cfg);
 ```
 
 效果如图:
-![1567682388618.jpg](https://s3.qiufeng.blue/blog/1567682388618.jpg)
+![1567682388618.jpg](https://s3.mdedit.online/blog/1567682388618.jpg)
 
 运行 `rs.status()` 查看状态。
 
 health: 1 代表正常 0 代表异常， stateStr 为描述主节点或者复制节点。
 
-![1567682478469.jpg](https://s3.qiufeng.blue/blog/1567682478469.jpg)
+![1567682478469.jpg](https://s3.mdedit.online/blog/1567682478469.jpg)
 
 现在我们已经添加了一个主节点了，接下来继续添加剩余的两个节点。
 
-![1567682673974.jpg](https://s3.qiufeng.blue/blog/1567682673974.jpg)
+![1567682673974.jpg](https://s3.mdedit.online/blog/1567682673974.jpg)
 
 运行 `rs.status()` 查看状态。
 
-![1567682754525.jpg](https://s3.qiufeng.blue/blog/1567682754525.jpg)
+![1567682754525.jpg](https://s3.mdedit.online/blog/1567682754525.jpg)
 
 到现在我们已经完成了我们的集群搭建。
 
@@ -190,18 +181,19 @@ health: 1 代表正常 0 代表异常， stateStr 为描述主节点或者复制
 
 创建一条测试数据。
 
-![1567683075113.jpg](https://s3.qiufeng.blue/blog/1567683075113.jpg)
+![1567683075113.jpg](https://s3.mdedit.online/blog/1567683075113.jpg)
 
 退出我们的主节点连接，连接复制节点。
 
 ```
  ./bin/mongo mongo2:8411
 ```
-![1567683192236.jpg](https://s3.qiufeng.blue/blog/1567683192236.jpg)
+
+![1567683192236.jpg](https://s3.mdedit.online/blog/1567683192236.jpg)
 
 发现我们并不能直接查看
 
-原因是: mongodb默认是从主节点读写数据的。
+原因是: mongodb 默认是从主节点读写数据的。
 
 我们对复制节点进行进行设置。
 
@@ -213,12 +205,12 @@ db.test.find();
 // { "_id" : ObjectId("5d70f1f19384bf8d850e2042"), "test" : "123" }
 
 ```
-数据已经从主节点同步过来了。
 
+数据已经从主节点同步过来了。
 
 模拟宕机 mongo 故障
 
-我们将主节点停止。 (也可以直接kill，但是推荐安全退出)
+我们将主节点停止。 (也可以直接 kill，但是推荐安全退出)
 
 ```shell
 ./bin/mongo 127.0.0.1:8410
@@ -229,19 +221,19 @@ db.shutdownServer()
 
 ```
 
-登录我们的复制mongo2来进行查看，确认是否成功迁移了 mongo 。
+登录我们的复制 mongo2 来进行查看，确认是否成功迁移了 mongo 。
 
-来到mongo2
+来到 mongo2
+
 ```
 ./bin/mongo 127.0.0.1:8411
 
 rs.status();
 ```
 
-![1567683538699.jpg](https://s3.qiufeng.blue/blog/1567683538699.jpg)
+![1567683538699.jpg](https://s3.mdedit.online/blog/1567683538699.jpg)
 
 可以看到通过选举，mongo2 成功成为主节点。
-
 
 重启 mongo1 ， 连接实例
 
@@ -255,7 +247,7 @@ cd ~
 rs.status();
 ```
 
-![1567683684469.jpg](https://s3.qiufeng.blue/blog/1567683684469.jpg)
+![1567683684469.jpg](https://s3.mdedit.online/blog/1567683684469.jpg)
 
 原来的 mongo1 成功地成为了 mongo 2 的复制节点。
 
@@ -272,7 +264,7 @@ const opts = {
   useNewUrlParser: true,
   keepAlive: 300000,
   replicaSet: "banmars",
-  readPreference: "secondaryPreferred"
+  readPreference: "secondaryPreferred",
 };
 
 global.db = mongoose.createConnection(uri, opts);
@@ -284,12 +276,9 @@ db.on("error", function(err) {
 db.on("open", function() {
   console.log("dbopen");
 });
-
 ```
 
 到此我们的 mongo 集群已经搭建并且测试完成，然后就拿着集群兴高采烈地去进行使用，但是发现，因为集群到现在没有设置任何安全认证，任意用户可以进行登录修改数据。这可是个大隐患，你的库随时都有被删除的风险。。。这可不好交代，所以我们接下来讲解如何搭建一个安全的 mongodb 环境。
-
-
 
 ### 安全验证
 
@@ -310,6 +299,7 @@ db.createUser( {
 ```
 
 集群管理用户，用来查看集群状态
+
 ```
 db.createUser(
   {
@@ -357,6 +347,7 @@ auth = true
 #安全文件地址
 keyFile = ~/mongodb/data/keyFile
 ```
+
 将 auth 开启， 指定 keyFile 路径。
 
 将 mongo1 停止，再重启。
@@ -372,14 +363,14 @@ db.shutdownServer()
 
 ```
 
-将 mongo1中的 keyFile 文件拷贝到 mongo2 以及 mongo3.
+将 mongo1 中的 keyFile 文件拷贝到 mongo2 以及 mongo3.
 
 这里我采用的是 rsync 方式。
 
 所以我们还得配置 ssh。(你也可以采用其他方式，我这里为了后续同步方便采用了 ssh )
 
-
 mongo1
+
 ```
 cd ~/.ssh
 ssh-keygen
@@ -392,18 +383,20 @@ cat id_rsa.pub
 ```
 
 mongo2
+
 ```
 cd ~/.ssh/
 
 vim authorized_keys
 
 ```
+
 将刚才复制的添加最后。
 
 mongo3 同 mongo2
 
-
 mongo1
+
 ```
 cd ~/mongodb
 
@@ -411,7 +404,7 @@ rsync -Cavzt ./data/keyFile mongodb02:~/mongodb/data/
 rsync -Cavzt ./data/keyFile mongodb03:~/mongodb/data/
 ```
 
-分别到mongo2，mongo3，
+分别到 mongo2，mongo3，
 
 编辑配置文件
 
@@ -424,29 +417,30 @@ keyFile = ~/mongodb/data/keyFile
 ...
 ```
 
-重启 mongo2,mongo3 上的 mongo实例
-
+重启 mongo2,mongo3 上的 mongo 实例
 
 来到 mongo1
 
 ```
 ./bin/mongo 127.0.0.1:8410
 ```
-![1567686047066.jpg](https://s3.qiufeng.blue/blog/1567686047066.jpg)
+
+![1567686047066.jpg](https://s3.mdedit.online/blog/1567686047066.jpg)
 
 我们看到通过不验证的方式登录已经无法查看信息了。
 
 下面我们用认证方式来进行登录。
+
 ```
 ./bin/mongo 127.0.0.1:8410 -u "root" -p "root" --authenticationDatabase "admin"
 ```
 
-![1567686155667.jpg](https://s3.qiufeng.blue/blog/1567686155667.jpg)
+![1567686155667.jpg](https://s3.mdedit.online/blog/1567686155667.jpg)
 
 通过认证方式登录已经正常使用了。
 
-
 退出登录，使用集群管理员登录。
+
 ```
 ./bin/mongo 127.0.0.1:8410 -u "cluster" -p "cluster" --authenticationDatabase "admin"
 ```
@@ -454,10 +448,10 @@ keyFile = ~/mongodb/data/keyFile
 ```
 rs.status();
 ```
-![1567686701852.jpg](https://s3.qiufeng.blue/blog/1567686701852.jpg)
+
+![1567686701852.jpg](https://s3.mdedit.online/blog/1567686701852.jpg)
 
 三台机器已经都正常运行了。
-
 
 还记得我们一开始创建的 test 集合吗。
 
@@ -486,7 +480,7 @@ const opts = {
   useNewUrlParser: true,
   keepAlive: 300000,
   replicaSet: "banmars",
-  readPreference: "secondaryPreferred"
+  readPreference: "secondaryPreferred",
 };
 
 global.db = mongoose.createConnection(uri, opts);
@@ -500,32 +494,29 @@ db.on("open", function() {
   const Schema = mongoose.Schema;
 
   const TestSchema = new Schema({
-    name: {type: String, default: ""},
+    name: { type: String, default: "" },
   });
 
   var Test = mongoose.model("test", TestSchema);
 
   const testModal = new Test({ name: "123" });
 
-  testModal.save(function (err, test) {
+  testModal.save(function(err, test) {
     if (err) return console.error(err);
-    console.log('success');
+    console.log("success");
   });
 });
 ```
+
 最终效果
 
-![1568188107165.jpg](https://s3.qiufeng.blue/blog/1568188107165.jpg)
+![1568188107165.jpg](https://s3.mdedit.online/blog/1568188107165.jpg)
 
 到此，真正地结束了本教程，我们可以愉快地拿着集群去交代了。。。
 
-
-
 下期预告
 
-MongoDB系列二: Sharded Cluster 集群搭建实战 
-
-
+MongoDB 系列二: Sharded Cluster 集群搭建实战
 
 ### 参考
 

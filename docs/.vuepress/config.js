@@ -1,6 +1,6 @@
 const _ = require('lodash')
 const path = require('path')
-const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview, canvas, svelte, three, git, grow, news, practice, vscode } = require('./algorithm.header')
+const { algorithm, open, react, vue, node, frontend, debug, op, webpack, interview, canvas, svelte, three, git, grow, news, practice, vscode, aipaint } = require('./algorithm.header')
 
 function getFrontMatter (path, pp = './post') {
   const posts = require(pp)
@@ -75,12 +75,13 @@ module.exports = {
           {text: '前端新闻', link: '/news/' },
           { text: '前端实践', link: '/practice/' },
           { text: 'vscode', link: '/vscode/' },
+          { text: '面试', link: '/interview/' },
         ]
       },
+      { text: 'AI绘画', link: '/aipaint/' },
       { text: 'Svelte系列', link: '/svelte/' },
       { text: 'Three.js系列', link: '/three/' },
       { text: 'Node系列', link: '/node/' },
-      { text: '面试', link: '/interview/' },
       // { text: '机器学习', link: '/machine/' },
       { text: '算法', link: '/algorithm/' },
       { text: '前端运维', link: '/op/' },
@@ -115,7 +116,8 @@ module.exports = {
       '/grow/': grow,
       '/news/': news,
       '/practice/': practice,
-      '/vscode/': vscode
+      '/vscode/': vscode,
+      '/aipaint/': aipaint
     },
     lastUpdated: 'Last Updated'
   },
@@ -173,7 +175,8 @@ module.exports = {
           extendMetaByPath($page, 'news');
           extendMetaByPath($page, 'practice');
           extendMetaByPath($page, 'vscode');
-
+          extendMetaByPath($page, 'aipaint');
+          
           // extendMetaByPath($page, 'database');
 
           

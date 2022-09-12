@@ -1,6 +1,6 @@
 ## Node Sass 弃用，以 Dart Sass 代替
 
-![1603799589156](https://s3.qiufeng.blue/blog/1603799589156.jpg)
+![1603799589156](https://s3.mdedit.online/blog/1603799589156.jpg)
 
 就在今天，Sass 官方团队正式宣布 Libsass 将弃用，以及基于它的 Node Sass 和 SassC，并且建议用户使用 Dart Sass。
 
@@ -104,7 +104,7 @@ Node 版本: `v12.16.0`
 
 **说明: 值越大，代表速度越快，性能越好。**
 
-![image-20201027215648632](https://s3.qiufeng.blue/blog/image-20201027215648632.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201027215648632](https://s3.mdedit.online/blog/image-20201027215648632.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 **内存测试**
 
@@ -112,7 +112,7 @@ Node 版本: `v12.16.0`
 
 结果:
 
-![image-20201027220422892](https://s3.qiufeng.blue/blog/image-20201027220422892.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
+![image-20201027220422892](https://s3.mdedit.online/blog/image-20201027220422892.png?imageView2/0/q/75|watermark/1/image/aHR0cHM6Ly9zMy5xaXVmZW5naC5jb20vd2F0ZXJtYXJrL3dhdGVybWFyay5wbmc=/dissolve/50/gravity/SouthEast/dx/0/dy/0)
 
 可以看到 Node Sass 性能确实非常好，也是官方提到的优势。而 Dart Sass 同步的方法 比 异步方法 性能略高 2 倍左右。
 

@@ -4,7 +4,7 @@
 
 最近学弟去面了字节跳动，但是由于面试经验少，面试的时候紧张了，一时之间没有写出来，之后来我交流了一下。那我就来分析分析这道题目。
 
-![image-20200906001022824](https://s3.qiufeng.blue/blog/image-20200906001022824.png)
+![image-20200906001022824](https://s3.mdedit.online/blog/image-20200906001022824.png)
 
 ## 正文
 
@@ -35,7 +35,7 @@ Add(1,2,...)(3)(4)
 唔，还是有点难呀...没关系，再砍, 不要传入多个参数。
 
 ```js
-Add(1)(2)(3)
+Add(1)(2)(3);
 ```
 
 有....有....有那味了....这....这不就是柯里化吗....
@@ -44,11 +44,11 @@ Add(1)(2)(3)
 
 我们还是来介绍一下。
 
-在《javascript高级程序设计》这本书中有如下介绍: 
+在《javascript 高级程序设计》这本书中有如下介绍:
 
 > 与函数绑定紧密相关的主题是函数柯里化，它用于创建已经设置好的一个或者多个参数的函数。函数柯里化的基本方法和函数绑定是一样的：使用一个闭包返回一个函数。两者的区别在于，当函数被调用时，返回的函数还需要设置一些传入的参数。
 
-我们来写写看: 
+我们来写写看:
 
 ```js
 function Add(x) {
@@ -64,9 +64,9 @@ const Add = x => y => z => x+y+z;
 
 执行一下
 
-````
-Add(1)(2)(3) // 6 
-````
+```
+Add(1)(2)(3) // 6
+```
 
 是我们要的那味~
 
@@ -88,16 +88,15 @@ Add(1,2,...)(3)(4)
 
 ```js
 function Add() {
-	const nums = [...arguments];
-	return function() {
-		nums.push(...arguments);
-		return function() {
-			nums.push(...arguments);
-			return nums.reduce((a, b) => a + b);
-		}
-	}
+  const nums = [...arguments];
+  return function() {
+    nums.push(...arguments);
+    return function() {
+      nums.push(...arguments);
+      return nums.reduce((a, b) => a + b);
+    };
+  };
 }
-
 ```
 
 nice！已经离我们最终的形态越来越近了。接下来是这个函数能够无限的进行调用。
@@ -110,12 +109,12 @@ Add(1,2,...)(3)(4)(...)
 
 ```js
 function Add() {
-	const nums = [...arguments];
-	function AddPro() {
-		nums.push(...arguments);
+  const nums = [...arguments];
+  function AddPro() {
+    nums.push(...arguments);
     return AddPro;
-	}
-	return AddPro;
+  }
+  return AddPro;
 }
 ```
 
@@ -127,15 +126,15 @@ function Add() {
 
 ```js
 function Add() {
-	const nums = [...arguments];
-	function AddPro() {
-		nums.push(...arguments);
+  const nums = [...arguments];
+  function AddPro() {
+    nums.push(...arguments);
     return AddPro;
-	}
-	AddPro.sumOf = () => {
-		return nums.reduce((a, b) => a + b);
-	}
-	return AddPro;
+  }
+  AddPro.sumOf = () => {
+    return nums.reduce((a, b) => a + b);
+  };
+  return AddPro;
 }
 ```
 
@@ -147,15 +146,15 @@ function Add() {
 
 ```js
 function Add() {
-	if (!Add.nums) {
-  	Add.nums = [];
+  if (!Add.nums) {
+    Add.nums = [];
   }
   Add.nums.push(...arguments);
   return Add;
 }
 Add.sumOf = () => {
-	return Add.nums.reduce((a, b) => a + b);
-}
+  return Add.nums.reduce((a, b) => a + b);
+};
 ```
 
 如果上述回答有更优解，请公众号后台回复，留下你的微信，红包相送。
@@ -170,14 +169,14 @@ Add.sumOf = () => {
 
 ```js
 function Add() {
-	const nums = [...arguments];
-	return () => {
-		nums.push(...arguments);
-		return () => {
-			nums.push(...arguments);
-			return nums.reduce((a, b) => a + b);
-		}
-	}
+  const nums = [...arguments];
+  return () => {
+    nums.push(...arguments);
+    return () => {
+      nums.push(...arguments);
+      return nums.reduce((a, b) => a + b);
+    };
+  };
 }
 // 如果我上述代码中间换成箭头函数又会怎么样呢~，公众号号后台回复自己的理解，抽取2位优秀回答者送红包(6.6元)哦~大朋友就别来了~
 ```
@@ -185,6 +184,3 @@ function Add() {
 ## 后记
 
 也许你觉得这题有点简单，通过简单的重复练习就能轻松记住，但是最主要的是思路，很多事情都是一样，掌握事情的方法和方向是最重要的。毕竟淘宝也不是一蹴而就的~ 但是只要方向正确了，都会好起来的。
-
-
-

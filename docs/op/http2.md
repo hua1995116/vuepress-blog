@@ -1,13 +1,16 @@
-# nginx-https升级http2
+# nginx-https 升级 http2
 
 ## 概要
-HTTP/2 （原名HTTP/2.0）即超文本传输协议 2.0，是下一代HTTP协议。是由互联网工程任务组（IETF）的Hypertext Transfer Protocol Bis (httpbis)工作小组进行开发。是自1999年http1.1发布后的首个更新。HTTP 2.0在2013年8月进行首次合作共事性测试。在开放互联网上HTTP 2.0将只用于https://网址，而 http://网址将继续使用HTTP/1，目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。DANE RFC6698允许域名管理员不通过第三方CA自行发行证书。
+
+HTTP/2 （原名 HTTP/2.0）即超文本传输协议 2.0，是下一代 HTTP 协议。是由互联网工程任务组（IETF）的 Hypertext Transfer Protocol Bis (httpbis)工作小组进行开发。是自 1999 年 http1.1 发布后的首个更新。HTTP 2.0 在 2013 年 8 月进行首次合作共事性测试。在开放互联网上 HTTP 2.0 将只用于https://网址，而 http://网址将继续使用HTTP/1，目的是在开放互联网上增加使用加密技术，以提供强有力的保护去遏制主动攻击。DANE RFC6698 允许域名管理员不通过第三方 CA 自行发行证书。
+
 ## 前提
-https 升级到http2两个必要条件
-nginx 大于等于1.9.5
+
+https 升级到 http2 两个必要条件
+nginx 大于等于 1.9.5
 openssl 大于等于 1.0.2
 参考：https://www.nginx.com/blog/supporting-http2-google-chrome-users/
-升级openssl
+升级 openssl
 https://www.openssl.org/source/
 
 ```
@@ -37,14 +40,15 @@ ln -s /usr/local/lib64/libcrypto.so.1.1 /usr/lib64/libcrypto.so.1.1
 openssl version
 ```
 
-### 安装nginx
-nginx有两种情况，一种是基于你已经安装过nginx，但是你的版本过低，或者没有安装一些额外的扩展导致无法升级，另外一种是还未安装。
-1.重新安装nginx
+### 安装 nginx
+
+nginx 有两种情况，一种是基于你已经安装过 nginx，但是你的版本过低，或者没有安装一些额外的扩展导致无法升级，另外一种是还未安装。 1.重新安装 nginx
 nginx 编译参数
 官网
 http://nginx.org/en/docs/configure.html
 中文版
 http://www.ttlsa.com/nginx/nginx-configure-descriptions/
+
 ```
 #进入你存在目录your path替换成你自己服务器的目录
 cd your path
@@ -62,8 +66,7 @@ make && make install
 
 ```
 
-
-2.平滑升级nginx到最新的稳定版
+2.平滑升级 nginx 到最新的稳定版
 
 ```
 #进入你存在目录your path替换成你自己服务器的目录
@@ -88,8 +91,10 @@ nginx -V
 
 ```
 
-### 配置http2
-下面配置http2的nginx.conf部分代码。
+### 配置 http2
+
+下面配置 http2 的 nginx.conf 部分代码。
+
 ```
 server {
 
@@ -98,26 +103,24 @@ server {
 
 	ssl_certificate /path/to/public.crt;
 	ssl_certificate_key /path/to/private.key;
-	
-	ssl_session_timeout 5m; 
-	ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
-	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;     
+
+	ssl_session_timeout 5m;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
 	ssl_prefer_server_ciphers on;
-	
+
 
 ```
 
 大功告成。下面看效果图。
 
-
-
 效果图
 
-![1679de4dfd9c54f2](https://s3.qiufeng.blue/blog/1679de4dfd9c54f2.jpg)
+![1679de4dfd9c54f2](https://s3.mdedit.online/blog/1679de4dfd9c54f2.jpg)
 
 如果没有协议这一栏，可以右键工具栏。
 
-![1679de75bd365cae](https://s3.qiufeng.blue/blog/1679de75bd365cae.jpg)
+![1679de75bd365cae](https://s3.mdedit.online/blog/1679de75bd365cae.jpg)
 
 参考资料
 https://blog.fazero.me/2017/01/06/upgrate-nginx-and-use-http2/

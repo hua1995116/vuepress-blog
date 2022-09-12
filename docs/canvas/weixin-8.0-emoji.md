@@ -1,38 +1,38 @@
-# 教你实现微信8.0『炸裂』的🎉表情特效
+# 教你实现微信 8.0『炸裂』的 🎉 表情特效
 
 ## 写在开头
 
-最近微信更新了8.0，其中之一最好玩的莫过于表情包的更新了，大家都在群里纷纷玩起了表情包大战。
+最近微信更新了 8.0，其中之一最好玩的莫过于表情包的更新了，大家都在群里纷纷玩起了表情包大战。
 
-![](https://s3.qiufeng.blue/blog/2021-02-01-23.44.16.gif)
+![](https://s3.mdedit.online/blog/2021-02-01-23.44.16.gif)
 
-作为一个前端程序员，这就勾起了我的好奇心，虽然我从来没有实现过这样的动画，但是我还是忍不住想要去实现，最终我花了2天时间去看一些库的源码到我自己实现一个类似的效果，在这里我总结一下，并且手把手地教大家怎么学习实现。而🎉有一个自己的名字，叫做**五彩纸屑**，英文名字叫 `confetti`。
+作为一个前端程序员，这就勾起了我的好奇心，虽然我从来没有实现过这样的动画，但是我还是忍不住想要去实现，最终我花了 2 天时间去看一些库的源码到我自己实现一个类似的效果，在这里我总结一下，并且手把手地教大家怎么学习实现。而 🎉 有一个自己的名字，叫做**五彩纸屑**，英文名字叫 `confetti`。
 
 聊天室+五彩纸屑特效 在线地址: https://www.qiufengh.com/#/
 
-聊天室Github地址: https://github.com/hua1995116/webchat
+聊天室 Github 地址: https://github.com/hua1995116/webchat
 
-五彩纸屑Github地址: https://github.com/hua1995116/node-demo/tree/master/confetti
+五彩纸屑 Github 地址: https://github.com/hua1995116/node-demo/tree/master/confetti
 
-![](https://s3.qiufeng.blue/blog/image-20210206005938732.png)
+![](https://s3.mdedit.online/blog/image-20210206005938732.png)
 
-![](https://s3.qiufeng.blue/blog/2021-02-06-12.22.12.gif)
+![](https://s3.mdedit.online/blog/2021-02-06-12.22.12.gif)
 
 特效预览，时间原因我只实现了平行四边形的彩色小块，其他形状的原理也是类似。
 
-![](https://s3.qiufeng.blue/blog/2021-02-05-21.32.43.gif)
+![](https://s3.mdedit.online/blog/2021-02-05-21.32.43.gif)
 
 还可以设置方向
 
-![](https://s3.qiufeng.blue/blog/2021-02-05-21.37.32-1.gif)
+![](https://s3.mdedit.online/blog/2021-02-05-21.37.32-1.gif)
 
 ## 前期研究
 
-在写这个特效前，我几乎不会用canvas，虽然说现在也不太会用，很多 API 也不太清楚，因此这篇教程也是基于零基础 canvas 写的，大家不用担心这个教程难度太高而被劝退。我会通过零基础 canvas 的基础上来一步步实现的。不过学习这个特效之前需要一点点高中数学的知识，如果你还记得 sin 和 cos 函数，那么以下的内容对于你来说都会非常简单，不会也没关系~
+在写这个特效前，我几乎不会用 canvas，虽然说现在也不太会用，很多 API 也不太清楚，因此这篇教程也是基于零基础 canvas 写的，大家不用担心这个教程难度太高而被劝退。我会通过零基础 canvas 的基础上来一步步实现的。不过学习这个特效之前需要一点点高中数学的知识，如果你还记得 sin 和 cos 函数，那么以下的内容对于你来说都会非常简单，不会也没关系~
 
 我个人比较喜欢探索研究，对有意思的玩意儿就会去研究，因此我也是站在巨人的基础上，去 codepen 查了好多个类似的实现进行研究。
 
-![](https://s3.qiufeng.blue/blog/codepen-id.gif)
+![](https://s3.mdedit.online/blog/codepen-id.gif)
 
 最终将目标定位在了 [canvas-confetti](https://github.com/catdad/canvas-confetti) ，为什么是这个库呢？因为他的效果对于我们来说非常可以了，而且它是一个开源库，并且拥有了 `1.3K` star（感觉改天可以分析分析大佬实现库的原理了~），维护频率也非常高。
 
@@ -42,15 +42,15 @@
 
 首先拿到这个库的时候，我有点开心，因为这个库只有一个单文件。
 
-![](https://s3.qiufeng.blue/blog/image-20210205215414389.png)
+![](https://s3.mdedit.online/blog/image-20210205215414389.png)
 
-但是，当我打开这个文件的时候，发现不对...1个文件**500行**代码，我通过剥离层层的一些自定义配置化的代码，最后抽离出单个纸屑的运动轨迹。我就开始不断地在观察它的运动轨迹...无限循环的观察...
+但是，当我打开这个文件的时候，发现不对...1 个文件**500 行**代码，我通过剥离层层的一些自定义配置化的代码，最后抽离出单个纸屑的运动轨迹。我就开始不断地在观察它的运动轨迹...无限循环的观察...
 
-![](https://s3.qiufeng.blue/blog/2021-02-05-21.56.33.gif)
+![](https://s3.mdedit.online/blog/2021-02-05-21.56.33.gif)
 
 可以看到它在做一个类似于抛物线的运动，然后我一一将源码中的变量进行标注，再结合源码。
 
-![](https://s3.qiufeng.blue/blog/image-20210205215931549.png)
+![](https://s3.mdedit.online/blog/image-20210205215931549.png)
 
 ```js
 fetti.x += Math.cos(fetti.angle2D) * fetti.velocity;
@@ -87,17 +87,15 @@ fetti.y += Math.sin(fetti.angle2D) * fetti.velocity + fetti.gravity;
 
 设置或返回用于填充绘画的颜色、渐变或模式。
 
-
-
 既然我们要实现五彩纸屑，那么我肯定得先实现一个纸屑，我们就来实现一个平行四边形的纸屑吧！
 
-我们都知道在 css 中实现平行四边形就是一个div，默认就是一个盒子，而在 canvas 中并没有那么方便，那么怎么实现一个平行四边形呢？
+我们都知道在 css 中实现平行四边形就是一个 div，默认就是一个盒子，而在 canvas 中并没有那么方便，那么怎么实现一个平行四边形呢？
 
-四个点，我们只需要知道四个点，就能确定一个平行四边形。而canvas中的坐标系和我们普通的写网页略有不同，它是从左上角作为起始点，但是并不影响。
+四个点，我们只需要知道四个点，就能确定一个平行四边形。而 canvas 中的坐标系和我们普通的写网页略有不同，它是从左上角作为起始点，但是并不影响。
 
-![](https://s3.qiufeng.blue/blog/image-20210205222459958.png)
+![](https://s3.mdedit.online/blog/image-20210205222459958.png)
 
-我可以来画一个宽为20的平行四边形，`(0, 0), (0, 20), (20,20), (20,0)`。
+我可以来画一个宽为 20 的平行四边形，`(0, 0), (0, 20), (20,20), (20,0)`。
 
 ```js
 ...(省略了一些前置初始化代码)
@@ -122,21 +120,21 @@ context.closePath();
 context.fill();
 ```
 
-![](https://s3.qiufeng.blue/blog/image-20210205223505901.png)
+![](https://s3.mdedit.online/blog/image-20210205223505901.png)
 
 我们总结一下，我们其实只需要一个点就能确定这个平行四边形的初始位置`(0, 0)`，如果再知道一个角度`(90度)`、以及平行四边形的变长(`20`)就能确定整个平行四边形的位置了！(仅仅只需要初中知识就能定位整个平行四边形)。
 
 好了，你学会画这个已经离成功迈向了一大步！是不是挺简单的~
 
-大佬们内心OS: 就这？
+大佬们内心 OS: 就这？
 
 嗯，就这。
 
 #### 运动轨迹
 
-通过不断地调试 [canvas-confetti](https://github.com/catdad/canvas-confetti) 每一帧的轨迹运动，发现它始终做的是一个x轴变减速运动（直到速度为0就不继续运动了），而y轴也是一个先变减速运动再是一个均速运动，以下是大致的轨迹图。
+通过不断地调试 [canvas-confetti](https://github.com/catdad/canvas-confetti) 每一帧的轨迹运动，发现它始终做的是一个 x 轴变减速运动（直到速度为 0 就不继续运动了），而 y 轴也是一个先变减速运动再是一个均速运动，以下是大致的轨迹图。
 
-![](https://s3.qiufeng.blue/blog/image-20210205221523845.png)
+![](https://s3.mdedit.online/blog/image-20210205221523845.png)
 
 这就是他的运动轨迹，别以为看着挺难的，但是核心代码只有三句。
 
@@ -149,30 +147,30 @@ fetti.y += Math.sin(fetti.angle2D) * fetti.velocity + fetti.gravity; // fetti.y 
 fetti.velocity *= 0.8；
 ```
 
-总结起来就是，第一个坐标点的 x 周始终在增加一个负值（Math.cos(3 / 2 * Math.PI - 2 * Math.PI) 始终为负值），这个值在不断减小。而第一个点的y轴也始终在加一个负值Math.cos(3 / 2 * Math.PI - 2 * Math.PI) 始终为负值），但是由于 `fetti.gravity`始终为正值，因此到了某个临界点，y的值会不断增加。
+总结起来就是，第一个坐标点的 x 周始终在增加一个负值（Math.cos(3 / 2 _ Math.PI - 2 _ Math.PI) 始终为负值），这个值在不断减小。而第一个点的 y 轴也始终在加一个负值 Math.cos(3 / 2 _ Math.PI - 2 _ Math.PI) 始终为负值），但是由于 `fetti.gravity`始终为正值，因此到了某个临界点，y 的值会不断增加。
 
-我模拟了以下的坐标，由于为了让大家能明白这个轨迹，以下坐标轴和canvas中相反，数据我也做了相应的处理，进行了反方向处理。
+我模拟了以下的坐标，由于为了让大家能明白这个轨迹，以下坐标轴和 canvas 中相反，数据我也做了相应的处理，进行了反方向处理。
 
-![](https://s3.qiufeng.blue/blog/animation2.gif)
+![](https://s3.mdedit.online/blog/animation2.gif)
 
-用一个边上为10的正方形，实现轨迹。
+用一个边上为 10 的正方形，实现轨迹。
 
 ```js
 const fetti = {
-  "x": 445,
-  "y": 541,
-  "angle2D": 3 / 2 * Math.PI + 1 / 6 * Math.PI,
-  "color": {r: 20, g: 30, b: 50},
-  "tick": 0,
-  "totalTicks": 200,
-  "decay": 0.9,
-  "gravity": 3,
-  "velocity": 50
-}
+  x: 445,
+  y: 541,
+  angle2D: (3 / 2) * Math.PI + (1 / 6) * Math.PI,
+  color: { r: 20, g: 30, b: 50 },
+  tick: 0,
+  totalTicks: 200,
+  decay: 0.9,
+  gravity: 3,
+  velocity: 50,
+};
 var animationFrame = null;
 const update = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = 'rgba(2, 255, 255, 1)';
+  context.fillStyle = "rgba(2, 255, 255, 1)";
   context.beginPath();
   fetti.x += Math.cos(fetti.angle2D) * fetti.velocity; // 第一个点
   fetti.y += Math.sin(fetti.angle2D) * fetti.velocity + fetti.gravity; // 第一个点
@@ -180,7 +178,7 @@ const update = () => {
   var x1 = fetti.x;
   var y1 = fetti.y;
 
-  var x2 = fetti.x;// 第二个点
+  var x2 = fetti.x; // 第二个点
   var y2 = fetti.y + 10; // 第二个点
 
   var x3 = x1 + 10;
@@ -199,12 +197,12 @@ const update = () => {
   context.closePath();
   context.fill();
   animationFrame = raf.frame(update);
-}
+};
 ```
 
 是不是除了颜色和形状，有那味了？
 
-![](https://s3.qiufeng.blue/blog/2021-02-05-23.34.00.gif)
+![](https://s3.mdedit.online/blog/2021-02-05-23.34.00.gif)
 
 #### 反转特效
 
@@ -212,11 +210,11 @@ const update = () => {
 
 其实，他就是一直在做一个翻转特效.
 
-![](https://s3.qiufeng.blue/blog/8-fanzhuan.gif)
+![](https://s3.mdedit.online/blog/8-fanzhuan.gif)
 
 将他们拆解就是在做绕着一个点的旋转运动，整个过程就是一边自我翻转一边按照运动轨迹进行移动。
 
-![](https://s3.qiufeng.blue/blog/image-20210205234637817.png)
+![](https://s3.mdedit.online/blog/image-20210205234637817.png)
 
 实现这个特效，其实之前在实现正方形的时候提到过，实现一个正方形。满足以下三个点能实现一个平行四边形。
 
@@ -231,26 +229,25 @@ const update = () => {
 ```js
 const update = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = 'rgba(2, 255, 255, 1)';
+  context.fillStyle = "rgba(2, 255, 255, 1)";
   context.beginPath();
 
   fetti.velocity *= fetti.decay;
-  fetti.tiltAngle += 0.1 // 不断给这个四边形变化角度
+  fetti.tiltAngle += 0.1; // 不断给这个四边形变化角度
 
   var length = 10;
 
   var x1 = fetti.x;
   var y1 = fetti.y;
 
-  var x2 = fetti.x + (length * Math.sin(fetti.tiltAngle));// 第二个点
-  var y2 = fetti.y + (length * Math.cos(fetti.tiltAngle)); // 第二个点
+  var x2 = fetti.x + length * Math.sin(fetti.tiltAngle); // 第二个点
+  var y2 = fetti.y + length * Math.cos(fetti.tiltAngle); // 第二个点
 
   var x3 = x2 + 10;
   var y3 = y2;
 
   var x4 = fetti.x + length;
   var y4 = fetti.y;
-
 
   context.moveTo(Math.floor(x1), Math.floor(y1));
   context.lineTo(Math.floor(x2), Math.floor(y2));
@@ -260,8 +257,7 @@ const update = () => {
   context.closePath();
   context.fill();
   animationFrame = raf.frame(update);
-}
-
+};
 ```
 
 这样我们就实现了以上的特效。
@@ -273,28 +269,27 @@ const update = () => {
 ```js
 const update = () => {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillStyle = 'rgba(2, 255, 255, 1)';
+  context.fillStyle = "rgba(2, 255, 255, 1)";
   context.beginPath();
   fetti.x += Math.cos(fetti.angle2D) * fetti.velocity; // 第一个点
   fetti.y += Math.sin(fetti.angle2D) * fetti.velocity + fetti.gravity; // 第一个点
 
   fetti.velocity *= fetti.decay;
-  fetti.tiltAngle += 0.1 // 不断给这个四边形变化角度
+  fetti.tiltAngle += 0.1; // 不断给这个四边形变化角度
 
   var length = 10;
 
   var x1 = fetti.x;
   var y1 = fetti.y;
 
-  var x2 = fetti.x + (length * Math.sin(fetti.tiltAngle));// 第二个点
-  var y2 = fetti.y + (length * Math.cos(fetti.tiltAngle)); // 第二个点
+  var x2 = fetti.x + length * Math.sin(fetti.tiltAngle); // 第二个点
+  var y2 = fetti.y + length * Math.cos(fetti.tiltAngle); // 第二个点
 
   var x3 = x2 + 10;
   var y3 = y2;
 
   var x4 = fetti.x + length;
   var y4 = fetti.y;
-
 
   context.moveTo(Math.floor(x1), Math.floor(y1));
   context.lineTo(Math.floor(x2), Math.floor(y2));
@@ -304,7 +299,7 @@ const update = () => {
   context.closePath();
   context.fill();
   animationFrame = raf.frame(update);
-}
+};
 ```
 
 #### 最终形态
@@ -319,32 +314,32 @@ const update = () => {
 
 ```js
 const colors = [
-  '#26ccff',
-  '#a25afd',
-  '#ff5e7e',
-  '#88ff5a',
-  '#fcff42',
-  '#ffa62d',
-  '#ff36ff'
+  "#26ccff",
+  "#a25afd",
+  "#ff5e7e",
+  "#88ff5a",
+  "#fcff42",
+  "#ffa62d",
+  "#ff36ff",
 ];
-var arr = []
+var arr = [];
 for (let i = 0; i < 20; i++) {
   arr.push({
-    "x": 445,
-    "y": 541,
-    "velocity": (45 * 0.5) + (Math.random() * 20),
-    "angle2D": 3 / 2 * Math.PI + Math.random() * 1 / 4 * Math.PI,
-    "tiltAngle":  Math.random() * Math.PI,
-    "color": hexToRgb(colors[Math.floor(Math.random() * 7)]),
-    "shape": "square",
-    "tick": 0,
-    "totalTicks": 200,
-    "decay": 0.9,
-    "random": 0,
-    "tiltSin": 0,
-    "tiltCos": 0,
-    "gravity": 3,
-  })
+    x: 445,
+    y: 541,
+    velocity: 45 * 0.5 + Math.random() * 20,
+    angle2D: (3 / 2) * Math.PI + ((Math.random() * 1) / 4) * Math.PI,
+    tiltAngle: Math.random() * Math.PI,
+    color: hexToRgb(colors[Math.floor(Math.random() * 7)]),
+    shape: "square",
+    tick: 0,
+    totalTicks: 200,
+    decay: 0.9,
+    random: 0,
+    tiltSin: 0,
+    tiltCos: 0,
+    gravity: 3,
+  });
 }
 ```
 
@@ -358,32 +353,34 @@ https://github.com/hua1995116/node-demo/blob/master/confetti/%E5%AE%8C%E6%95%B4d
 
 这里我们需要注意几个点。（由于篇幅原因就不对 websocket 展开讲解了，提一下实现要点）。
 
-- 我们可以通过一个` tag` 来区分是历史消息还是实时消息
+- 我们可以通过一个`tag` 来区分是历史消息还是实时消息
 - 区分是自己发出的消息，还是受到别人的消息，来改变五彩纸屑方向。
-- 只有为单个 🎉的时候才会进行动画。
-- 先进行放大缩小的动画，延迟200ms再出来特效
+- 只有为单个 🎉 的时候才会进行动画。
+- 先进行放大缩小的动画，延迟 200ms 再出来特效
 
 ```js
-if(this.msg === '🎉' && this.status) {
-        this.confetti = true;
-        const rect = this.$refs.msg.querySelector('.msg-text').getBoundingClientRect();
-        if(rect.left && rect.top) {
-          setTimeout(() => {
-            confetti({
-              particleCount: r(100, 150),
-              angle: this.isSelf ? 120 : 60,
-              spread: r(45, 80),
-              origin: {
-                x: rect.left / window.innerWidth,
-                y: rect.top / window.innerHeight
-              }
-            });
-          }, 200)
-        }
+if (this.msg === "🎉" && this.status) {
+  this.confetti = true;
+  const rect = this.$refs.msg
+    .querySelector(".msg-text")
+    .getBoundingClientRect();
+  if (rect.left && rect.top) {
+    setTimeout(() => {
+      confetti({
+        particleCount: r(100, 150),
+        angle: this.isSelf ? 120 : 60,
+        spread: r(45, 80),
+        origin: {
+          x: rect.left / window.innerWidth,
+          y: rect.top / window.innerHeight,
+        },
+      });
+    }, 200);
+  }
 }
 ```
 
-![](https://s3.qiufeng.blue/blog/2021-02-06%2012.20.07.gif)
+![](https://s3.mdedit.online/blog/2021-02-06%2012.20.07.gif)
 
 ## 更多探索
 
@@ -399,19 +396,16 @@ if(this.msg === '🎉' && this.status) {
 
 - [一文带你层层解锁「文件下载」的奥秘](https://juejin.cn/post/6867469476196155400)：`140+`点赞量
 
-- [10种跨域解决方案（附终极大招）](https://juejin.cn/post/6844904126246027278)：`940+`点赞量
+- [10 种跨域解决方案（附终极大招）](https://juejin.cn/post/6844904126246027278)：`940+`点赞量
 
-- [一文了解文件上传全过程（1.8w字深度解析，进阶必备）](https://juejin.cn/post/6844904106658643982)：`260+`点赞量
-
-  
+- [一文了解文件上传全过程（1.8w 字深度解析，进阶必备）](https://juejin.cn/post/6844904106658643982)：`260+`点赞量
 
 ## 结语
 
-**❤️关注+点赞+收藏+评论+转发❤️**，原创不易，鼓励笔者创作更好的文章
+**❤️ 关注+点赞+收藏+评论+转发 ❤️**，原创不易，鼓励笔者创作更好的文章
 
 **关注公众号`秋风的笔记`，一个专注于前端面试、工程化、开源的前端公众号**
 
-- 关注后回复`简历`获取100+套的精美简历模板
+- 关注后回复`简历`获取 100+套的精美简历模板
 - 关注后回复`好友`拉你进技术交流群+面试交流群
 - 欢迎关注`秋风的笔记`
-

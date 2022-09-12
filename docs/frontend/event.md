@@ -1,47 +1,52 @@
-# js中事件绑定3种方法以及事件委托
+# js 中事件绑定 3 种方法以及事件委托
 
 ###事件绑定
 首先，我先来介绍我们平时绑定事件的三种方法。
-**1.嵌入dom**
+**1.嵌入 dom**
+
 ```html
 <button onclick="open()">按钮</button>
 
 <script>
-function open(){
-	alert(1)
-}
+  function open() {
+    alert(1);
+  }
 </script>
 ```
-**2.直接绑定**
-```html
-<button id="btn">按钮</button>
-<script>
-document.getElementById('btn').onclick = function(){
-	alert(1)
-}
-</script>
 
-```
-**3.事件监听**
+**2.直接绑定**
+
 ```html
 <button id="btn">按钮</button>
 <script>
-document.getElementById('btn').addEventListener('click',function(){
-	alert(1)
-})
-//兼容IE
-document.getElementById('btn').attachEvent('click',function(){
-	alert(1)
-})
+  document.getElementById("btn").onclick = function() {
+    alert(1);
+  };
 </script>
 ```
+
+**3.事件监听**
+
+```html
+<button id="btn">按钮</button>
+<script>
+  document.getElementById("btn").addEventListener("click", function() {
+    alert(1);
+  });
+  //兼容IE
+  document.getElementById("btn").attachEvent("click", function() {
+    alert(1);
+  });
+</script>
+```
+
 ###事件委托
-对“事件处理程序过多”问题的解决方案就是事件委托。事件委托利用了事件冒泡，只制定一个事件处理程序，就可以管理某一类型的所有事件。例如click事件一直会冒泡到document层。也就是我们可以只指定onclick事件处理程序，而不必给每个事件分别添加处理程序。
+对“事件处理程序过多”问题的解决方案就是事件委托。事件委托利用了事件冒泡，只制定一个事件处理程序，就可以管理某一类型的所有事件。例如 click 事件一直会冒泡到 document 层。也就是我们可以只指定 onclick 事件处理程序，而不必给每个事件分别添加处理程序。
 **下面我们来看一个阿里巴巴笔试题的例子。**
 
-![这里写图片描述](https://s3.qiufeng.blue/blog/1579506284537.png)
+![这里写图片描述](https://s3.mdedit.online/blog/1579506284537.png)
 
-**样式以及DOM结构**
+**样式以及 DOM 结构**
 
 ```css
  <style>
@@ -49,7 +54,7 @@ document.getElementById('btn').attachEvent('click',function(){
      padding: 0;
      margin: 0;
    }
-   
+
    .head, li div {
      display: inline-block;
      width: 70px;
@@ -100,21 +105,20 @@ document.getElementById('btn').attachEvent('click',function(){
 **不用事件委托。**而这种方法造成的代价是，性能的大量浪费。如果是成千上万条数据，**页面将会严重卡顿，甚至崩溃。**
 
 ```javascript
-function Contact(){
-    this.init();
+function Contact() {
+  this.init();
 }
-	
 
-Contact.prototype.init = function(){
-	var userdel = document.querySelectorAll('.user-delete');
-	for(var i=0;i<lis.length;i++){
-		(function(j){
-			userdel[j].onclick = function(){
-	userdel[j].parentNode.parentNode.removeChild(userdel[j].parentNode);
-			}
-		})(i);
-	}	
-}
+Contact.prototype.init = function() {
+  var userdel = document.querySelectorAll(".user-delete");
+  for (var i = 0; i < lis.length; i++) {
+    (function(j) {
+      userdel[j].onclick = function() {
+        userdel[j].parentNode.parentNode.removeChild(userdel[j].parentNode);
+      };
+    })(i);
+  }
+};
 
 new Contact();
 ```
@@ -122,19 +126,19 @@ new Contact();
 **使用事件委托**，只绑定一次事件，大大减少了性能的损耗。也是在需要大量事件处理程序中一种非常好的解决方式。
 
 ```javascript
-function Contact(){
-    this.init();
+function Contact() {
+  this.init();
 }
-	
 
-Contact.prototype.init = function(){
-	var lis = document.querySelector('#J_List');
-	lis.addEventListener('click', function(e){
-		var target = e.target || e.srcElement;
-		if (!!target && target.className.toLowerCase()==='user-delete') {				target.parentNode.parentNode.removeChild(target.parentNode);
-		}
-	})
-}
+Contact.prototype.init = function() {
+  var lis = document.querySelector("#J_List");
+  lis.addEventListener("click", function(e) {
+    var target = e.target || e.srcElement;
+    if (!!target && target.className.toLowerCase() === "user-delete") {
+      target.parentNode.parentNode.removeChild(target.parentNode);
+    }
+  });
+};
 
 new Contact();
 ```

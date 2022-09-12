@@ -1,5 +1,4 @@
-# 听说你还不知道Promise的allSettled()和all()的区别？
-
+# 听说你还不知道 Promise 的 allSettled()和 all()的区别？
 
 > 译文来自 https://dev.to/viclafouch/promise-allsettled-vs-promise-all-in-javascript-4mle
 >
@@ -19,7 +18,7 @@ Hello! 🧑‍🌾
 
 他们两个都传入可 `迭代对象`，并返回一个已完成的 Promises 的`数组`。
 
-❓那么，**它们之间有什么区别呢？**
+❓ 那么，**它们之间有什么区别呢？**
 
 ## Promise.all()🧠
 
@@ -33,7 +32,7 @@ Hello! 🧑‍🌾
 
 ![Promise all failed](https://res.cloudinary.com/practicaldev/image/fetch/s--MEAe2zoD--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/gcpmjldpgbfc8xgqgh10.png)
 
-`如果其中一个 promise 失败了`，则 `Promise.all` 整体将会失败。 例如，我们传递2个 promise, 一个完成的 promise 和 一个 失败的promise，那么 `Promise.all ` 将立即失败。
+`如果其中一个 promise 失败了`，则 `Promise.all` 整体将会失败。 例如，我们传递 2 个 promise, 一个完成的 promise 和 一个 失败的 promise，那么 `Promise.all` 将立即失败。
 
 ## Promise.allSettled()📪
 
@@ -51,7 +50,7 @@ Hello! 🧑‍🌾
 
 ![allSettled](https://res.cloudinary.com/practicaldev/image/fetch/s--s2PC5oqi--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/brvijnemnpmm9qvauhvp.png)
 
-## 区别👬
+## 区别 👬
 
 - `Promise.all` 将在 Promises 数组中的其中一个 Promises 失败后立即失败。
 
@@ -63,8 +62,8 @@ Hello! 🧑‍🌾
 
 `Promise.allSettled()`
 
-![image-20200819004559123](https://s3.qiufeng.blue/blog/image-20200819004559123.png)
+![image-20200819004559123](https://s3.mdedit.online/blog/image-20200819004559123.png)
 
 `promise.all()`
 
-![image-20200819004619627](https://s3.qiufeng.blue/blog/image-20200819004619627.png)
+![image-20200819004619627](https://s3.mdedit.online/blog/image-20200819004619627.png)

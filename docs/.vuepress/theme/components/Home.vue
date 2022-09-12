@@ -18,7 +18,7 @@
         <a href="https://www.yuque.com/qiufenghhh" target="_blank">
           <i class="iconfont icon-yuque-fill"></i>
         </a>
-        <a href="https://s3.qiufeng.blue/blog/WechatIMG313.jpeg?imageView2/0/w/300" target="_blank">
+        <a href="https://s3.mdedit.online/blog/WechatIMG313.jpeg?imageView2/0/w/300" target="_blank">
           <i class="iconfont icon-wechat-fill"></i>
         </a>
         <a href="https://okjk.co/37TPe5" target="_blank">

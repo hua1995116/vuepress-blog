@@ -17,6 +17,7 @@ const grow = require('../grow/meta.json')
 const news = require('../news/meta.json')
 const practice = require('../practice/meta.json')
 const vscode = require('../vscode/meta.json')
+const aipaint = require('../aipaint/meta.json')
 
 
 function getHeader (posts) {
@@ -54,5 +55,5 @@ module.exports = {
   news: getHeader(news),
   practice: getHeader(practice),
   vscode: getHeader(vscode),
-  
+  aipaint: getHeader(aipaint),
 }

@@ -8,28 +8,28 @@
 
 ![](https://user-gold-cdn.xitu.io/2019/12/24/16f35abf06cbb090?w=879&h=615&f=jpeg&s=35467)
 
-Addons 是用 C ++编写的动态链接的共享对象。 require() 函数可以将 Addons 加载为普通的Node.js模块，Addons 提供 JavaScript 和 C / C ++ 库之间的接口。
+Addons 是用 C ++编写的动态链接的共享对象。 require() 函数可以将 Addons 加载为普通的 Node.js 模块，Addons 提供 JavaScript 和 C / C ++ 库之间的接口。
 
 ## 插件编写方式
 
 在现代，Node 官方推荐的方式为以下三种, 插件编写历史可以查看 [《**从暴力到 NAN 再到 NAPI——Node.js 原生模块开发方式变迁**》](https://cnodejs.org/topic/5957626dacfce9295ba072e0)
 
-- 1.NAN (一个充满宏和实用工具的头文件，使Node.js的插件开发在0.8、0.10、0.12、1、2、3、4、5、6、7、8、9、10、11、12和13版本之间更容易。)
+- 1.NAN (一个充满宏和实用工具的头文件，使 Node.js 的插件开发在 0.8、0.10、0.12、1、2、3、4、5、6、7、8、9、10、11、12 和 13 版本之间更容易。)
 
-- 2.NAPI   (N-API（在字母中发音为N，后跟API）是用于构建本机插件的API。 它独立于底层JavaScript运行时（例如V8），并作为Node.js本身的一部分进行维护。)
-- 3.直接使用内部的 V8、Libuv 和 Node.js库（需要掌握 V8,  libuv, Node 原生库方法，Node.js包括其他静态链接的库，包括OpenSSL ）
+- 2.NAPI (N-API（在字母中发音为 N，后跟 API）是用于构建本机插件的 API。 它独立于底层 JavaScript 运行时（例如 V8），并作为 Node.js 本身的一部分进行维护。)
+- 3.直接使用内部的 V8、Libuv 和 Node.js 库（需要掌握 V8, libuv, Node 原生库方法，Node.js 包括其他静态链接的库，包括 OpenSSL ）
 
 如果你不使用 NAPI 的未公开的 API，优先使用 NAPI 进行插件开发。
 
 **NAN 和 NAPI 的区别**
 
-NAN 解决了混乱的C++原生模块，不再让一个模块只能被若干个 Node 版本使用，而提出使用宏定义来解决这个问题，所以说NAN是一大堆宏定义，兼容各种 Node 版本的宏定义。做到了`一次编写，到处编译`。
+NAN 解决了混乱的 C++原生模块，不再让一个模块只能被若干个 Node 版本使用，而提出使用宏定义来解决这个问题，所以说 NAN 是一大堆宏定义，兼容各种 Node 版本的宏定义。做到了`一次编写，到处编译`。
 
-而这种设计模式还是依然有缺点，那就是多次编译，也就是说你写的插件如果到了更高的 Node 版本，还是需要再次编译，因此有来额 NAPI，它旨在使 Addons 与基础 JavaScript 引擎的更改保持隔离，并使为一个主要版本编译的模块可以在 Node 的更高主要版本上运行，而`无需重新编译`。 
+而这种设计模式还是依然有缺点，那就是多次编译，也就是说你写的插件如果到了更高的 Node 版本，还是需要再次编译，因此有来额 NAPI，它旨在使 Addons 与基础 JavaScript 引擎的更改保持隔离，并使为一个主要版本编译的模块可以在 Node 的更高主要版本上运行，而`无需重新编译`。
 
-随着时代的前进，我当然选择了最新的 NAPI 进行实践，虽然最新的 API 的封装地非常友好，看起来编写已经不是那么复杂，但是对于深入理解V8 以及Node原生模块来说，提升没有从更下层编写来的大。不过，这也不妨碍我们的学习，我们先来看看上层的实践，快速搭建应用，然后慢慢地去理解整个过程，也是一个非常好的方式。
+随着时代的前进，我当然选择了最新的 NAPI 进行实践，虽然最新的 API 的封装地非常友好，看起来编写已经不是那么复杂，但是对于深入理解 V8 以及 Node 原生模块来说，提升没有从更下层编写来的大。不过，这也不妨碍我们的学习，我们先来看看上层的实践，快速搭建应用，然后慢慢地去理解整个过程，也是一个非常好的方式。
 
-还有一点就是，N-API是一个 C API，确保 [ABI](https://nodejs.org/en/docs/guides/abi-stability/) 跨Node.js版本和不同编译器级别的稳定性。C++ API更容易使用。为了支持使用 C++，该项目维护了一个名为 [node-addon-api](https://github.com/nodejs/node-addon-api) 的 C++ 包装器模块。因此我们会使用进行包装后的 `node-addon-api` 来进行开发。
+还有一点就是，N-API 是一个 C API，确保 [ABI](https://nodejs.org/en/docs/guides/abi-stability/) 跨 Node.js 版本和不同编译器级别的稳定性。C++ API 更容易使用。为了支持使用 C++，该项目维护了一个名为 [node-addon-api](https://github.com/nodejs/node-addon-api) 的 C++ 包装器模块。因此我们会使用进行包装后的 `node-addon-api` 来进行开发。
 
 **本文使用的环境**
 
@@ -52,13 +52,13 @@ ProductVersion:	10.14
 BuildVersion:	18A391
 ```
 
-## LRU算法介绍
+## LRU 算法介绍
 
 既然要实现一个 LRU，那必须对这个算法有一个初步的了解。LRU(Least Recently Used 意思为 **最近最少使用**)
 
-以内存访问为例解释缓存的工作原理。假设缓存的大小固定，初始状态为空。每发生一次读内存操作，首先查找待读取的数据是否存在于缓存中，若是，则缓存命中，返回数据；若否，则缓存未命中，从内存中读取数据，并把该数据添加到缓存中。向缓存添加数据时，如果缓存已满，则需要删除访问时间最早的那条数据，这种更新缓存的方法就叫做LRU。
+以内存访问为例解释缓存的工作原理。假设缓存的大小固定，初始状态为空。每发生一次读内存操作，首先查找待读取的数据是否存在于缓存中，若是，则缓存命中，返回数据；若否，则缓存未命中，从内存中读取数据，并把该数据添加到缓存中。向缓存添加数据时，如果缓存已满，则需要删除访问时间最早的那条数据，这种更新缓存的方法就叫做 LRU。
 
-可以用以下图来进行演示说明，假设我们最多只能开3个应用，第一次我们开了知乎，然后知乎为最近使用，第二次，我们点击了qq音乐，然后我们的qq音乐会成为最近使用的应用。最后我们又打开了美团，此时爱奇艺应用被删除，美团成为最近使用的应用。
+可以用以下图来进行演示说明，假设我们最多只能开 3 个应用，第一次我们开了知乎，然后知乎为最近使用，第二次，我们点击了 qq 音乐，然后我们的 qq 音乐会成为最近使用的应用。最后我们又打开了美团，此时爱奇艺应用被删除，美团成为最近使用的应用。
 
 ![](https://user-gold-cdn.xitu.io/2019/12/24/16f35ac914206c2b?w=500&h=1334&f=jpeg&s=121421)
 
@@ -70,9 +70,9 @@ BuildVersion:	18A391
 
 首先我们可以想到链表是一种有顺序的数据结构，其次由于我们被访问的数据有可能为非首尾结点，所以我们需要使用双向链表，来保证我们可以从中间任意结点修改链表。
 
-现在我们确定了我们的数据结构为  HashMap + 双向链表。
+现在我们确定了我们的数据结构为 HashMap + 双向链表。
 
-我用图来描述一下整个过程，假设我们总长度为4。（左侧为双向链表，右侧为HashMap）
+我用图来描述一下整个过程，假设我们总长度为 4。（左侧为双向链表，右侧为 HashMap）
 
 ![](https://user-gold-cdn.xitu.io/2019/12/24/16f35ae4aae24006?w=1336&h=734&f=jpeg&s=122171)
 
@@ -133,12 +133,12 @@ void List::SetMax(int da) {
 
 void List::Print() {
     Node *p = head;
-    
+
     while(p != NULL) {
         string key = p->data;
         unordered_map<string ,string >::iterator l_it;
         l_it = this->cachemap.find(key);
-        
+
         if(l_it != this->cachemap.end()) {
             cout << l_it->second << endl;
         }
@@ -173,14 +173,14 @@ void List::Insert(string da, string value) {
     if(count >= maxCount) {
         tail->prev->next = NULL;
         tail = tail->prev;
-        
+
         Node *p = new Node(da);
         cachemap.insert(pair<string, string>(da, value));
         p->next = head;
         head->prev = p;
         head = p;
         head->prev = NULL;
-        
+
         return;
     }
     if(head == NULL) {
@@ -257,7 +257,7 @@ void List::Search(string da) {
 
 ```
 ├── binding.gyp      // 编译配置
-├── package.json  
+├── package.json
 ├── src
 │   ├── bingding.cc  // 声明模块导出
 │   ├── list.cc      // 主入口
@@ -273,20 +273,18 @@ void List::Search(string da) {
 npm init -y
 ```
 
-#### 创建binding.gpy
+#### 创建 binding.gpy
 
 ```json
 {
   "targets": [
     {
       "target_name": "LRU_node_addon",
-      "cflags!": [ "-fno-exceptions" ],
-      "cflags_cc!": [ "-fno-exceptions" ],
-      "sources": [ "./src/bingding.cc", "./src/list.cc" ],
-      "include_dirs": [
-        "<!@(node -p \"require('node-addon-api').include\")"
-      ],
-      'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS' ],
+      "cflags!": ["-fno-exceptions"],
+      "cflags_cc!": ["-fno-exceptions"],
+      "sources": ["./src/bingding.cc", "./src/list.cc"],
+      "include_dirs": ["<!@(node -p \"require('node-addon-api').include\")"],
+      "defines": ["NAPI_DISABLE_CPP_EXCEPTIONS"]
     }
   ]
 }
@@ -302,13 +300,13 @@ npm i bindings node-addon-api -S
 
 #### **导出模块**
 
-NAN模块的初始化是交给 Node.js 提供的宏来实现的：
+NAN 模块的初始化是交给 Node.js 提供的宏来实现的：
 
 ```
 NODE_MODULE(addon, init)
 ```
 
-而N-API使用自己的宏定义(`NAPI_MODULE`)，因为我们使用`node-addon-api`，所以它也对这个宏定义包裹成下面这个了：
+而 N-API 使用自己的宏定义(`NAPI_MODULE`)，因为我们使用`node-addon-api`，所以它也对这个宏定义包裹成下面这个了：
 
 ```
 NODE_API_MODULE(addon, Init)
@@ -336,9 +334,9 @@ NODE_API_MODULE(NODE_GYP_MODULE_NAME, InitAll)
 
 这里主要是对函数的返回值以及入参进行修改。
 
-**入参**: `Napi::CallbackInfo` 主要为js 调用时传入的请求参数。
+**入参**: `Napi::CallbackInfo` 主要为 js 调用时传入的请求参数。
 
-**返回值**: `Napi::Value `是 js 值的C ++表示。
+**返回值**: `Napi::Value`是 js 值的 C ++表示。
 
 ```c++
 ...
@@ -419,7 +417,7 @@ Napi::Value List::Print(const Napi::CallbackInfo& info) {
 
 **插入缓存数据**
 
-修改点也比较少，主要就是 
+修改点也比较少，主要就是
 
 `info[0].As<Napi::String>()`
 
@@ -443,14 +441,14 @@ void List::Insert(const Napi::CallbackInfo& info) {
     if(this->count >= this->maxCount) {
         this->tail->prev->next = NULL;
         this->tail = this->tail->prev;
-        
+
         Node *p = new Node(da);
         this->cachemap.insert(std::pair<string, string>(da, value));
         p->next = this->head;
         this->head->prev = p;
         this->head = p;
         this->head->prev = NULL;
-        
+
         return;
     }
     if(this->head == NULL) {
@@ -488,14 +486,14 @@ Napi::Value List::Search(const Napi::CallbackInfo& info) {
     string da = value.ToString();
 
     Node *p = this->head;
-    
+
     if(p == NULL) {
         return Napi::String::New(info.Env(), INITVALUE);
     }
-    
+
     int count = -1;
     int i = 0;
-    
+
     while( p!= NULL) {
         if(p->data == da) {
             count = i;
@@ -533,7 +531,7 @@ Napi::Value List::Search(const Napi::CallbackInfo& info) {
 **打包模式**
 
 ```bash
-node-gyp configure && node-gyp build 
+node-gyp configure && node-gyp build
 ```
 
 **调试模式**
@@ -542,7 +540,7 @@ node-gyp configure && node-gyp build
 node-gyp configure && node-gyp build --debug
 ```
 
-通过 `node-gyp` 编译后, 会出现对应的  `build` 目录，打包模式 `build` 下面会有 一个 `Release` 目录，调试模式则是 `Debug` 目录。
+通过 `node-gyp` 编译后, 会出现对应的 `build` 目录，打包模式 `build` 下面会有 一个 `Release` 目录，调试模式则是 `Debug` 目录。
 
 **运行测试文件** `test.js`
 
@@ -571,10 +569,10 @@ console.log(list.Print());
 
 **output**
 
-由于设置缓存最长长度为10，因为已经查找不到 `"10"` 这个 `key` 了。
+由于设置缓存最长长度为 10，因为已经查找不到 `"10"` 这个 `key` 了。
 
 ```
-> 
+>
 >[ 'hi10',
   'hi9',
   'hi8',
@@ -597,12 +595,12 @@ console.log(list.Print());
 
 ```json
 {
-        "type": "node",
-        "request": "launch",
-        "name": "JS Debug Build",
-        "console": "integratedTerminal",
-        "program": "${workspaceFolder}/test.js",
-        "preLaunchTask": "npm: build:debug"
+  "type": "node",
+  "request": "launch",
+  "name": "JS Debug Build",
+  "console": "integratedTerminal",
+  "program": "${workspaceFolder}/test.js",
+  "preLaunchTask": "npm: build:debug"
 }
 ```
 
@@ -634,7 +632,7 @@ vscode 默认不支持 `c/c++` 的调试，先安装 `c/c++` 插件。
 
 给 `list.cc` 打上断点。在调试面板 找到 `(lldb) Launch`。单击运行，就可以看到效果了。
 
-![屏幕快照-2019-12-23-2.png](https://s3.qiufeng.blue/blog/屏幕快照-2019-12-23-2.png)
+![屏幕快照-2019-12-23-2.png](https://s3.mdedit.online/blog/屏幕快照-2019-12-23-2.png)
 
 ## 如何发布
 
@@ -646,11 +644,11 @@ vscode 默认不支持 `c/c++` 的调试，先安装 `c/c++` 插件。
 
 为了帮助开发人员管理好依赖代码，我们建议你从 `1.0.0` 作为初始版本进行迭代。
 
-| Code status                               | Stage         | Rule                                                         | Example version |
-| ----------------------------------------- | ------------- | ------------------------------------------------------------ | --------------- |
-| First release                             | New product   | Start with 1.0.0                                             | 1.0.0           |
-| Backward compatible bug fixes             | Patch release | Increment the third digit                                    | 1.0.1           |
-| Backward compatible new features          | Minor release | Increment the middle digit and reset last digit to zero      | 1.1.0           |
+| Code status                               | Stage         | Rule                                                               | Example version |
+| ----------------------------------------- | ------------- | ------------------------------------------------------------------ | --------------- |
+| First release                             | New product   | Start with 1.0.0                                                   | 1.0.0           |
+| Backward compatible bug fixes             | Patch release | Increment the third digit                                          | 1.0.1           |
+| Backward compatible new features          | Minor release | Increment the middle digit and reset last digit to zero            | 1.1.0           |
 | Changes that break backward compatibility | Major release | Increment the first digit and reset middle and last digits to zero | 2.0.0           |
 
 > 上述表格摘自 npm ，懒得翻译了。。。
@@ -676,7 +674,6 @@ vscode 默认不支持 `c/c++` 的调试，先安装 `c/c++` 插件。
     "node-addon-api": "^1.0.0"
   }
 }
-
 ```
 
 **发布**
@@ -684,7 +681,8 @@ vscode 默认不支持 `c/c++` 的调试，先安装 `c/c++` 插件。
 ```
 npm publish
 ```
-![1577073485544.jpg](https://s3.qiufeng.blue/blog/1577073485544.jpg)
+
+![1577073485544.jpg](https://s3.mdedit.online/blog/1577073485544.jpg)
 
 ## 比较效率
 
@@ -725,4 +723,5 @@ https://www.ibm.com/developerworks/cn/opensource/os-cn-v8engine/
 https://nodejs.org/dist/latest/docs/api/n-api.html
 
 ## 欢迎关注公众号
-![](https://s3.qiufeng.blue/blog/gongzhonghao.png)
+
+![](https://s3.mdedit.online/blog/gongzhonghao.png)
