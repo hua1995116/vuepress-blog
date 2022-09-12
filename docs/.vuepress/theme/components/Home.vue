@@ -147,14 +147,14 @@ export default {
         .slice(0, 10);
     },
     recentPosts() {
-      console.log(this.$site.pages);
+      // console.log(this.$site.pages);
       const pages = this.$site.pages
         .filter(
           (page) => page.title && page.frontmatter.date
         )
         .sort((x, y) => dayjs(y.frontmatter.date) - dayjs(x.frontmatter.date))
         .slice(0, 20);
-      console.log(pages);
+      // console.log(pages);
       return pages;
      
       return [
