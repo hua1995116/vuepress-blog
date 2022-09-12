@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
   // outputConfig.output = {
   //   publicPath: 'https://cdn.qiufeng.blue/'
   // }
-    
+
 }
 
 module.exports = {
