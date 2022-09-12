@@ -26,9 +26,9 @@ function extendMetaByPath (page, path) {
 const outputConfig = {}
 
 if (process.env.NODE_ENV === 'production') {
-  outputConfig.output = {
-    publicPath: 'https://cdn.qiufeng.blue/'
-  }
+  // outputConfig.output = {
+  //   publicPath: 'https://cdn.qiufeng.blue/'
+  // }
     
 }
 
