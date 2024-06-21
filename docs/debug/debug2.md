@@ -2,11 +2,11 @@
 
 本教程共三篇。
 
-1.[急速 debug 实战一 （浏览器 - 基础篇）](https://huayifeng.top/debug01/)
+1.[急速 debug 实战一 （浏览器 - 基础篇）](https://qiufeng.bluedebug01/)
 
-2.[急速 debug 实战二 （浏览器 - 线上篇）](https://huayifeng.top/debug02/)
+2.[急速 debug 实战二 （浏览器 - 线上篇）](https://qiufeng.bluedebug02/)
 
-3.[急速 debug 实战三 （Node - webpack 插件,babel 插件,vue 源码篇）](https://huayifeng.top/debug03/)
+3.[急速 debug 实战三 （Node - webpack 插件,babel 插件,vue 源码篇）](https://qiufeng.bluedebug03/)
 
 通过前一篇的介绍，我们已经懂得基本的 debug 技巧，那么我们如何快速调试一些线上的问题呢。本文将线上的调试分为以下三种：（当然有更好的调试方式，可以在评论区提出）
 
@@ -200,6 +200,6 @@ npx webpack --watch --progress
 
 # 更多请关注
 
-友情链接： https://huayifeng.top/
+友情链接： https://qiufeng.blue
 
 ![](https://s3.mdedit.online/blog/erweima.jpg)

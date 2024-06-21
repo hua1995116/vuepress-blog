@@ -60,7 +60,7 @@
         Copyright © 2022 - 秋风的笔记
         <a href="https://beian.miit.gov.cn/">浙ICP备16040413号-7</a>
       </div>
-       <!-- <h3>友情链接</h3>
+       <h3>友情链接</h3>
         <hr />
         <ul class="friend-link">
           <li>
@@ -69,11 +69,11 @@
             >
           </li>
           <li>
-            <a href="https://kalacloud.com"
-              >卡拉云低代码工具</a
+            <a href="https://www.goenhance.ai"
+              >Video To Animation</a
             >
           </li>
-        </ul> -->
+        </ul>
       <!-- <div class="archive-post">
         <router-link class="nav-link" to="/frontend">更多文章...</router-link>
       </div> -->

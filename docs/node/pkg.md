@@ -246,7 +246,7 @@ cat githook-*/pre-commit >> .git/hooks/pre-commit
 
 # 友情链接
 
-[蓝色的秋风](https://huayifeng.top/)
+[蓝色的秋风](https://qiufeng.blue)
 [无影 er](https://github.com/renjie1996/Maple-FrontEnd-Blog)
 
 # 参考

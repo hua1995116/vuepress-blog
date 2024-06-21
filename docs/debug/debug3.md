@@ -2,11 +2,11 @@
 
 本教程共三篇。
 
-1.[急速 debug 实战一 （浏览器 - 基础篇）](https://huayifeng.top/debug01/)
+1.[急速 debug 实战一 （浏览器 - 基础篇）](https://qiufeng.bluedebug01/)
 
-2.[急速 debug 实战二 （浏览器 - 线上篇）](https://huayifeng.top/debug02/)
+2.[急速 debug 实战二 （浏览器 - 线上篇）](https://qiufeng.bluedebug02/)
 
-3.[急速 debug 实战三 （Node - webpack 插件,babel 插件,vue 源码篇）](https://huayifeng.top/debug03/)
+3.[急速 debug 实战三 （Node - webpack 插件,babel 插件,vue 源码篇）](https://qiufeng.bluedebug03/)
 
 在我们日常开发中有许多情况下没有 debug 就会让我们的开发变得非常的低效， 甚至对一些流程的理解变得非常困难。本教程适用于，正在开发 node 应用， webpack 插件，babel 插件，想要读懂别人写的一些 webpack 插件，babel 插件 或者是想要对 vue 源码想要更加深入的了解。本教程都  非常适用。相信你看完教程后，便会对那些看似复杂的东西不再惧怕，即使他们充满未知，但是能有一个方法去更好地了解他们。
 
@@ -237,6 +237,6 @@ function initComputed (vm: Component, computed: Object) {
 
 # 更多请关注
 
-友情链接： https://huayifeng.top/
+友情链接： https://qiufeng.blue
 
 ![](https://s3.mdedit.online/blog/erweima.jpg)

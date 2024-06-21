@@ -187,6 +187,6 @@ Object rest / spread 运算符在语法更加简洁，并且比`Object.assign（
 
 # 更多请关注
 
-友情链接： https://huayifeng.top/
+友情链接： https://qiufeng.blue
 
 ![](https://s3.mdedit.online/blog/1568533452735.png)

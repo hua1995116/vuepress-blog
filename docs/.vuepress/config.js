@@ -135,6 +135,15 @@ module.exports = {
         hostname: 'https://qiufeng.blue'
       },
     ],
+    [
+      'robots',
+      {
+        host: 'https://qiufeng.blue',
+        disallowAll: false,
+        allowAll: true,
+        sitemap: "/sitemap.xml",
+      },
+    ],
     (options, ctx) => {
       return {
         name: 'archive',
