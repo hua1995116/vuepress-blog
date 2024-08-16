@@ -73,6 +73,11 @@
               >Video To Animation</a
             >
           </li>
+          <li>
+            <a href="https://www.flux1ai.io"
+              >flux ai image generator</a
+            >
+          </li>
         </ul>
       <!-- <div class="archive-post">
         <router-link class="nav-link" to="/frontend">更多文章...</router-link>
